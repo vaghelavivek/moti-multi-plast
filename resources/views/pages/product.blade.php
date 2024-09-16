@@ -9,8 +9,8 @@
         <div class="fixed bg-[#00000080] top-0 w-full h-full z-50 place-content-center hidden" id="loader-div">
 
             <div role="status">
-                <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin fill-primary"
-                    viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin fill-primary" viewBox="0 0 100 101"
+                    fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
                         fill="currentColor" />
@@ -22,9 +22,12 @@
             </div>
 
         </div>
-        <div class="container px-4 mx-auto mt-4 relative rounded-3xl bg-slate-50">
-            <img src="https://www.moldtekpackaging.com/product-assets/showcase.png"
+
+        <div class="px-4 container mx-auto mt-4">
+            <div class=" rounded-3xl bg-slate-50">
+                <img src="https://www.moldtekpackaging.com/product-assets/showcase.png"
                 class="w-full xl:aspect-[6/1] aspect-[4/1.5] object-contain md:py-8 py-2 px-4" alt="about">
+            </div>
         </div>
 
         <div class="container mx-auto md:my-20 my-10 px-4">
@@ -156,8 +159,10 @@
 @section('meta')
     <meta name="og:type" content="website" />
     <meta name="og:title" content="Moti multi plastics - products" />
-    <meta name="description" content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products.">
-    <meta name="og:description" content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products." />
+    <meta name="description"
+        content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products.">
+    <meta name="og:description"
+        content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products." />
     <meta name="og:url" content="{{ url()->current() }}" />
     <meta name="og:image" content="{{ asset('assets/svgs/logo.svg') }}" />
 @endsection
@@ -221,27 +226,61 @@
             closeSidebar()
         }))
         sortForm.addEventListener('change', debounce((e) => {
-                renderloader()
-                fetchProductData(`{{ route('api.product.list') }}?sort=${e.target.value}`)
-            }
-        ))
+            renderloader()
+            fetchProductData(`{{ route('api.product.list') }}?sort=${e.target.value}`)
+        }))
 
         const coreTableRow = (image, title, slug) => {
-            return `<div class=" aspect-[1/1] rounded-md relative overflow-hidden group bg-slate-50 swiper-slide">
-                        <img src="${image}"
-                            class="group-hover:-rotate-12 transition-all group-hover:scale-125 w-full h-full object-cover"
-                            alt="category">
-                        <div
-                            class="w-full h-full absolute z-10 top-0 left-0 right-0 flex justify-end items-center flex-col">
-                            <div
-                                class="text-center translate-y-1/2 group-hover:translate-y-0 transition-all w-full backdrop-blur-[6px] pt-6 pb-10">
-                                <p class="md:text-[17px] text-sm font-semibold text-gray-950 mb-4">${title}
-                                </p>
-                                <a href="/products/${slug}"
-                                    class="py-1.5 px-4 bg-primary text-white font-semibold invisible group-hover:visible text-sm">View Product</a>
-                            </div>
+            // return `<div class=" aspect-[1/1] rounded-md relative overflow-hidden group bg-slate-50 swiper-slide">
+        //             <img src="${image}"
+        //                 class="group-hover:-rotate-12 transition-all group-hover:scale-125 w-full h-full object-cover"
+        //                 alt="category">
+        //             <div
+        //                 class="w-full h-full absolute z-10 top-0 left-0 right-0 flex justify-end items-center flex-col">
+        //                 <div
+        //                     class="text-center translate-y-1/2 group-hover:translate-y-0 transition-all w-full backdrop-blur-[6px] pt-6 pb-10">
+        //                     <p class="md:text-[17px] text-sm font-semibold text-gray-950 mb-4">${title}
+        //                     </p>
+        //                     <a href="/products/${slug}"
+        //                         class="py-1.5 px-4 bg-primary text-white font-semibold invisible group-hover:visible text-sm">View Product</a>
+        //                 </div>
+        //             </div>
+        //         </div>`
+
+
+        // <img class="rounded-t-lg aspect-[3/2] object-contain"
+        //             src="${image}"
+        //             alt="${title}" loading="lazy" />
+        
+        // <img class="rounded-t-lg aspect-[3/2] object-contain mx-auto"
+        //             src="${image}"
+        //             alt="${title}"/>
+
+            return `
+            <div class="bg-white border border-gray-200 rounded-xl flex flex-col swiper-slide">
+                <div class="bg-gray-100 rounded-t-xl w-full aspect-[3/2]" >
+                    <img class="rounded-t-lg aspect-[3/2] object-contain mx-auto lazyload"
+                    src="${image}"
+                    alt="${title}"/>
+                </div>
+                <div class="p-4 flex flex-col w-full">
+                    <h5 class="my-2 text-lg font-semibold text-left tracking-tight text-gray-900">
+                        ${title}</h5>
+
+                        <div class="mt-4 flex justify-between items-center gap-2" >
+                            <a href="/products/${slug}"
+                                class="inline-flex w-fit mt-auto items-center px-2 py-1 text-sm font-medium text-center text-primary bg-transparent border border-primary rounded-md">
+                                View Product
+                                <svg class="rtl:rotate-180 w-2.5 h-2.5 ms-2 -rotate-45" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                </svg>
+                            </a>
                         </div>
-                    </div>`
+                </div>
+            </div>
+            `
         }
 
         const setData = (arrObj) => {
@@ -253,7 +292,7 @@
                         `{{ Request::root() . '/storage/' }}${row.media}` :
                         'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg',
                         row.title,
-                        row.slug
+                        row.slug,
                     );
                 })
             } else {
@@ -305,6 +344,16 @@
         nextBtn.addEventListener('click', () => {
             fetchProductData(next_page_url)
         })
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var lazyLoadInstance = new LazyLoad({
+                elements_selector: ".lazyload",
+                threshold: 300,
+                callback_loaded: function (element) {
+                    console.log("Image loaded", element);
+                }
+            });
+        });
     </script>
 @endsection
 
