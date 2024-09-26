@@ -345,15 +345,21 @@
             fetchProductData(next_page_url)
         })
 
-        document.addEventListener("DOMContentLoaded", function () {
-            var lazyLoadInstance = new LazyLoad({
-                elements_selector: ".lazyload",
-                threshold: 300,
-                callback_loaded: function (element) {
-                    console.log("Image loaded", element);
-                }
-            });
-        });
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     // let images = document.querySelectorAll(".lazyload")
+        //     // new LazyLoad(images, {
+        //     //     root: null,
+        //     //     rootMargin: "0px",
+        //     //     threshold: 0
+        //     // });
+        //     var lazyLoadInstance = new LazyLoad({
+        //         elements_selector: ".lazyload",
+        //         threshold: 3000,
+        //         callback_loaded: function (element) {
+        //             console.log("Image loaded", element);
+        //         }
+        //     });
+        // });
     </script>
 @endsection
 

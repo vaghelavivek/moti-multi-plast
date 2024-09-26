@@ -17,13 +17,15 @@ class LandingController extends Controller
         $clientLogo = Logo::all();
         $categories = Category::orderBy('id')->take(4)->get();
         $hotProduct = Product::where('is_hot', 1)->get();
+        $allCategories = Category::get();
 
         return view('pages.home', [
             'heroBanner' => $heroBanner,
             'productBanner' => $productBanner, 
             'clientLogo' => $clientLogo,
             'categories' => $categories,
-            'hotProduct' => $hotProduct
+            'hotProduct' => $hotProduct,
+            'marquee' => [...$allCategories, ...$allCategories]
         ]);
     }
 
