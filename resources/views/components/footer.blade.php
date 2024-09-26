@@ -3,7 +3,7 @@
         <nav class="container px-4 mx-auto py-2">
             <div class="gap-x-4 gap-y-12 grid xl:grid-cols-4 md:grid-cols-2">
                 <div class="md:col-start-1 md:col-end-3">
-                    <p class="md:text-xl text-lg uppercase text-white border-l-4 pl-4">Contect Details</p>
+                    <p class="md:text-2xl text-xl capitalize text-white">Contect Details</p>
 
                     <ul class="sm:mt-10 mt-8 text-base space-y-6">
                         <li>
@@ -62,7 +62,7 @@
                     </ul>
                 </div>
                 <div>
-                    <p class="md:text-xl text-lg uppercase text-white border-l-4 pl-4">Quick links</p>
+                    <p class="md:text-2xl text-xl capitalize text-white">Quick links</p>
 
                     <ul class="sm:mt-10 mt-8 md:text-base text-sm space-y-2">
                         <li><a href="{{ route('landing.home') }}" class="text-white opacity-80">Home Page</a></li>
@@ -73,7 +73,7 @@
                     </ul>
                 </div>
                 <div>
-                    <p class="md:text-xl text-lg uppercase text-white border-l-4 pl-4">Quick Inquiry</p>
+                    <p class="md:text-2xl text-xl capitalize text-white">Quick Inquiry</p>
 
                     <div class="sm:mt-10 mt-8 border rounded-md p-4 border-[#ffffff40]">
 

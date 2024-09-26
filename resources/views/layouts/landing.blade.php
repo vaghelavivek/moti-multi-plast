@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    
+
     {{-- seo --}}
     <title>@yield('page-title')</title>
     <meta charset="UTF-8">
@@ -41,6 +41,25 @@
     </script>
 
     @yield('body-scripts')
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = document.querySelectorAll('img.lazyload');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.alt = img.dataset.alt;
+                        img.classList.remove(['lazyload', 'hidden']);
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(image => observer.observe(image));
+        });
+    </script>
 </body>
 
 </html>
