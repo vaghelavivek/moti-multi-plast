@@ -97,7 +97,7 @@
         </div>
 
         <div class="container mx-auto px-4">
-            <p class="md:text-xl text-lg uppercase text-gray-700 font-semibold border-gray-700 border-l-4 pl-3 mb-8">
+            <p class="md:text-2xl text-xl capitalize text-gray-700 font-semibold text-center mb-8">
                 Product Details</p>
             <p class="md:text-lg text-base uppercase text-gray-700 font-semibold  mb-6">
                 Price And Quantity</p>
@@ -190,7 +190,7 @@
 
         @if (count($relatedProducts))
             <div class="container mx-auto px-4 md:my-40 my-20">
-                <p class="md:text-xl text-lg uppercase text-gray-700 font-semibold border-gray-700 border-l-4 pl-3">
+                <p class="md:text-2xl text-xl capitalize text-gray-700 font-semibold text-center">
                     Related Products</p>
                 <div class="grid gap-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 mt-10">
                     @foreach ($relatedProducts as $related)

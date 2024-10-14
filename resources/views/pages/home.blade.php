@@ -9,37 +9,39 @@
         <div class="max-w-[1920px] mx-auto">
 
             {{-- hero section --}}
-            <div class="w-full aspect-[5/2] overflow-hidden max-w-[1780px] rounded-2xl mx-auto my-12">
-                <div class="swiper mySwiper relative">
-                    <div class="swiper-wrapper">
-                        {{-- <img src="https://www.rollick.co.in/assets/front-end/png/slider/2.webp" alt="box">
-                            <img src="https://www.rollick.co.in/assets/front-end/png/slider/banner-5.webp" alt="box">
-                            <img src="https://www.rollick.co.in/assets/front-end/png/slider/3.webp" alt="box"> --}}
-                        @foreach ($heroBanner as $banner)
-                            <div class="swiper-slide">
-                                <a href="{{ $banner->link }}" target="_blank">
-                                    <img src="{{ asset('storage/' . $banner->file) }}" alt="box">
-                                </a>
-                            </div>
-                        @endforeach
-                    </div>
-                    <div class="swiper-button-next invisible" id="heroSlidePrevBtn"></div>
-                    <div class="swiper-button-prev invisible" id="heroSlideNextBtn"></div>
-                    <div class="swiper-pagination"></div>
-                    <div class="absolute cursor-pointer bg-white w-12 aspect-square rounded-full top-1/2 left-5 -translate-y-1/2 z-20 grid place-items-center"
-                        onclick="heroSlidePrev()">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="max-w-5 rotate-180 fill-primary"
-                            viewBox="0 0 512 512">
-                            <path
-                                d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
-                        </svg>
-                    </div>
-                    <div class="absolute cursor-pointer bg-white w-12 aspect-square rounded-full top-1/2 right-5 -translate-y-1/2 z-20 grid place-items-center"
-                        onclick="heroSlideNext()">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="max-w-5 fill-primary" viewBox="0 0 512 512">
-                            <path
-                                d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
-                        </svg>
+            <div class="px-4" >
+                <div class="w-full aspect-[5/2] overflow-hidden max-w-[1780px] rounded-2xl mx-auto my-12">
+                    <div class="swiper mySwiper relative">
+                        <div class="swiper-wrapper">
+                            {{-- <img src="https://www.rollick.co.in/assets/front-end/png/slider/2.webp" alt="box">
+                                <img src="https://www.rollick.co.in/assets/front-end/png/slider/banner-5.webp" alt="box">
+                                <img src="https://www.rollick.co.in/assets/front-end/png/slider/3.webp" alt="box"> --}}
+                            @foreach ($heroBanner as $banner)
+                                <div class="swiper-slide">
+                                    <a href="{{ $banner->link }}" target="_blank">
+                                        <img src="{{ asset('storage/' . $banner->file) }}" alt="box">
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="swiper-button-next invisible" id="heroSlidePrevBtn"></div>
+                        <div class="swiper-button-prev invisible" id="heroSlideNextBtn"></div>
+                        <div class="swiper-pagination"></div>
+                        <div class="absolute cursor-pointer bg-white w-12 aspect-square rounded-full top-1/2 left-5 -translate-y-1/2 z-20 grid place-items-center"
+                            onclick="heroSlidePrev()">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="max-w-5 rotate-180 fill-primary"
+                                viewBox="0 0 512 512">
+                                <path
+                                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
+                            </svg>
+                        </div>
+                        <div class="absolute cursor-pointer bg-white w-12 aspect-square rounded-full top-1/2 right-5 -translate-y-1/2 z-20 grid place-items-center"
+                            onclick="heroSlideNext()">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="max-w-5 fill-primary" viewBox="0 0 512 512">
+                                <path
+                                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
     <div class="bg-primary">
-        <nav class="container px-4 mx-auto py-2" data-aos="zoom-out">
+        <nav class="container px-4 mx-auto py-2">
             <div class="flex sm:gap-4 gap-2 justify-between items-center">
                 <div>
                     <p class="sm:text-sm text-[10px] font-normal text-white">Step into Moti Plastics Store and feel welcome!</p>

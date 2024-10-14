@@ -24,7 +24,7 @@
         </div>
 
         <div class="container mx-auto px-4 md:mb-28 my-20">
-            <p class="md:text-xl text-lg uppercase text-gray-700 font-semibold border-gray-700 border-l-4 pl-3 mb-10">
+            <p class="md:text-2xl text-xl capitalize text-center text-gray-700 font-semibold mb-10">
                 Contect details</p>
             <div class="flex lg:flex-row gap-x-6 gap-y-10 flex-col justify-between items-center">
                 <div class="w-full grow">
