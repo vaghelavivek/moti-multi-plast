@@ -38,10 +38,22 @@ class LandingController extends Controller
     }
 
     public function product() {
+
+        if (request()->query('sort') == 'oldest') {
+            $product = Product::orderBy('created_at', 'DESC');
+        }else {
+            $product = Product::orderBy('created_at', 'ASC');
+        }
+
+        if (request()->query('category')) {
+            $product->where('category_id', request()->query('category'));
+        }
+
         $categories = Category::orderBy('title')->get();
 
         return view('pages.product', [
             'categories' => $categories,
+            'products' => $product->paginate(9)
         ]);
     }
 

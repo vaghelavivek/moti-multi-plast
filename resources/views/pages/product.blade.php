@@ -100,27 +100,33 @@
 
                     </div>
 
-                    {{-- <div class="grid gap-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 mt-6"> --}}
-                    <div class="grid gap-4 xl:grid-cols-3 md:grid-cols-2 mt-6" id="tBody">
-                        {{-- @for ($i = 0; $i < 9; $i++)
-                            <a href="{{ route('landing.single') }}"
-                                class="p-5 aspect-[1/1.2] rounded-md relative overflow-hidden group bg-slate-50 scale-animation">
-                                <img src="{{ asset('assets/images/amul-box.png') }}"
-                                    class="group-hover:-rotate-12 transition-all group-hover:scale-110 w-full"
-                                    alt="category">
-                                <div
-                                    class="w-full h-full absolute z-10 top-0 left-0 flex justify-end items-center py-10 flex-col px-4">
-                                    <div
-                                        class="text-center translate-y-3/4 group-hover:translate-y-0 transition-all backdrop-blur-[4px] pt-2">
-                                        <p class="md:text-[17px] text-sm font-semibold text-gray-900 mb-4"> Falt Containers
-                                        </p>
-                                        <button
-                                            class="py-1.5 px-4 bg-primary text-white font-semibold invisible group-hover:visible transition-all text-sm">Send
-                                            Inquiry</button>
+                    <div class="grid gap-4 xl:grid-cols-3 md:grid-cols-2 mt-6">
+                        @foreach ($products as $product)
+                            <div class="bg-white border border-gray-200 rounded-xl flex flex-col swiper-slide">
+                                <div class="bg-gray-100 rounded-t-xl w-full aspect-[3/2]">
+                                    <img class="rounded-t-lg aspect-[3/2] object-contain mx-auto lazyload"
+                                        data-src="{{ asset('storage/' . $product->media) }}"
+                                        data-alt="{{ $product->title }}" class="lazyload hidden" />
+                                </div>
+                                <div class="p-4 flex flex-col w-full">
+                                    <h5 class="my-2 text-lg font-semibold text-left tracking-tight text-gray-900">
+                                        {{ $product->title }}</h5>
+    
+                                    <div class="mt-4 flex justify-between items-center gap-2">
+                                        <a href="/products/{{ $product->slug }}"
+                                            class="inline-flex w-fit mt-auto items-center px-2 py-1 text-sm font-medium text-center text-primary bg-transparent border border-primary rounded-md">
+                                            View Product
+                                            <svg class="rtl:rotate-180 w-2.5 h-2.5 ms-2 -rotate-45" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2"
+                                                    d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                            </svg>
+                                        </a>
                                     </div>
                                 </div>
-                            </a>
-                        @endfor --}}
+                            </div>
+                        @endforeach
                     </div>
 
                     <ul class="justify-center flex items-stretch -space-x-px mt-8">
@@ -217,18 +223,43 @@
         }
 
         categoryForm.addEventListener('change', debounce((e) => {
-            renderloader()
-            if (e.target.value == 'all') {
-                fetchProductData("{{ route('api.product.list') }}")
-            } else {
-                fetchProductData(`{{ route('api.product.list') }}?category=${e.target.value}`)
-            }
+            // renderloader()   
+            // if (e.target.value == 'all') {
+            //     fetchProductData("{{ route('api.product.list') }}")
+            // } else {
+            //     fetchProductData(`{{ route('api.product.list') }}?category=${e.target.value}`)
+            // }
+            redirectWithQuery(0, e.target.value)
+
             closeSidebar()
         }))
+
         sortForm.addEventListener('change', debounce((e) => {
-            renderloader()
-            fetchProductData(`{{ route('api.product.list') }}?sort=${e.target.value}`)
+            // renderloader()
+            // fetchProductData(`{{ route('api.product.list') }}?sort=${e.target.value}`)
+            redirectWithQuery(0, getQueryValue('category'), e.target.value)
         }))
+
+        const redirectWithQuery = (page = 0, category = 'all', sort = null) => {
+
+            const paramObj = {page}
+
+            if (category != 'all') {
+                paramObj.category = category
+            }
+
+            if (sort != null) {
+                paramObj.sort = null
+            }
+
+            const params = new URLSearchParams(paramObj)
+            window.location.href = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+        }
+
+        const getQueryValue = (field) => {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(field);
+        }
 
         const coreTableRow = (image, title, slug) => {
             // return `<div class=" aspect-[1/1] rounded-md relative overflow-hidden group bg-slate-50 swiper-slide">
@@ -345,21 +376,14 @@
             fetchProductData(next_page_url)
         })
 
-        // document.addEventListener("DOMContentLoaded", function () {
-        //     // let images = document.querySelectorAll(".lazyload")
-        //     // new LazyLoad(images, {
-        //     //     root: null,
-        //     //     rootMargin: "0px",
-        //     //     threshold: 0
-        //     // });
-        //     var lazyLoadInstance = new LazyLoad({
-        //         elements_selector: ".lazyload",
-        //         threshold: 3000,
-        //         callback_loaded: function (element) {
-        //             console.log("Image loaded", element);
-        //         }
-        //     });
-        // });
+        document.addEventListener("DOMContentLoaded", function () {
+            let categoryId = getQueryValue('category')
+
+            if (categoryId) {
+                let getRedioDom = document.getElementById(`category${categoryId}`)
+                getRedioDom.checked = true
+            }
+        });
     </script>
 @endsection
 
