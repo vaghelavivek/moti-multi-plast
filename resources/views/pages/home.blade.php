@@ -10,7 +10,7 @@
 
             {{-- hero section --}}
             <div class="px-4" >
-                <div class="w-full aspect-[5/2] overflow-hidden max-w-[1780px] rounded-2xl mx-auto my-12">
+                <div class="w-full aspect-[5/2] overflow-hidden max-w-[1780px] md:rounded-2xl rounded-lg mx-auto md:my-8 my-4">
                     <div class="swiper mySwiper relative">
                         <div class="swiper-wrapper">
                             {{-- <img src="https://www.rollick.co.in/assets/front-end/png/slider/2.webp" alt="box">
@@ -27,17 +27,17 @@
                         <div class="swiper-button-next invisible" id="heroSlidePrevBtn"></div>
                         <div class="swiper-button-prev invisible" id="heroSlideNextBtn"></div>
                         <div class="swiper-pagination"></div>
-                        <div class="absolute cursor-pointer bg-white w-12 aspect-square rounded-full top-1/2 left-5 -translate-y-1/2 z-20 grid place-items-center"
+                        <div class="absolute cursor-pointer bg-white md:w-12 w-10 aspect-square rounded-full top-1/2 md:left-5 left-2 -translate-y-1/2 z-20 grid place-items-center"
                             onclick="heroSlidePrev()">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="max-w-5 rotate-180 fill-primary"
+                            <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-5 max-w-4 rotate-180 fill-primary"
                                 viewBox="0 0 512 512">
                                 <path
                                     d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
                             </svg>
                         </div>
-                        <div class="absolute cursor-pointer bg-white w-12 aspect-square rounded-full top-1/2 right-5 -translate-y-1/2 z-20 grid place-items-center"
+                        <div class="absolute cursor-pointer bg-white md:w-12 w-10 aspect-square rounded-full top-1/2 md:right-5 right-2 -translate-y-1/2 z-20 grid place-items-center"
                             onclick="heroSlideNext()">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="max-w-5 fill-primary" viewBox="0 0 512 512">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-5 max-w-4 fill-primary" viewBox="0 0 512 512">
                                 <path
                                     d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
                             </svg>
@@ -57,11 +57,11 @@
             </div> --}}
 
             {{-- features --}}
-            <div class="my-12">
+            <div class="md:my-12 mt-4 mb-8">
                 <div class="container mx-auto p-4">
                     <div class="grow w-full">
                         <div class="w-full grid gap-4 xl:grid-cols-4 sm:grid-cols-2">
-                            <div class="p-4">
+                            <div class="md:p-4 py-4">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary"
                                         viewBox="0 0 448 512">
@@ -76,7 +76,7 @@
                                     leadership and energetic
                                     innovatores.</p>
                             </div>
-                            <div class="p-4">
+                            <div class="md:p-4 py-4">
                                 <div>
 
                                     <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary"
@@ -93,7 +93,7 @@
                                     leadership and energetic
                                     innovatores.</p>
                             </div>
-                            <div class="p-4">
+                            <div class="md:p-4 py-4">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary"
                                         viewBox="0 0 512 512">
@@ -108,7 +108,7 @@
                                     leadership and energetic
                                     innovatores.</p>
                             </div>
-                            <div class="p-4">
+                            <div class="md:p-4 py-4">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary"
                                         viewBox="0 0 512 512">
@@ -388,24 +388,24 @@
             {{-- testimonial --}}
             <div class="container mx-auto max-w-6xl p-4">
                 <p class="md:text-2xl text-center text-xl capitalize text-gray-700 font-semibold mb-10">
-                    Reviwe</p>
-                <div class="md:columns-2 lg:columns-3 gap-6 p-4 sm:p-1 mt-2">
+                    Read Trusted Reviews From Our Customers</p>
+                <div class="md:columns-2 lg:columns-3 gap-6 sm:p-1 mt-2">
 
 
                     <div class="animate-in zoom-in duration-200">
                         <div
                             class="ring-1 rounded-lg flex flex-col space-y-2 p-4 break-inside-avoid mb-6 bg-white hover:ring-2 ring-gray-300 hover:ring-primary transform duration-200 hover:shadow-sky-200 hover:shadow-md z-0 relative">
                             <div class="flex flex-col break-inside-avoid-page z-0 relative">
-                                <div class="flex justify-between">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
+                                        <path
+                                            d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
+                                    </svg>
+                                </div>
+                                <div class="flex justify-between mt-4">
                                     <div class="flex space-x-6">
                                         <div class="flex space-x-4 flex-shrink-0 w-52">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
-                                                    <path
-                                                        d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
-                                                </svg>
-                                            </div>
                                             <div>
                                                 <div class="font-semibold">
                                                     Salvador Rose
@@ -465,16 +465,16 @@
                         <div
                             class="ring-1 rounded-lg flex flex-col space-y-2 p-4 break-inside-avoid mb-6 bg-white hover:ring-2 ring-gray-300 hover:ring-primary transform duration-200 hover:shadow-sky-200 hover:shadow-md z-0 relative">
                             <div class="flex flex-col break-inside-avoid-page z-0 relative">
-                                <div class="flex justify-between">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
+                                        <path
+                                            d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
+                                    </svg>
+                                </div>
+                                <div class="flex justify-between mt-4">
                                     <div class="flex space-x-6">
                                         <div class="flex space-x-4 flex-shrink-0 w-52">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
-                                                    <path
-                                                        d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
-                                                </svg>
-                                            </div>
                                             <div>
                                                 <div class="font-semibold">
                                                     Mike tyson
@@ -533,16 +533,16 @@
                         <div
                             class="ring-1 rounded-lg flex flex-col space-y-2 p-4 break-inside-avoid mb-6 bg-white hover:ring-2 ring-gray-300 hover:ring-primary transform duration-200 hover:shadow-sky-200 hover:shadow-md z-0 relative">
                             <div class="flex flex-col break-inside-avoid-page z-0 relative">
-                                <div class="flex justify-between">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
+                                        <path
+                                            d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
+                                    </svg>
+                                </div>
+                                <div class="flex justify-between mt-4">
                                     <div class="flex space-x-6">
                                         <div class="flex space-x-4 flex-shrink-0 w-52">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
-                                                    <path
-                                                        d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
-                                                </svg>
-                                            </div>
                                             <div>
                                                 <div class="font-semibold">
                                                     Cheung
@@ -602,16 +602,16 @@
                         <div
                             class="ring-1 rounded-lg flex flex-col space-y-2 p-4 break-inside-avoid mb-6 bg-white hover:ring-2 ring-gray-300 hover:ring-primary transform duration-200 hover:shadow-sky-200 hover:shadow-md z-0 relative">
                             <div class="flex flex-col break-inside-avoid-page z-0 relative">
-                                <div class="flex justify-between">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
+                                        <path
+                                            d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
+                                    </svg>
+                                </div>
+                                <div class="flex justify-between mt-4">
                                     <div class="flex space-x-6">
                                         <div class="flex space-x-4 flex-shrink-0 w-52">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
-                                                    <path
-                                                        d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
-                                                </svg>
-                                            </div>
                                             <div>
                                                 <div class="font-semibold">
                                                     Sia
@@ -671,16 +671,16 @@
                         <div
                             class="ring-1 rounded-lg flex flex-col space-y-2 p-4 break-inside-avoid mb-6 bg-white hover:ring-2 ring-gray-300 hover:ring-primary transform duration-200 hover:shadow-sky-200 hover:shadow-md z-0 relative">
                             <div class="flex flex-col break-inside-avoid-page z-0 relative">
-                                <div class="flex justify-between">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
+                                        <path
+                                            d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
+                                    </svg>
+                                </div>
+                                <div class="flex justify-between mt-4">
                                     <div class="flex space-x-6">
                                         <div class="flex space-x-4 flex-shrink-0 w-52">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
-                                                    <path
-                                                        d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
-                                                </svg>
-                                            </div>
                                             <div>
                                                 <div class="font-semibold">
                                                     King
@@ -740,16 +740,16 @@
                         <div
                             class="ring-1 rounded-lg flex flex-col space-y-2 p-4 break-inside-avoid mb-6 bg-white hover:ring-2 ring-gray-300 hover:ring-primary transform duration-200 hover:shadow-sky-200 hover:shadow-md z-0 relative">
                             <div class="flex flex-col break-inside-avoid-page z-0 relative">
-                                <div class="flex justify-between">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
+                                        <path
+                                            d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
+                                    </svg>
+                                </div>
+                                <div class="flex justify-between mt-4">
                                     <div class="flex space-x-6">
                                         <div class="flex space-x-4 flex-shrink-0 w-52">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
-                                                    <path
-                                                        d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
-                                                </svg>
-                                            </div>
                                             <div>
                                                 <div class="font-semibold">
                                                     Yoda
@@ -809,16 +809,16 @@
                         <div
                             class="ring-1 rounded-lg flex flex-col space-y-2 p-4 break-inside-avoid mb-6 bg-white hover:ring-2 ring-gray-300 hover:ring-primary transform duration-200 hover:shadow-sky-200 hover:shadow-md z-0 relative">
                             <div class="flex flex-col break-inside-avoid-page z-0 relative">
-                                <div class="flex justify-between">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
+                                        <path
+                                            d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
+                                    </svg>
+                                </div>
+                                <div class="flex justify-between mt-4">
                                     <div class="flex space-x-6">
                                         <div class="flex space-x-4 flex-shrink-0 w-52">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
-                                                    <path
-                                                        d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
-                                                </svg>
-                                            </div>
                                             <div>
                                                 <div class="font-semibold">
                                                     Sia
@@ -865,9 +865,7 @@
                                 <p class="mt-4">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                     incididunt ut
-                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat.
+                                    labore et dolore magna aliqua.
                                 </p>
 
                             </div>
@@ -879,16 +877,16 @@
                         <div
                             class="ring-1 rounded-lg flex flex-col space-y-2 p-4 break-inside-avoid mb-6 bg-white hover:ring-2 ring-gray-300 hover:ring-primary transform duration-200 hover:shadow-sky-200 hover:shadow-md z-0 relative">
                             <div class="flex flex-col break-inside-avoid-page z-0 relative">
-                                <div class="flex justify-between">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
+                                        <path
+                                            d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
+                                    </svg>
+                                </div>
+                                <div class="flex justify-between mt-4">
                                     <div class="flex space-x-6">
                                         <div class="flex space-x-4 flex-shrink-0 w-52">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
-                                                    <path
-                                                        d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
-                                                </svg>
-                                            </div>
                                             <div>
                                                 <div class="font-semibold">
                                                     King
@@ -948,16 +946,16 @@
                         <div
                             class="ring-1 rounded-lg flex flex-col space-y-2 p-4 break-inside-avoid mb-6 bg-white hover:ring-2 ring-gray-300 hover:ring-primary transform duration-200 z-0 relative">
                             <div class="flex flex-col break-inside-avoid-page z-0 relative">
-                                <div class="flex justify-between">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
+                                        <path
+                                            d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
+                                    </svg>
+                                </div>
+                                <div class="flex justify-between mt-4">
                                     <div class="flex space-x-6">
                                         <div class="flex space-x-4 flex-shrink-0 w-52">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
-                                                    <path
-                                                        d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
-                                                </svg>
-                                            </div>
                                             <div>
                                                 <div class="font-semibold">
                                                     Yoda
@@ -1004,9 +1002,7 @@
                                 <p class="mt-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                                     tempor
                                     incididunt
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat.
+                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
                                 </p>
                             </div>
                         </div>

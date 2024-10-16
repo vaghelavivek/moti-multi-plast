@@ -194,20 +194,27 @@
                     Related Products</p>
                 <div class="grid gap-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 mt-10">
                     @foreach ($relatedProducts as $related)
-                        <div class="aspect-[1/1.2] rounded-md relative overflow-hidden group shadow bg-white">
-                            <img src="{{ Request::root() . '/storage/' . $related->media }}"
-                                class="group-hover:-rotate-12 transition-all group-hover:scale-125 w-full h-full object-cover"
-                                alt="category">
-                            <div
-                                class="w-full h-full absolute z-10 top-0 left-0 right-0 flex justify-end items-center py-10 flex-col">
-                                <div
-                                    class="text-center translate-y-3/4 group-hover:translate-y-2/4 transition-all w-full backdrop-blur-[4px] pt-6 pb-10">
-                                    <h2 class="md:text-[17px] text-sm font-semibold text-gray-900 mb-4 capitalize">
-                                        {{ $related->title }}
-                                    </h2>
+                        <div class="bg-white border border-gray-200 rounded-xl flex flex-col swiper-slide">
+                            <div class="bg-gray-100 rounded-t-xl w-full aspect-[3/2]">
+                                <img class="rounded-t-lg aspect-[3/2] object-contain mx-auto lazyload"
+                                    data-src="{{ asset('storage/' . $related->media) }}"
+                                    data-alt="{{ $related->title }}" class="lazyload hidden" />
+                            </div>
+                            <div class="p-4 flex flex-col w-full">
+                                <h5 class="my-2 text-lg font-semibold text-left tracking-tight text-gray-900">
+                                    {{ $related->title }}</h5>
+
+                                <div class="mt-4 flex justify-between items-center gap-2">
                                     <a href="/products/{{ $related->slug }}"
-                                        class="py-1.5 px-4 bg-primary text-white font-semibold rounded-md invisible group-hover:visible text-sm">Viwe
-                                        Product</a>
+                                        class="inline-flex w-fit mt-auto items-center px-2 py-1 text-sm font-medium text-center text-primary bg-transparent border border-primary rounded-md">
+                                        View Product
+                                        <svg class="rtl:rotate-180 w-2.5 h-2.5 ms-2 -rotate-45" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                            <path stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2"
+                                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                        </svg>
+                                    </a>
                                 </div>
                             </div>
                         </div>
