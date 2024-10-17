@@ -101,6 +101,7 @@
                     </div>
 
                     <div class="grid gap-4 xl:grid-cols-3 md:grid-cols-2 mt-6">
+                        @dd($products->links()['paginator'])
                         @foreach ($products as $product)
                             <div class="bg-white border border-gray-200 rounded-xl flex flex-col swiper-slide">
                                 <div class="bg-gray-100 rounded-t-xl w-full aspect-[3/2]">
@@ -179,6 +180,7 @@
         let filterSidbar = document.getElementById('filter-sidbar')
         let categoryForm = document.getElementById('category-form')
         let sortForm = document.getElementById('sort-form')
+        let underlineSelect = document.getElementById('underline_select')
         let prevBtn = document.getElementById('prev-btn');
         let nextBtn = document.getElementById('next-btn');
         let loaderDiv = document.getElementById('loader-div');
@@ -234,7 +236,7 @@
             closeSidebar()
         }))
 
-        sortForm.addEventListener('change', debounce((e) => {
+        underlineSelect.addEventListener('change', debounce((e) => {
             // renderloader()
             // fetchProductData(`{{ route('api.product.list') }}?sort=${e.target.value}`)
             redirectWithQuery(0, getQueryValue('category'), e.target.value)
@@ -244,12 +246,12 @@
 
             const paramObj = {page}
 
-            if (category != 'all') {
+            if (category && category != 'all') {
                 paramObj.category = category
             }
 
             if (sort != null) {
-                paramObj.sort = null
+                paramObj.sort = sort
             }
 
             const params = new URLSearchParams(paramObj)
@@ -378,6 +380,7 @@
 
         document.addEventListener("DOMContentLoaded", function () {
             let categoryId = getQueryValue('category')
+            let sortValue = getQueryValue('sort')
 
             if (categoryId) {
                 let getRedioDom = document.getElementById(`category${categoryId}`)
