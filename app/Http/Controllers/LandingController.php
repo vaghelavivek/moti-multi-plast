@@ -51,9 +51,12 @@ class LandingController extends Controller
 
         $categories = Category::orderBy('title')->get();
 
+        $products = $product->paginate(9);
+
         return view('pages.product', [
             'categories' => $categories,
-            'products' => $product->paginate(9)
+            'products' => $products,
+            'paginator' => $products->links()['paginator'],
         ]);
     }
 

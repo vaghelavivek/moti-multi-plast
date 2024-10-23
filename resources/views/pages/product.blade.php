@@ -101,7 +101,6 @@
                     </div>
 
                     <div class="grid gap-4 xl:grid-cols-3 md:grid-cols-2 mt-6">
-                        @dd($products->links()['paginator'])
                         @foreach ($products as $product)
                             <div class="bg-white border border-gray-200 rounded-xl flex flex-col swiper-slide">
                                 <div class="bg-gray-100 rounded-t-xl w-full aspect-[3/2]">
@@ -129,6 +128,9 @@
                             </div>
                         @endforeach
                     </div>
+                    @if (!count($products))
+                        <p class="py-12 text-center" >Data Not Found</p>
+                    @endif
 
                     <ul class="justify-center flex items-stretch -space-x-px mt-8">
                         <li>
@@ -216,29 +218,12 @@
             loaderDiv.classList.add('hidden')
         }
 
-        const genrateUrl = (postString) => {
-            if (currentUrl.includes('page')) {
-                fetchProductData(`${currentUrl}&${postString}`)
-            } else {
-                fetchProductData(`${currentUrl}?${postString}`)
-            }
-        }
-
         categoryForm.addEventListener('change', debounce((e) => {
-            // renderloader()   
-            // if (e.target.value == 'all') {
-            //     fetchProductData("{{ route('api.product.list') }}")
-            // } else {
-            //     fetchProductData(`{{ route('api.product.list') }}?category=${e.target.value}`)
-            // }
             redirectWithQuery(0, e.target.value)
-
             closeSidebar()
         }))
 
         underlineSelect.addEventListener('change', debounce((e) => {
-            // renderloader()
-            // fetchProductData(`{{ route('api.product.list') }}?sort=${e.target.value}`)
             redirectWithQuery(0, getQueryValue('category'), e.target.value)
         }))
 
@@ -263,119 +248,12 @@
             return urlParams.get(field);
         }
 
-        const coreTableRow = (image, title, slug) => {
-            // return `<div class=" aspect-[1/1] rounded-md relative overflow-hidden group bg-slate-50 swiper-slide">
-        //             <img src="${image}"
-        //                 class="group-hover:-rotate-12 transition-all group-hover:scale-125 w-full h-full object-cover"
-        //                 alt="category">
-        //             <div
-        //                 class="w-full h-full absolute z-10 top-0 left-0 right-0 flex justify-end items-center flex-col">
-        //                 <div
-        //                     class="text-center translate-y-1/2 group-hover:translate-y-0 transition-all w-full backdrop-blur-[6px] pt-6 pb-10">
-        //                     <p class="md:text-[17px] text-sm font-semibold text-gray-950 mb-4">${title}
-        //                     </p>
-        //                     <a href="/products/${slug}"
-        //                         class="py-1.5 px-4 bg-primary text-white font-semibold invisible group-hover:visible text-sm">View Product</a>
-        //                 </div>
-        //             </div>
-        //         </div>`
-
-
-        // <img class="rounded-t-lg aspect-[3/2] object-contain"
-        //             src="${image}"
-        //             alt="${title}" loading="lazy" />
-        
-        // <img class="rounded-t-lg aspect-[3/2] object-contain mx-auto"
-        //             src="${image}"
-        //             alt="${title}"/>
-
-            return `
-            <div class="bg-white border border-gray-200 rounded-xl flex flex-col swiper-slide">
-                <div class="bg-gray-100 rounded-t-xl w-full aspect-[3/2]" >
-                    <img class="rounded-t-lg aspect-[3/2] object-contain mx-auto lazyload"
-                    src="${image}"
-                    alt="${title}"/>
-                </div>
-                <div class="p-4 flex flex-col w-full">
-                    <h5 class="my-2 text-lg font-semibold text-left tracking-tight text-gray-900">
-                        ${title}</h5>
-
-                        <div class="mt-4 flex justify-between items-center gap-2" >
-                            <a href="/products/${slug}"
-                                class="inline-flex w-fit mt-auto items-center px-2 py-1 text-sm font-medium text-center text-primary bg-transparent border border-primary rounded-md">
-                                View Product
-                                <svg class="rtl:rotate-180 w-2.5 h-2.5 ms-2 -rotate-45" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                </svg>
-                            </a>
-                        </div>
-                </div>
-            </div>
-            `
-        }
-
-        const setData = (arrObj) => {
-            let insertStr = '';
-            if (arrObj.data.length) {
-                arrObj.data.map((row, index) => {
-                    insertStr += coreTableRow(
-                        row.media ?
-                        `{{ Request::root() . '/storage/' }}${row.media}` :
-                        'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg',
-                        row.title,
-                        row.slug,
-                    );
-                })
-            } else {
-                insertStr = '<p class="p-4" >Data Not Found</p>'
-            }
-
-            tBody.innerHTML = insertStr;
-
-            prev_page_url = arrObj.prev_page_url
-            next_page_url = arrObj.next_page_url
-
-            if (!arrObj.prev_page_url) {
-                prevBtn.disabled = true
-                prevBtn.classList.remove('bg-white')
-                prevBtn.classList.add('bg-gray-100')
-            } else {
-                prevBtn.disabled = false
-                prevBtn.classList.remove('bg-gray-100')
-                prevBtn.classList.add('bg-white')
-            }
-
-            if (!arrObj.next_page_url) {
-                nextBtn.disabled = true
-                nextBtn.classList.remove('bg-white')
-                nextBtn.classList.add('bg-gray-100')
-            } else {
-                nextBtn.disabled = false
-                nextBtn.classList.remove('bg-gray-100')
-                nextBtn.classList.add('bg-white')
-            }
-        }
-
-        const fetchProductData = async (pageUrl) => {
-            currentUrl = pageUrl
-
-            let res = await fetch(pageUrl)
-            let data = await res.json()
-
-            setData(data)
-            removeloader()
-        }
-
-        fetchProductData("{{ route('api.product.list') }}")
-
         prevBtn.addEventListener('click', () => {
-            fetchProductData(prev_page_url)
+            redirectWithQuery({{ $products->currentPage() > 0 ? $products->currentPage() - 1 : 1 }}, getQueryValue('category'), getQueryValue('sort'))
         })
 
         nextBtn.addEventListener('click', () => {
-            fetchProductData(next_page_url)
+            redirectWithQuery({{ $products->currentPage() < $products->lastPage() ? $products->currentPage() + 1 : $products->lastPage() }}, getQueryValue('category'), getQueryValue('sort'))
         })
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -385,6 +263,28 @@
             if (categoryId) {
                 let getRedioDom = document.getElementById(`category${categoryId}`)
                 getRedioDom.checked = true
+            }
+
+            if (sortValue) {}
+
+            if (!{{ $products->currentPage() > 1 ? 1 : 0 }}) {
+                prevBtn.disabled = true
+                prevBtn.classList.remove('bg-white')
+                prevBtn.classList.add('bg-gray-100')
+            } else {
+                prevBtn.disabled = false
+                prevBtn.classList.remove('bg-gray-100')
+                prevBtn.classList.add('bg-white')
+            }
+
+            if (!{{ $products->currentPage() < $products->lastPage() ? 1 : 0 }}) {
+                nextBtn.disabled = true
+                nextBtn.classList.remove('bg-white')
+                nextBtn.classList.add('bg-gray-100')
+            } else {
+                nextBtn.disabled = false
+                nextBtn.classList.remove('bg-gray-100')
+                nextBtn.classList.add('bg-white')
             }
         });
     </script>
