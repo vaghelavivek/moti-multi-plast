@@ -227,7 +227,7 @@
             redirectWithQuery(0, getQueryValue('category'), e.target.value)
         }))
 
-        const redirectWithQuery = (page = 0, category = 'all', sort = null) => {
+        const redirectWithQuery = (page = 1, category = 'all', sort = null) => {
 
             const paramObj = {page}
 
@@ -265,7 +265,9 @@
                 getRedioDom.checked = true
             }
 
-            if (sortValue) {}
+            if (sortValue) {
+                underlineSelect.value = sortValue
+            }
 
             if (!{{ $products->currentPage() > 1 ? 1 : 0 }}) {
                 prevBtn.disabled = true
