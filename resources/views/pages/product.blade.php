@@ -24,7 +24,7 @@
         </div>
 
         <div class="px-4 container mx-auto mt-4">
-            <div class=" rounded-3xl bg-slate-50">
+            <div class=" md:rounded-3xl rounded-lg bg-slate-50">
                 <img src="https://www.moldtekpackaging.com/product-assets/showcase.png"
                 class="w-full xl:aspect-[6/1] aspect-[4/1.5] object-contain md:py-8 py-2 px-4" alt="about">
             </div>

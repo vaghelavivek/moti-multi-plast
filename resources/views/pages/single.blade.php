@@ -6,7 +6,7 @@
 
 @section('body')
     <section>
-        <div class="container mx-auto px-4 md:mb-20 my-16">
+        <div class="container mx-auto px-4 md:mb-20 md:mt-12 mb-16 mt-4">
             <div class="grid lg:grid-cols-2 gap-8">
                 <div class="lg:h-full lg:min-h-[560px]">
                     <div class="lg:max-h-[450px] lg:h-full">
@@ -21,7 +21,7 @@
                             <div class="md:min-w-[80px] md:max-w-[80px] min-w-[60px] max-w-[60px] w-full aspect-square rounded-md object-contain border cursor-pointer"
                                 onclick="setMainImage('{{ Request::root() . '/storage/' . $image->link }}')">
                                 <img src="{{ Request::root() . '/storage/' . $image->link }}"
-                                    class="mx-auto w-full h-full object-cover" alt="products">
+                                    class="mx-auto w-full h-full object-contain" alt="products">
                             </div>
                         @endforeach
                     </div>
@@ -30,7 +30,7 @@
                 <div class="flex flex-col" id="product-info-div">
                     <h1 class="md:text-3xl text-2xl font-semibold">{{ $product->title }}</h1>
                     <div class="flex gap-6 mt-2">
-                        <p class="font-medium md:text-base text-sm">₹{{ $product->price }} per piece</p>
+                        <p class="font-medium md:text-base text-sm">{{ $product->type }}</p>
                         {{-- <button class="py-1 px-2 bg-primary text-white sm:text-sm text-[12px] rounded-md">Get a price per
                             quota</button> --}}
                     </div>
@@ -81,10 +81,10 @@
                         <button onclick="openInquiryModalProduct()"
                             class="py-2 border border-primary w-full rounded-md font-semibold uppercase hover:text-primary transition-all bg-primary text-white hover:bg-transparent md:text-base text-sm">Send
                             Inquiry</button>
-                        <button onclick="openCallBackModalProduct()"
+                        <button onclick="sendWhatsappMessage()"
                             class="py-2 border border-[#128C7E] w-full rounded-md font-semibold uppercase text-[#128C7E] transition-all hover:bg-[#128C7E] hover:text-white md:text-base sm:text-sm text-[10px] flex justify-center items-center gap-2">
                             <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-full max-w-5 fill-current"
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-full md:max-w-5 max-w-[18px] fill-current"
                                     viewBox="0 0 448 512">
                                     <path
                                         d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
@@ -97,19 +97,19 @@
         </div>
 
         <div class="container mx-auto px-4">
-            <p class="md:text-2xl text-xl capitalize text-gray-700 font-semibold text-center mb-8">
+            <p class="md:text-3xl text-2xl capitalize text-gray-700 font-semibold mb-8">
                 Product Details</p>
             <p class="md:text-lg text-base uppercase text-gray-700 font-semibold  mb-6">
-                Price And Quantity</p>
+                Quantity</p>
 
             <table class="table-fixed w-full border-collapse border border-slate-500">
                 <tbody>
-                    <tr>
+                    {{-- <tr>
                         <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">Price
                         </td>
                         <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border border-gray-300">
                             ₹{{ $product->price }} per piece</td>
-                    </tr>
+                    </tr> --}}
                     <tr>
                         <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">Minimum
                             Order Quantity
@@ -190,7 +190,7 @@
 
         @if (count($relatedProducts))
             <div class="container mx-auto px-4 md:my-40 my-20">
-                <p class="md:text-2xl text-xl capitalize text-gray-700 font-semibold text-center">
+                <p class="md:text-3xl text-2xl capitalize text-gray-700 font-semibold">
                     Related Products</p>
                 <div class="grid gap-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 mt-10">
                     @foreach ($relatedProducts as $related)
@@ -301,64 +301,6 @@
         </div>
     </div>
 
-    {{-- request to call back --}}
-    <div class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 hidden bg-[#00000080] justify-center items-center w-full md:inset-0 h-screen max-h-full"
-        id="call-back-modal">
-        <div class="relative p-4 w-full max-w-lg max-h-full scale-animation">
-            <!-- Modal content -->
-            <div class="relative bg-white rounded-lg shadow ">
-                <!-- Modal header -->
-                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
-                    <h3 class="md:text-xl text-lg font-semibold text-gray-900 ">
-                        Whatsapp Inquiries
-                    </h3>
-                    <button type="button" onclick="closeCallBackModalProduct()"
-                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
-                        data-modal-hide="default-modal">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                        </svg>
-                        <span class="sr-only">Close modal</span>
-                    </button>
-                </div>
-                <!-- Modal body -->
-                <form id="waInquiryForm">
-                    <div class="p-4 md:p-5 space-y-4">
-                        <div>
-                            <div>
-                                <label for="waName" class="block mb-2 text-sm font-medium text-gray-900">Your
-                                    Name</label>
-                                <input type="name" id="waName"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                    placeholder="Jone Deo" />
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <label for="waEmail" class="block mb-2 text-sm font-medium text-gray-900">Your
-                                    Email</label>
-                                <input type="email" id="waEmail"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                    placeholder="jonedeo@example.com" />
-                            </div>
-                            <p class="mt-1 text-sm text-red-500 hidden" id="validation-text">Please fill out the form
-                                first.</p>
-                        </div>
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="flex items-center justify-between p-4 md:p-5 border-t border-gray-200 rounded-b">
-                        <button data-modal-hide="static-modal" type="button" onclick="closeCallBackModalProduct()"
-                            class="py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Close</button>
-                        <button data-modal-hide="static-modal" type="submit"
-                            class="text-white bg-primary hover:bg-primary-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center uppercase">Send</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
     {{-- responce model --}}
     <div id="taost"
         class="hidden items-center w-full max-w-md p-4 mb-4 rounded-lg shadow text-white bg-gray-800 fixed bottom-0 z-30 left-1/2 -translate-x-1/2"
@@ -390,7 +332,6 @@
         let mainProductImage = document.getElementById('main-product-image');
         let resultDiv = document.getElementById('result-div');
         let productInfoDiv = document.getElementById('product-info-div');
-        let waInquiryForm = document.getElementById('waInquiryForm');
         let validationText2 = document.getElementById("validation-text");
 
         const closeInquiryModalProduct = () => {
@@ -543,33 +484,19 @@
             mainProductImage.src = imgUrl
         }
 
-        waInquiryForm.addEventListener('submit', (e) => {
-            e.preventDefault()
+        const sendWhatsappMessage = () => {
 
-            if (e.target[0].value) {
-                validationText2.classList.add('hidden')
+            const waText = encodeURIComponent(
+                `Hello Moti Multi Plastics,\n\n` +
+                `I am interested in learning more about your product, *{{ $product->title }}*. ` +
+                `Could you please provide me with more information and arrange a demo at your earliest convenience?\n\n` +
+                `*Product Details:*\n` +
+                `- *Name*: {{ $product->title }}\n` +
+                `- *URL*: {{ route('landing.single', ['slug' => $product->slug]) }}\n\n` +
+                `Thank you.`
+            );
 
-                let waText = `
-                    Hello Moti multi plastics, \n
-
-                    My name is ${e.target[0].value}, and I am interested in learning more about your product, '{{ $product->title }}'. Could you please provide me with more information and arrange a demo at your earliest convenience? \n
-
-                    Product details : \n
-                    Id : {{ $product->id }} \n
-                    Name : {{ $product->title }} \n
-                    Url : {{ route('landing.single', ['slug' => $product->slug]) }} \n
-
-                    Thank you, \n
-                    ${e.target[0].value} \n
-                    ${e.target[1].value}
-                `
-
-                window.open(
-                    `https://wa.me/9898989978?text=${waText}&file={{ Request::root() . '/storage/' . $product->media }}`
-                );
-            } else {
-                validationText2.classList.remove('hidden')
-            }
-        })
+            window.open(`https://wa.me/9898989978?text=${waText}&file={{ Request::root() . '/storage/' . $product->media }}`);
+        };
     </script>
 @endsection
