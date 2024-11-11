@@ -1022,7 +1022,8 @@
     <meta name="og:description"
         content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products." />
     <meta name="og:url" content="{{ url()->current() }}" />
-    <meta name="og:image" content="{{ asset('assets/svgs/logo.svg') }}" />
+    <meta name="og:image" content="{{ asset('assets/images/logo.png') }}" />
+    <meta property="og:site_name" content="Moti Multi plast" />
 @endsection
 
 @section('body-scripts')
