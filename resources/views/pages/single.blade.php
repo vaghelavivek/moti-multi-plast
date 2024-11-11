@@ -319,6 +319,7 @@
     <meta name="product:price:amount" content="{{ $product->price }}" />
     <meta name="product:price:currency" content="INR" />
     <meta name="keywords" content="{{ $product->keyword }}">
+    <meta property="og:site_name" content="Moti Multi plast" />
 @endsection
 
 @section('head-scripts')
