@@ -9,8 +9,8 @@
         <div class="max-w-[1920px] mx-auto">
 
             {{-- hero section --}}
-            <div class="px-4" >
-                <div class="w-full aspect-[5/2] overflow-hidden max-w-[1780px] md:rounded-2xl rounded-lg mx-auto md:my-8 my-4">
+            <div class="md:px-4" >
+                <div class="w-full md:aspect-[5/2] aspect-square overflow-hidden max-w-[1780px] md:rounded-2xl mx-auto md:my-8 mb-4">
                     <div class="swiper mySwiper relative">
                         <div class="swiper-wrapper">
                             {{-- <img src="https://www.rollick.co.in/assets/front-end/png/slider/2.webp" alt="box">
@@ -18,7 +18,7 @@
                                 <img src="https://www.rollick.co.in/assets/front-end/png/slider/3.webp" alt="box"> --}}
                             @foreach ($heroBanner as $banner)
                                 <div class="swiper-slide">
-                                    <a href="{{ $banner->link }}" target="_blank">
+                                    <a href="{{ $banner->link }}" class="md:h-auto h-full" target="_blank">
                                         <img src="{{ asset('storage/' . $banner->file) }}" alt="box">
                                     </a>
                                 </div>
@@ -27,7 +27,7 @@
                         <div class="swiper-button-next invisible" id="heroSlidePrevBtn"></div>
                         <div class="swiper-button-prev invisible" id="heroSlideNextBtn"></div>
                         <div class="swiper-pagination"></div>
-                        <div class="absolute cursor-pointer bg-white md:w-12 w-10 aspect-square rounded-full top-1/2 md:left-5 left-2 -translate-y-1/2 z-20 grid place-items-center"
+                        <div class="absolute cursor-pointer bg-white md:w-12 w-10 aspect-square rounded-full top-1/2 md:left-5 left-2 -translate-y-1/2 z-20 md:grid hidden place-items-center"
                             onclick="heroSlidePrev()">
                             <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-5 max-w-4 rotate-180 fill-primary"
                                 viewBox="0 0 512 512">
@@ -35,7 +35,7 @@
                                     d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
                             </svg>
                         </div>
-                        <div class="absolute cursor-pointer bg-white md:w-12 w-10 aspect-square rounded-full top-1/2 md:right-5 right-2 -translate-y-1/2 z-20 grid place-items-center"
+                        <div class="absolute cursor-pointer bg-white md:w-12 w-10 aspect-square rounded-full top-1/2 md:right-5 right-2 -translate-y-1/2 z-20 md:grid hidden place-items-center"
                             onclick="heroSlideNext()">
                             <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-5 max-w-4 fill-primary" viewBox="0 0 512 512">
                                 <path
@@ -61,7 +61,7 @@
                 <div class="container mx-auto p-4">
                     <div class="grow w-full">
                         <div class="w-full grid gap-4 xl:grid-cols-4 sm:grid-cols-2">
-                            <div class="md:p-4 py-4">
+                            <div class="p-4 shadow-lg rounded-lg">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary"
                                         viewBox="0 0 448 512">
@@ -76,7 +76,7 @@
                                     leadership and energetic
                                     innovatores.</p>
                             </div>
-                            <div class="md:p-4 py-4">
+                            <div class="p-4 shadow-lg rounded-lg">
                                 <div>
 
                                     <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary"
@@ -93,7 +93,7 @@
                                     leadership and energetic
                                     innovatores.</p>
                             </div>
-                            <div class="md:p-4 py-4">
+                            <div class="p-4 shadow-lg rounded-lg">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary"
                                         viewBox="0 0 512 512">
@@ -108,7 +108,7 @@
                                     leadership and energetic
                                     innovatores.</p>
                             </div>
-                            <div class="md:p-4 py-4">
+                            <div class="p-4 shadow-lg rounded-lg">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary"
                                         viewBox="0 0 512 512">
@@ -130,9 +130,9 @@
 
             {{-- products banner section --}}
             <div class="container mx-auto px-4 mt-4">
-                <div class="grid gap-4 md:grid-cols-2">
+                <div class="grid md:gap-4 gap-2 md:grid-cols-2">
                     <div>
-                        <div class="aspect-[6/3.8] relative group rounded-2xl overflow-hidden">
+                        <div class="aspect-[6/3.8] relative group md:rounded-2xl rounded-lg overflow-hidden">
                             {{-- <img src="https://moldtekpackaging.com/assets/images/paint-flyer.jpeg" class="w-full h-full"
                                 alt="category"> --}}
 
@@ -153,8 +153,8 @@
                                 </svg>
                             </a>
                         </div>
-                        <div class="grid md:gap-4 gap-2 grid-cols-2 mt-4">
-                            <div class="aspect-[6/3.8] relative group rounded-2xl overflow-hidden">
+                        <div class="grid md:gap-4 gap-1 grid-cols-2 md:mt-4 mt-2">
+                            <div class="aspect-[6/3.8] relative group md:rounded-2xl rounded-lg overflow-hidden">
 
                                 @if (isset($productBanner[1]['file']))
                                     <img src="{{ asset('storage/' . $productBanner[1]['file']) }}"
@@ -173,7 +173,7 @@
                                     </svg>
                                 </a>
                             </div>
-                            <div class="aspect-[6/3.8] relative group rounded-2xl overflow-hidden">
+                            <div class="aspect-[6/3.8] relative group md:rounded-2xl rounded-lg overflow-hidden">
 
                                 @if (isset($productBanner[2]['file']))
                                     <img src="{{ asset('storage/' . $productBanner[2]['file']) }}"
@@ -197,8 +197,8 @@
                     </div>
 
                     <div>
-                        <div class="grid md:gap-4 gap-2 grid-cols-2 mb-4">
-                            <div class="aspect-[6/3.8] relative group rounded-2xl overflow-hidden">
+                        <div class="grid md:gap-4 gap-1 grid-cols-2 md:mb-4 mb-2">
+                            <div class="aspect-[6/3.8] relative group md:rounded-2xl rounded-lg overflow-hidden">
 
                                 @if (isset($productBanner[3]['file']))
                                     <img src="{{ asset('storage/' . $productBanner[3]['file']) }}"
@@ -217,7 +217,7 @@
                                     </svg>
                                 </a>
                             </div>
-                            <div class="aspect-[6/3.8] relative group rounded-2xl overflow-hidden">
+                            <div class="aspect-[6/3.8] relative group md:rounded-2xl rounded-lg overflow-hidden">
 
                                 @if (isset($productBanner[4]['file']))
                                     <img src="{{ asset('storage/' . $productBanner[4]['file']) }}"
@@ -238,7 +238,7 @@
                             </div>
                         </div>
 
-                        <div class="aspect-[6/3.8] relative group rounded-3xl overflow-hidden">
+                        <div class="aspect-[6/3.8] relative group md:rounded-2xl rounded-lg overflow-hidden">
 
                             @if (isset($productBanner[5]['file']))
                                 <img src="{{ asset('storage/' . $productBanner[5]['file']) }}"
@@ -264,9 +264,9 @@
 
             {{-- products category section --}}
             <div class="container mx-auto px-4 md:my-28 my-16">
-                <p class="md:text-2xl text-xl capitalize text-center text-gray-700 font-semibold">Categories of Products
+                <p class="md:text-3xl text-2xl capitalize text-gray-700 font-semibold">Product Variants
                 </p>
-                <div class="grid gap-4 xl:grid-cols-4 sm:grid-cols-2 mt-10">
+                <div class="grid gap-4 xl:grid-cols-4 sm:grid-cols-2 md:mt-10 mt-8">
 
                     @foreach ($categories as $category)
                         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col">
@@ -297,7 +297,7 @@
             {{-- hot products section --}}
             <div class="container mx-auto px-4 md:my-28 my-16">
                 <div class="flex justify-between gap-4 items-center">
-                    <p class="md:text-2xl text-xl capitalize text-gray-700 font-semibold">
+                    <p class="md:text-3xl text-2xl capitalize text-gray-700 font-semibold">
                         Hot Products</p>
 
                     <div class="flex items-center gap-4">
@@ -357,7 +357,7 @@
 
             {{-- about us --}}
             <div class="container mx-auto px-4 md:mb-28 my-16">
-                <p class="md:text-2xl text-center text-xl capitalize text-gray-700 font-semibold mb-10">
+                <p class="md:text-3xl text-2xl capitalize md:text-center text-gray-700 font-semibold mb-10">
                     About us</p>
                 <div class="flex justify-between lg:flex-row flex-col items-center md:gap-12 gap-8">
                     <div class="grow w-full">
@@ -387,7 +387,7 @@
 
             {{-- testimonial --}}
             <div class="container mx-auto max-w-6xl p-4">
-                <p class="md:text-2xl text-center text-xl capitalize text-gray-700 font-semibold mb-10">
+                <p class="md:text-3xl text-2xl md:text-center capitalize text-gray-700 font-semibold mb-10">
                     Read Trusted Reviews From Our Customers</p>
                 <div class="md:columns-2 lg:columns-3 gap-6 sm:p-1 mt-2">
 

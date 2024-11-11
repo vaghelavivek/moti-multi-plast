@@ -15,9 +15,10 @@ use App\Http\Controllers\EnquiriesController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ThemeController;
+use Illuminate\Support\Facades\Artisan;
 
 Route::get('/', [LandingController::class, 'home'])->name('landing.home');
-Route::get('/company-profile', [LandingController::class, 'about'])->name('landing.about');
+Route::get('/company', [LandingController::class, 'about'])->name('landing.about');
 Route::get('/contact', [LandingController::class, 'contact'])->name('landing.contact');
 Route::get('/products', [LandingController::class, 'product'])->name('landing.product');
 Route::get('/products/{slug}', [LandingController::class, 'single'])->name('landing.single');
@@ -98,3 +99,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/product/list', [ProductController::class , 'productLandingList'])->name('api.product.list');
+
+Route::get('/command', function () {
+    Artisan::call('storage:link');
+    return Artisan::output();
+});

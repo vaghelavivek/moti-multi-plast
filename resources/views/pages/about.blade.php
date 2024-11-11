@@ -10,9 +10,9 @@
             <div class="relative">
 
                 <img src="https://www.enlighten-ic.com/hubfs/Blog%20Images/how-to-write-the-perfect-company-profile.jpg"
-                    class="w-full rounded-3xl xl:aspect-[6/1] aspect-[4/1.5] object-cover" alt="about">
+                    class="w-full md:rounded-3xl rounded-lg xl:aspect-[6/1] aspect-[4/1.5] object-cover" alt="about">
 
-                <div class="absolute w-full h-full rounded-3xl top-0 left-0 bg-[#00000080] grid place-items-center">
+                <div class="absolute w-full h-full md:rounded-3xl rounded-lg top-0 left-0 bg-[#00000080] grid place-items-center">
                     <div>
                         <h1 class="text-center text-white font-semibold md:text-4xl text-xl" data-aos="zoom-in-up">Moti Multi
                             Plast</h1>
@@ -46,7 +46,7 @@
                 give us the greatest opportunity for growth in the future. Besides, we will continue to give durable, user
                 friendly, cost-effective and environmentally-friendly solutions to the market.</p>
 
-            <p class="md:text-2xl text-xl capitalize text-center text-gray-700 font-semibold mb-6 mt-20">
+            <p class="md:text-3xl text-2xl capitalize text-primary font-semibold mb-4 mt-20">
                 Our Market</p>
 
             <p class="mx-auto md:text-base text-sm text-gray-600">
@@ -55,7 +55,7 @@
                 almost every nook and corner of the country. And, we are planning to expand our wings to international
                 markets as well.</p>
 
-            <p class="md:text-2xl text-xl capitalize text-center text-gray-700 font-semibold mb-6 mt-16">
+            <p class="md:text-3xl text-2xl capitalize text-primary font-semibold mb-4 mt-16">
                 Quality Control</p>
 
             <p class="mx-auto md:text-base text-sm text-gray-600">
@@ -74,7 +74,7 @@
                 </li>
             </ul>
 
-            <p class="md:text-2xl text-xl capitalize text-center text-gray-700 font-semibold mb-6 mt-16">
+            <p class="md:text-3xl text-2xl capitalize text-primary font-semibold mb-4 mt-16">
                 Production Capabilities</p>
 
             <p class="mx-auto md:text-base text-sm text-gray-600">
@@ -87,7 +87,7 @@
         </div>
 
         <div class="container mx-auto px-4 mb-20">
-            <p class="md:text-2xl text-xl capitalize text-center text-gray-700 font-semibold mb-10">
+            <p class="md:text-3xl text-2xl capitalize text-primary font-semibold mb-8">
                 Key Facts of Moti Multi Plast</p>
             <table class="table-fixed w-full border-collapse border border-slate-500">
                 <tbody>
