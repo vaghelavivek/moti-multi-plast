@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
 
-            <ul class="flex flex-wrap text-sm font-medium text-center border-b text-gray-500">
+            <ul class="flex flex-wrap text-sm font-medium text-center border-b text-gray-500 sm:px-0 px-4">
                 <li>
                     <a href="{{ route('products') }}"
                         class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50">Products</a>
@@ -158,7 +158,7 @@
     const coreTableRow = (id, imgHtml, name, description) => {
         return `<tr class="border-b  hover:bg-gray-100 ">
                     <th scope="row"
-                        class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap ">
+                        class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap truncate">
                         ${imgHtml}
                         ${name}
                     </th>

@@ -3,7 +3,7 @@
         @csrf
         <input type="hidden" name="id" value="{{ $category->id }}">
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between gap-4 mb-4">
                     <h1 class="font-semibold text-primary text-xl truncate">{{ $category->title }}</h1>
                     <div class="flex items-center gap-2">

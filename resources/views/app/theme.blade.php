@@ -80,7 +80,7 @@
                 @endif
             </div> --}}
 
-            <div class="grid gap-4 md:grid-cols-2 mt-4">
+            <div class="grid gap-4 md:grid-cols-2 mt-4 px-4">
                 <div>
 
                     @if (isset($productBanner[0]))
