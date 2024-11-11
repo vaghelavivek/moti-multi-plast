@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="flex items-center justify-end md:gap-2 gap-1">
-            <a href="https://wa.me/9825145424?text=Hello! My interest is on plastic containers for packaging. The item you sell on your website https://milanindia.com" target="_blank"
+            <a href="https://wa.me/9825145424?text=Hello! My interest is on plastic containers for packaging. The item you sell on your website https://motimultiplast.in" target="_blank"
                 class="border border-[#128C7E] text-[#128C7E] box-border hover:bg-gray-50 font-medium rounded-lg md:text-sm text-[12px] md:px-3 px-2 md:py-2 py-1.5 flex items-center md:gap-2 gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-full max-w-4 fill-current"
                     viewBox="0 0 448 512">
@@ -72,7 +72,7 @@
                         alt="logo">
                 </a>
             </div>
-            <div class="grow w-full justify-center items-center xl:flex hidden gap-4 xl:px-2 xl:py-0 xl:static absolute top-full left-0 right-0 translate-y-2 xl:bg-transparent bg-white xl:shadow-none shadow-lg rounded-md p-4 xl:flex-row flex-col xl:mb-3 z-10"
+            <div class="grow w-full justify-center items-center xl:flex hidden gap-4 xl:px-2 xl:py-0 xl:static absolute top-full left-0 right-0 translate-y-0 xl:bg-transparent bg-white xl:shadow-none shadow-lg rounded-md p-4 xl:flex-row flex-col xl:mb-3 z-10 slide-up"
                 id="nav-links">
                 <ul class="flex xl:flex-row flex-col gap-6 items-center justify-center">
                     <li>
@@ -238,3 +238,20 @@
         }, 6000);
     @endif
 </script>
+
+<style>
+    .slide-up {
+        animation: slideUp 0.5s ease forwards;
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(-10px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+</style>
