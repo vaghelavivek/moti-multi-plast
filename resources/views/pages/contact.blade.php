@@ -65,8 +65,7 @@
                                             d="M80 0C44.7 0 16 28.7 16 64V448c0 35.3 28.7 64 64 64H304c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H80zm80 432h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H160c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
                                     </svg>
                                 </div>
-                                <p class="max-w-md text-gray-800 opacity-80 underline"> <a href="tel:+08045802802">+804 580
-                                        2802</a>
+                                <p class="max-w-md text-gray-800 opacity-80 underline"> <a href="tel:+9825145424">+982 514 5424</a>
                                 </p>
                             </div>
                         </li>
@@ -80,7 +79,7 @@
                                     </svg>
                                 </div>
                                 <p class="max-w-md text-gray-800 opacity-80 underline"> <a
-                                        href="mailto:example@gmail.com">example@gmail.com</a></p>
+                                        href="mailto:motimultiplast@gmail.com">motimultiplast@gmail.com</a></p>
                             </div>
                         </li>
                     </ul>
@@ -136,7 +135,7 @@
             <div class="md:mt-20 mt-12">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d929.7513476726241!2d72.86734445371843!3d21.231634828282402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f08b0688967%3A0x646017ca8459cf3!2sEnrich%20Salon!5e0!3m2!1sen!2sin!4v1716536455736!5m2!1sen!2sin"
-                    class="aspect-[3/1] w-full rounded-3xl" style="border:0;" allowfullscreen="" loading="lazy"
+                    class="md:aspect-[3/1] aspect-square w-full rounded-3xl" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
@@ -165,7 +164,7 @@
             if (e.target[0].value && e.target[1].value) {
                 validationText.classList.add('hidden')
                 window.open(
-                    `https://wa.me/9898989978?text=Number : ${e.target[0].value}, Message : ${e.target[1].value}`
+                    `https://wa.me/9825145424?text=Number : ${e.target[0].value}, Message : ${e.target[1].value}`
                     );
             }else {
                 validationText.classList.remove('hidden')
