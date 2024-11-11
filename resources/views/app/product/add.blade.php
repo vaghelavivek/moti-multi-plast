@@ -7,13 +7,13 @@
         </x-slot> --}}
         @csrf
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between gap-4 mb-4">
                     <h1 class="font-semibold text-primary text-xl">New Products</h1>
                     <button type="submit"
                         class="bg-primary text-white py-1.5 px-4 hover:bg-primary-900 rounded-md font-medium text-sm">Save</button>
                 </div>
-                <div class="flex justify-between gap-4">
+                <div class="flex justify-between gap-4 flex-col lg:flex-row">
                     <div class="w-full">
                         <div class="bg-white rounded-md p-4">
                             <div>

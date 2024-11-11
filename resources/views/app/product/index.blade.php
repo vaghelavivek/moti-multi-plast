@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
 
-            <ul class="flex flex-wrap text-sm font-medium text-center border-b text-gray-500">
+            <ul class="flex flex-wrap text-sm font-medium text-center border-b text-gray-500 sm:px-0 px-4">
                 <li>
                     <p class="inline-block p-4 text-blue-600 bg-white rounded-t-lg active">Products</p>
                 </li>
@@ -69,7 +69,7 @@
                                             <th scope="col" class="px-4 py-3">Material</th>
                                             <th scope="col" class="px-4 py-3">Color </th>
                                             <th scope="col" class="px-4 py-3">Delivery Time</th>
-                                            <th scope="col" class="px-4 py-3">Price</th>
+                                            {{-- <th scope="col" class="px-4 py-3">Price</th> --}}
                                             <th scope="col" class="px-4 py-3">Action</th>
                                         </tr>
                                     </thead>
@@ -182,11 +182,11 @@
     const coreTableRow = (imgHtml, name, category, stock, type, material, color, delivery_time, price, id) => {
         return `<tr class="border-b  hover:bg-gray-100 ">
                     <th scope="row"
-                        class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap ">
+                        class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap truncate">
                         ${imgHtml}
                         ${name}
                     </th>
-                    <td class="px-4 py-2">
+                    <td class="px-4 py-2 whitespace-nowrap">
                         <span
                             class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded ">${category}</span>
                     </td>
@@ -207,7 +207,6 @@
                             ${delivery_time} Days
                         </div>
                     </td>
-                    <td class="px-4 py-2">₹${price} per piece</td>
                     <td
                         class="px-4 py-2 font-medium text-primary underline cursor-pointer whitespace-nowrap ">
                         <a href="{{ Request::root() }}/app/product/edit/${id}" >Details</a>
