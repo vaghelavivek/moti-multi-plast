@@ -6,13 +6,13 @@
 
 @section('body')
     <section>
-        <div class="container px-4 mx-auto mt-8">
+        <div class="container px-4 mx-auto md:mt-8 mt-2">
             <div class="relative">
 
                 <img src="https://www.enlighten-ic.com/hubfs/Blog%20Images/how-to-write-the-perfect-company-profile.jpg"
-                    class="w-full rounded-3xl xl:aspect-[6/1] aspect-[4/1.5] object-cover" alt="about">
+                    class="w-full md:rounded-3xl rounded-lg xl:aspect-[6/1] aspect-[4/1.5] object-cover" alt="about">
 
-                <div class="absolute w-full h-full rounded-3xl top-0 left-0 bg-[#00000080] grid place-items-center">
+                <div class="absolute w-full h-full md:rounded-3xl rounded-lg top-0 left-0 bg-[#00000080] grid place-items-center">
                     <div>
                         <h1 class="text-center text-white font-semibold md:text-4xl text-xl" data-aos="zoom-in-up">Moti Multi
                             Plast</h1>
@@ -23,8 +23,8 @@
             </div>
         </div>
 
-        <div class="container mx-auto px-4 md:mb-28 my-20">
-            <p class="md:text-2xl text-xl capitalize text-center text-gray-700 font-semibold mb-10">
+        <div class="container mx-auto px-4 md:mb-28 my-12">
+            <p class="md:text-2xl text-xl capitalize md:text-center text-gray-700 font-semibold mb-10">
                 Contect details</p>
             <div class="flex lg:flex-row gap-x-6 gap-y-10 flex-col justify-between items-center">
                 <div class="w-full grow">
