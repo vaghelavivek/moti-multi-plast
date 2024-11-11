@@ -6,7 +6,7 @@
 
 @section('body')
     <section>
-        <div class="container px-4 mx-auto mt-8">
+        <div class="container px-4 mx-auto md:mt-8 mt-2">
             <div class="relative">
 
                 <img src="https://www.enlighten-ic.com/hubfs/Blog%20Images/how-to-write-the-perfect-company-profile.jpg"
