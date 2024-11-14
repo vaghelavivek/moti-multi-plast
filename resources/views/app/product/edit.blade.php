@@ -103,7 +103,7 @@
                         </div>
                         <div class="bg-white rounded-md p-4">
                             <div class="grid grid-cols-2 gap-4 mb-4">
-                                <div>
+                                {{-- <div>
                                     <label for="price"
                                         class="block mb-2 md:text-base text-sm font-medium text-gray-900">Price (per
                                         piece)</label>
@@ -117,7 +117,7 @@
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2"
                                             placeholder="00.00">
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div>
                                     <label for="order_quantity"
