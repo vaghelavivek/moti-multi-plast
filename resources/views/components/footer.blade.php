@@ -3,7 +3,7 @@
         <nav class="container px-4 mx-auto py-2">
             <div class="gap-x-4 gap-y-12 grid xl:grid-cols-4 md:grid-cols-2">
                 <div class="md:col-start-1 md:col-end-3">
-                    <p class="md:text-2xl text-xl capitalize text-white">Contect Details</p>
+                    <p class="md:text-2xl text-xl capitalize text-white">Contact Details</p>
 
                     <ul class="sm:mt-10 mt-8 text-base space-y-6">
                         <li>
@@ -68,7 +68,7 @@
                         <li><a href="{{ route('landing.home') }}" class="text-white opacity-80">Home Page</a></li>
                         <li><a href="{{ route('landing.about') }}" class="text-white opacity-80">Company Profile</a></li>
                         <li><a href="{{ route('landing.product') }}" class="text-white opacity-80">Our Products</a></li>
-                        <li><a href="{{ route('landing.contact') }}" class="text-white opacity-80">Contect Us</a></li>
+                        <li><a href="{{ route('landing.contact') }}" class="text-white opacity-80">Contact Us</a></li>
                         {{-- <li><a href="#" class="text-white opacity-80">Site Map</a></li> --}}
                     </ul>
                 </div>

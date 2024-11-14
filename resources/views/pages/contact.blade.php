@@ -25,7 +25,7 @@
 
         <div class="container mx-auto px-4 md:mb-28 my-12">
             <p class="md:text-2xl text-xl capitalize md:text-center text-gray-700 font-semibold mb-10">
-                Contect details</p>
+                Contact details</p>
             <div class="flex lg:flex-row gap-x-6 gap-y-10 flex-col justify-between items-center">
                 <div class="w-full grow">
                     <ul class="text-base space-y-8">
@@ -145,7 +145,7 @@
 
 @section('meta')
     <meta name="og:type" content="website" />
-    <meta name="og:title" content="Moti multi plastics - contect us" />
+    <meta name="og:title" content="Moti multi plastics - Contact us" />
     <meta name="description" content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products.">
     <meta name="og:description" content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products." />
     <meta name="og:url" content="{{ url()->current() }}" />
