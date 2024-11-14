@@ -91,10 +91,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/product/remove', [ProductController::class , 'remove'])->name('api.product.remove');
     Route::post('/category/remove', [ProductController::class , 'categoryRemove'])->name('api.category.remove');
 
-    Route::post('/enquirie/add', [EnquiriesController::class , 'add'])->name('api.enquirie.add');
     Route::get('/enquirie/get', [EnquiriesController::class , 'get'])->name('api.enquirie.get');
     Route::post('/enquirie/approve', [EnquiriesController::class , 'approve'])->name('api.enquirie.approve');
     Route::post('/enquirie/remove', [EnquiriesController::class , 'remove'])->name('api.enquirie.remove');
 });
-
+Route::post('/enquirie/add', [EnquiriesController::class , 'add'])->name('api.enquirie.add');
+Route::post('/enquirie/quick-add', [EnquiriesController::class , 'quickAdd'])->name('api.enquirie.quickadd');
 Route::get('/product/list', [ProductController::class , 'productLandingList'])->name('api.product.list');

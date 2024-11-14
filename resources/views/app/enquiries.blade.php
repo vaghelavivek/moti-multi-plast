@@ -160,8 +160,10 @@
             }
 
             const openInquiryModal = (id, email, mobile_number, description, isApprove) => {
-                console.log('open model');
-                if (id && email && mobile_number && description) {
+                let displayEmail = email ? `<p class="text-gray-700 md:text-base text-sm mt-0.5 underline"> <a
+                                                        href="mailto:${email}"> ${email} </a></p>` : '--';
+                                                        console.log(displayEmail,'displayEmaildisplayEmail')
+                if (id && displayEmail && mobile_number && description) {
                     inquiryModal.classList.remove('hidden')
                     inquiryModal.classList.add('flex')
 
@@ -169,8 +171,7 @@
                                         <div class="grid grid-cols-2 gap-4">
                                             <div>
                                                 <p class="font-medium text-gray-400 md:text-base text-sm">Email</p>
-                                                <p class="text-gray-700 md:text-base text-sm mt-0.5 underline"> <a
-                                                        href="mailto:${email}"> ${email} </a></p>
+                                                ${displayEmail}
                                             </div>
                                             <div>
                                                 <p class="font-medium text-gray-400 md:text-base text-sm">Mobile Number</p>
@@ -233,16 +234,15 @@
             }
 
             const coreTableRow = (id, index, email, description, mobile_number, isApprove, date) => {
-
                 let desc = description.replaceAll('"', '').replaceAll("'", "").replaceAll(/^\s+|\s+$/gm, '<br>')
-
+                let displayEmail = email ? `<a href="mailto:${email}" class="underline"> ${email} </a>` : '--';
                 return `<tr class="border-b  hover:bg-gray-100">
                             <td class="px-4 py-2.5">
                                 ${index}
                             </td>
                             <td class="px-4 py-2.5 font-medium text-gray-900 whitespace-nowrap ">
                                 <div class="flex items-center">
-                                    <a href="mailto:${email}" class="underline"> ${email} </a>
+                                    ${displayEmail}
                                 </div>
                             </td>
                             <td
@@ -255,12 +255,13 @@
                                 ${isApprove ? '<span class="bg-primary text-white px-2 py-1 text-[12px] rounded-md" >Approved</span>' : '<span class="bg-red-500 text-white px-2 py-1 text-[12px] rounded-md" >Disapprove</span>'}
                             </td>
                             <td
-                                class="px-4 py-2.5 font-medium text-primary underline cursor-pointer whitespace-nowrap " onclick="openInquiryModal(${id}, '${email}', '${mobile_number}', '${desc}', ${isApprove})">
+                                class="px-4 py-2.5 font-medium text-primary underline cursor-pointer whitespace-nowrap " onclick="openInquiryModal(${id}, '${email ? email : ''}', '${mobile_number}', '${desc}', ${isApprove})">
                                 Details</td>
                         </tr>`;
             }
 
             const setData = (arrObj) => {
+                console.log(arrObj,'dfdf')
                 let insertStr = '';
                 if (arrObj.data.length) {
                     arrObj.data.map((row, index) => {
