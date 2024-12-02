@@ -3,7 +3,7 @@
         <nav class="container px-4 mx-auto py-2">
             <div class="gap-x-4 gap-y-12 grid xl:grid-cols-4 md:grid-cols-2">
                 <div class="md:col-start-1 md:col-end-3">
-                    <p class="md:text-2xl text-xl capitalize text-white">Contect Details</p>
+                    <p class="md:text-2xl text-xl capitalize text-white">Contact Details</p>
 
                     <ul class="sm:mt-10 mt-8 text-base space-y-6">
                         <li>
@@ -68,8 +68,8 @@
                         <li><a href="{{ route('landing.home') }}" class="text-white opacity-80">Home Page</a></li>
                         <li><a href="{{ route('landing.about') }}" class="text-white opacity-80">Company Profile</a></li>
                         <li><a href="{{ route('landing.product') }}" class="text-white opacity-80">Our Products</a></li>
-                        <li><a href="{{ route('landing.contact') }}" class="text-white opacity-80">Contect Us</a></li>
-                        <li><a href="#" class="text-white opacity-80">Site Map</a></li>
+                        <li><a href="{{ route('landing.contact') }}" class="text-white opacity-80">Contact Us</a></li>
+                        {{-- <li><a href="#" class="text-white opacity-80">Site Map</a></li> --}}
                     </ul>
                 </div>
                 <div>
@@ -79,41 +79,39 @@
 
                         <form class="max-w-sm mx-auto" id="formData">
                             <div>
-
-                                <label for="phone-input"
-                                    class="block mb-2 md:text-sm text-[12px] font-medium text-white opacity-80">Phone
-                                    number:</label>
+                                <label for="phone-input" class="block mb-2 md:text-sm text-[12px] font-medium text-white opacity-80">
+                                    Phone number:
+                                </label>
                                 <div class="relative">
-                                    <div
-                                        class="absolute inset-y-0 start-0 top-0 flex items-center ps-3.5 pointer-events-none">
-
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="w-4 h-4 fill-gray-500"viewBox="0 0 512 512">
-                                            <path
-                                                d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" />
+                                    <div class="absolute inset-y-0 start-0 top-0 flex items-center ps-3.5 pointer-events-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-gray-500" viewBox="0 0 512 512">
+                                            <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
                                         </svg>
                                     </div>
                                     <input type="text" id="phone-input" aria-describedby="helper-text-explanation"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 md:text-sm text-[12px] rounded-md block w-full ps-10 p-2.5" placeholder="123-456-7890" />
+                                           class="bg-gray-50 border border-gray-300 text-gray-900 md:text-sm text-[12px] rounded-md block w-full ps-10 p-2.5"
+                                           placeholder="123-456-7890" />
                                 </div>
-
+                                <p class="mt-1 text-sm text-red-500 hidden" id="phone-validation-text">Invalid phone number. Please enter 10-12 digits.</p>
                             </div>
-                            <div class="mt-4" >
-
-                                <label for="message"
-                                    class="block mb-2 md:text-sm text-[12px] font-medium text-white opacity-80">Message:</label>
+                        
+                            <div class="mt-4">
+                                <label for="inquire-message" class="block mb-2 md:text-sm text-[12px] font-medium text-white opacity-80">Message:</label>
                                 <div>
-                                    <textarea id="message" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md block w-full" rows="3" placeholder="Describe your requirement in detail"></textarea>
+                                    <textarea id="inquire-message" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md block w-full" rows="3" placeholder="Describe your requirement in detail"></textarea>
                                 </div>
-
-                                <p class="mt-1 text-sm text-red-500 hidden" id="validation-text" >Please fill out the form first.</p>
+                                <p class="mt-1 text-sm text-red-500 hidden" id="message-validation-text">Message cannot be empty.</p>
                             </div>
-
-                            <div class="mt-6" >
-                                <button class="w-full md:text-sm text-[12px] rounded-md py-2 bg-gray-50 border border-gray-300 text-gray-600 font-semibold" type="submit" >Contact Now</button>
+                        
+                            <p class="mt-3 text-sm text-red-500 hidden" id="general-validation-text"></p>
+                        
+                            <div class="mt-6">
+                                <button class="w-full md:text-sm text-[12px] rounded-md py-2 bg-gray-50 border border-gray-300 text-gray-600 font-semibold" type="submit">
+                                    Contact Now
+                                </button>
                             </div>
-
                         </form>
+                        
 
                     </div>
                 </div>
@@ -135,18 +133,75 @@
 </footer>
 
 <script>
-    let formData = document.getElementById("formData");
-    let validationText = document.getElementById("validation-text");
+document.getElementById('formData').addEventListener('submit', function (event) {
+    event.preventDefault();
 
-    formData.addEventListener('submit' , (e) => {
-        e.preventDefault();
+    const mobileNumberInput = document.getElementById('phone-input');
+    const messageInput = document.getElementById('inquire-message');
+    const phoneValidationText = document.getElementById('phone-validation-text');
+    const messageValidationText = document.getElementById('message-validation-text');
+    const generalValidationText = document.getElementById('general-validation-text');
+    const submitButton = event.target.querySelector('button[type="submit"]');
 
-        if (e.target[0].value && e.target[1].value) {
-            validationText.classList.add('hidden')
-            window.open(`https://wa.me/9825145424?text=Number : ${e.target[0].value}, Message : ${e.target[1].value}`);
-        }else {
-            validationText.classList.remove('hidden')
-        }
+    phoneValidationText.classList.add('hidden');
+    messageValidationText.classList.add('hidden');
+    generalValidationText.classList.add('hidden');
 
+    const mobile_number = mobileNumberInput.value.trim();
+    const message = messageInput.value.trim();
+    console.log(message,'messagemessagemessage')
+    let isValid = true;
+
+    // Validate mobile number
+    if (!/^[0-9]{10,12}$/.test(mobile_number)) {
+        phoneValidationText.classList.remove('hidden');
+        isValid = false;
+    }
+
+    if (!message || message.trim() === "") {
+        messageValidationText.classList.remove('hidden');
+        isValid = false;
+    }
+
+    // Stop if validation fails
+    if (!isValid) {
+        return;
+    }
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
+
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    fetch('/enquirie/quick-add', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken
+        },
+        body: JSON.stringify({ mobile_number: mobile_number, message: message })
     })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            generalValidationText.textContent = data.message;
+            generalValidationText.classList.remove('text-red-500');
+            generalValidationText.classList.add('text-green-500');
+            generalValidationText.classList.remove('hidden');
+            document.getElementById('formData').reset();
+        } else {
+            throw new Error("Server error");
+        }
+    })
+    .catch(error => {
+        generalValidationText.textContent = 'Error! Kindly attempt again.';
+        generalValidationText.classList.remove('hidden');
+        generalValidationText.classList.add('text-red-500');
+    })
+    .finally(() => {
+        submitButton.disabled = false;
+        submitButton.textContent = "Contact Now";
+    });
+});
+
 </script>
