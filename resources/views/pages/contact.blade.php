@@ -133,10 +133,11 @@
             </div>
 
             <div class="md:mt-20 mt-12">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d929.7513476726241!2d72.86734445371843!3d21.231634828282402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f08b0688967%3A0x646017ca8459cf3!2sEnrich%20Salon!5e0!3m2!1sen!2sin!4v1716536455736!5m2!1sen!2sin"
-                    class="md:aspect-[3/1] aspect-square w-full rounded-3xl" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d929.5006780088008!2d72.9598658!3d20.3325558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04efc51f6aaab%3A0xe4d7a63032a51971!2sMoti%20Multi%20Plast!5e0!3m2!1sen!2sin!4v1716536455736!5m2!1sen!2sin"
+                    class="md:aspect-[3/1] aspect-square w-full rounded-3xl mt-10" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
 

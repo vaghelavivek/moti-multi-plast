@@ -13,9 +13,6 @@
                 <div class="w-full md:aspect-[5/2] aspect-square overflow-hidden max-w-[1780px] md:rounded-2xl mx-auto md:my-8 mb-4">
                     <div class="swiper mySwiper relative">
                         <div class="swiper-wrapper">
-                            {{-- <img src="https://www.rollick.co.in/assets/front-end/png/slider/2.webp" alt="box">
-                                <img src="https://www.rollick.co.in/assets/front-end/png/slider/banner-5.webp" alt="box">
-                                <img src="https://www.rollick.co.in/assets/front-end/png/slider/3.webp" alt="box"> --}}
                             @foreach ($heroBanner as $banner)
                                 <div class="swiper-slide">
                                     <a href="{{ $banner->link }}" class="md:h-auto h-full" target="_blank">
@@ -63,70 +60,44 @@
                         <div class="w-full grid gap-4 xl:grid-cols-4 sm:grid-cols-2">
                             <div class="p-4 shadow-lg rounded-lg">
                                 <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary"
-                                        viewBox="0 0 448 512">
-                                        <path
-                                            d="M160 80c0-26.5 21.5-48 48-48h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V80zM0 272c0-26.5 21.5-48 48-48H80c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V272zM368 96h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H368c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48z" />
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg"  class="md:max-w-8 max-w-6 w-full fill-primary" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64 0 74.7 0 88c0 92.6 33.5 157 78.5 200.7c44.3 43.1 98.3 64.8 138.1 75.8c23.4 6.5 39.4 26 39.4 45.6c0 20.9-17 37.9-37.9 37.9L192 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l192 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-26.1 0C337 448 320 431 320 410.1c0-19.6 15.9-39.2 39.4-45.6c39.9-11 93.9-32.7 138.2-75.8C542.5 245 576 180.6 576 88c0-13.3-10.7-24-24-24L446.4 64c.3-5.2 .5-10.4 .7-15.8C448.1 21.8 426.5 0 400 0zM48.9 112l84.4 0c9.1 90.1 29.2 150.3 51.9 190.6c-24.9-11-50.8-26.5-73.2-48.3c-32-31.1-58-76-63-142.3zM464.1 254.3c-22.4 21.8-48.3 37.3-73.2 48.3c22.7-40.3 42.8-100.5 51.9-190.6l84.4 0c-5.1 66.3-31.1 111.2-63 142.3z"/></svg>
                                 </div>
-                                <p class="mt-6 mb-2 font-semibold sm:text-xl text-base text-gray-500">Market
-                                    Leaders</p>
-                                <p class="font-normal">More then 3 years of experience in the industry, backed
-                                    by strong
-                                    leadership and energetic
-                                    innovatores.</p>
+                                <p class="mt-6 mb-2 font-semibold sm:text-xl text-base text-gray-500">Quality, Consistency & Commitment</p>
+                                <p class="font-normal">Our core values ensure reliable, high-quality, 
+                                    and durable packaging solutions
+                                     tailored to customer needs.</p>
                             </div>
                             <div class="p-4 shadow-lg rounded-lg">
                                 <div>
 
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary"
-                                        viewBox="0 0 512 512">
-                                        <path
-                                            d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z" />
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg"  class="md:max-w-8 max-w-6 w-full fill-primary"  viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c-35.3 0-64 28.7-64 64l-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0c0 35.3 28.7 64 64 64l0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40c35.3 0 64-28.7 64-64l40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0c0-35.3-28.7-64-64-64l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40zM160 128l192 0c17.7 0 32 14.3 32 32l0 192c0 17.7-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32l0-192c0-17.7 14.3-32 32-32zm192 32l-192 0 0 192 192 0 0-192z"/></svg>
                                 </div>
-                                <p class="mt-6 mb-2 font-semibold sm:text-xl text-base text-gray-500">Backward
-                                    Integration
+                                <p class="mt-6 mb-2 font-semibold sm:text-xl text-base text-gray-500">Advanced Technology
                                 </p>
-                                <p class="font-normal">More then 3 years of experience in the industry, backed
-                                    by strong
-                                    leadership and energetic
-                                    innovatores.</p>
+                                <p class="font-normal">Highly automated processes and all-electric machinery ensure precision and consistent quality for our products.</p>
                             </div>
                             <div class="p-4 shadow-lg rounded-lg">
                                 <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary"
-                                        viewBox="0 0 512 512">
-                                        <path
-                                            d="M4.1 38.2C1.4 34.2 0 29.4 0 24.6C0 11 11 0 24.6 0H133.9c11.2 0 21.7 5.9 27.4 15.5l68.5 114.1c-48.2 6.1-91.3 28.6-123.4 61.9L4.1 38.2zm503.7 0L405.6 191.5c-32.1-33.3-75.2-55.8-123.4-61.9L350.7 15.5C356.5 5.9 366.9 0 378.1 0H487.4C501 0 512 11 512 24.6c0 4.8-1.4 9.6-4.1 13.6zM80 336a176 176 0 1 1 352 0A176 176 0 1 1 80 336zm184.4-94.9c-3.4-7-13.3-7-16.8 0l-22.4 45.4c-1.4 2.8-4 4.7-7 5.1L168 298.9c-7.7 1.1-10.7 10.5-5.2 16l36.3 35.4c2.2 2.2 3.2 5.2 2.7 8.3l-8.6 49.9c-1.3 7.6 6.7 13.5 13.6 9.9l44.8-23.6c2.7-1.4 6-1.4 8.7 0l44.8 23.6c6.9 3.6 14.9-2.2 13.6-9.9l-8.6-49.9c-.5-3 .5-6.1 2.7-8.3l36.3-35.4c5.6-5.4 2.5-14.8-5.2-16l-50.1-7.3c-3-.4-5.7-2.4-7-5.1l-22.4-45.4z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary" viewBox="0 0 512 512">
+                                        <path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"></path>
                                     </svg>
                                 </div>
-                                <p class="mt-6 mb-2 font-semibold sm:text-xl text-base text-gray-500">ISO
-                                    Certified</p>
-                                <p class="font-normal">More then 3 years of experience in the industry, backed
-                                    by strong
-                                    leadership and energetic
-                                    innovatores.</p>
+                                <p class="mt-6 mb-2 font-semibold sm:text-xl text-base text-gray-500">Industry Leadership</p>
+                                <p class="font-normal">15+ years of expertise and a commitment to innovation have made us a trusted partner for over 5,000 clients.</p>
                             </div>
                             <div class="p-4 shadow-lg rounded-lg">
                                 <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary"
-                                        viewBox="0 0 512 512">
-                                        <path
-                                            d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z" />
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg"  class="md:max-w-8 max-w-6 w-full fill-primary" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M272 96c-78.6 0-145.1 51.5-167.7 122.5c33.6-17 71.5-26.5 111.7-26.5l88 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-16 0-72 0s0 0 0 0c-16.6 0-32.7 1.9-48.3 5.4c-25.9 5.9-49.9 16.4-71.4 30.7c0 0 0 0 0 0C38.3 298.8 0 364.9 0 440l0 16c0 13.3 10.7 24 24 24s24-10.7 24-24l0-16c0-48.7 20.7-92.5 53.8-123.2C121.6 392.3 190.3 448 272 448l1 0c132.1-.7 239-130.9 239-291.4c0-42.6-7.5-83.1-21.1-119.6c-2.6-6.9-12.7-6.6-16.2-.1C455.9 72.1 418.7 96 376 96L272 96z"/></svg>
                                 </div>
-                                <p class="mt-6 mb-2 font-semibold sm:text-xl text-base text-gray-500">Listed
-                                    Publicly</p>
-                                <p class="font-normal">More then 3 years of experience in the industry, backed
-                                    by strong
-                                    leadership and energetic
-                                    innovatores.</p>
+                                <p class="mt-6 mb-2 font-semibold sm:text-xl text-base text-gray-500">Sustainable Solutions</p>
+                                <p class="font-normal">We prioritize sustainable, cost-effective packaging solutions tailored to meet diverse industry needs.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            
 
             {{-- products banner section --}}
             <div class="container mx-auto px-4 mt-4">
@@ -366,16 +337,19 @@
                     </div>
                     <div class="grow w-full">
                         <h1 class="text-primary font-semibold lg:text-4xl sm:text-2xl text-xl md:mb-8 mb-4">Moti Plastic</h1>
-                            {{-- The company specializes in producing a wide range of products in various shapes and sizes, including IML containers, tamper-proof containers, cookies containers, and packaging solutions for food,  dairy industries. --}}
-
-                        <p class="text-gray-600 md:text-base text-sm max-w-2xl font-normal md:mb-4 mb-2">Founded in <span class="font-semibold"> 2009 </span>plastic injection-moulded containers and boxes in India. </span> of <span class="font-semibold"> Multipurpose Plastic Food Containers,
-                                Household Plastic Food Containers, Kitchen Containers, Plastic Food Storage Containers,
-                                Saree Covers </span> and others, we have met the local taste and demand of the market. </p>
-                        <p class="text-gray-600 md:text-base text-sm max-w-2xl font-normal md:mb-4 mb-2"> These products
-                            are manufactured with premium grade of raw material that is procured from reliable vendors.
-                        <p class="text-gray-600 md:text-base text-sm max-w-2xl font-normal">The high quality and
-                            unmatchable features of our gamut has helped us in exploring new opportunities and becoming a
-                            reliable & a prominent player in the industry.</p>
+                        <p class="text-gray-600 md:text-base text-sm max-w-2xl font-normal md:mb-6 mb-4">
+                            <span class="font-semibold">Founded in 2009</span>, Moti Plastic has become a leader in manufacturing 
+                            <span class="font-medium">plastic injection-moulded containers and boxes</span> in India. With a focus on quality and innovation, 
+                            the company has earned a reputation for its reliable packaging solutions.
+                        </p>
+                        <p class="text-gray-600 md:text-base text-sm max-w-2xl font-normal md:mb-6 mb-4">
+                            The company specializes in producing a wide variety of products in various shapes and sizes. This includes 
+                            <span class="font-medium">IML (in-mould labeled) containers</span>, which offer enhanced branding and durability; 
+                            <span class="font-medium">tamper-proof containers</span>, designed for safety and security; and 
+                            <span class="font-medium">cookies containers</span>, providing aesthetic and functional packaging. 
+                            Additionally, Moti Plastic provides end-to-end <span class="font-medium">packaging solutions</span> for the food and dairy industries, 
+                            ensuring high standards of hygiene and reliability.
+                        </p>
                     </div>
                 </div>
             </div>
