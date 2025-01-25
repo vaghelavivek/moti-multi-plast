@@ -32,7 +32,7 @@
                                 </svg>
                             </div>
                             <img src="{{ Request::root() . '/storage/' . $banner->file }}"
-                                onclick="openHeroEditModel({{ $banner->id }}, '{{ $banner->file }}' , '{{ $banner->link }}')"
+                                onclick="openHeroEditModel({{ $banner->id }}, '{{ $banner->file }}' , '{{ $banner->mobile_file }}','{{ $banner->link }}')"
                                 class="w-full rounded-md border object-cover h-full" alt="box">
                         </div>
                     @endforeach
@@ -322,6 +322,35 @@
                             <input id="media-image-hidden" name="file_input" type="hidden">
                             <input id="hero-banner-id" name="id" type="hidden">
                         </div>
+                        <div class="block" id="media-input-mobile">
+                            <label for="media-mobile"
+                                class="block mb-2 md:text-base text-sm font-medium text-gray-900">Media mobile</label>
+                            <input id="media-mobile"
+                                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 py-2 px-2"
+                                name="file_input_mobile" id="file_input_mobile" type="file">
+
+                            @error('file_input_mobile')
+                                <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="mt-4 hidden" id="media-image-mobile">
+                            <p class="block mb-2 md:text-base text-sm font-medium text-gray-900">Media mobile</p>
+                            <div class="aspect-[5/3] cursor-pointer relative">
+                                <div class="absolute right-0 top-0 translate-x-1/2 -translate-y-1/2 z-20 bg-red-500 py-1 px-1.5 rounded-full"
+                                    onclick="removeBannerImg('mobile')">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="max-w-3 w-full fill-white"
+                                        viewBox="0 0 384 512">
+                                        <path
+                                            d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                                    </svg>
+                                </div>
+                                <img id="media-image-src-mobile"
+                                    src="http://127.0.0.1:8000/storage/banner/1HuuH0zZkqrN8fSQJ9jhapjd8juKUC3vKp51OwZn.jpg"
+                                    class="w-full rounded-md object-cover h-full border" alt="box">
+                            </div>
+                            <input id="media-image-hidden-mobile" name="file_input_mobile" type="hidden">
+                            {{-- <input id="hero-banner-id" name="id" type="hidden"> --}}
+                        </div>
                         <div class="mt-4">
                             <label for="hero-link"
                                 class="block mb-2 md:text-base text-sm font-medium text-gray-900">Redirect link</label>
@@ -534,14 +563,18 @@
         let deleteModelForm = document.getElementById('deleteModelForm');
         let productBannerFrom = document.getElementById('productBannerFrom');
         let mediaInput = document.getElementById('media-input');
+        let mediaInputMobile = document.getElementById('media-input-mobile');
         let productMediaInput = document.getElementById('product-media-input');
         let mediaImage = document.getElementById('media-image');
+        let mediaImageMobile = document.getElementById('media-image-mobile');
         let productMediaImage = document.getElementById('product-media-image');
         let heroLink = document.getElementById('hero-link');
         let productLink = document.getElementById('product-link');
         let mediaImageSrc = document.getElementById('media-image-src');
+        let mediaImageSrcMobile = document.getElementById('media-image-src-mobile');
         let productMediaImageSrc = document.getElementById('product-media-image-src');
         let mediaImageHidden = document.getElementById('media-image-hidden');
+        let mediaImageHiddenMobile = document.getElementById('media-image-hidden-mobile');
         let productMediaImageHidden = document.getElementById('product-media-image-hidden');
         let heroBannerId = document.getElementById('heroBannerId');
         let productBannerId = document.getElementById('productBannerId');
@@ -558,6 +591,12 @@
 
             mediaInput.classList.add('block')
             mediaInput.classList.remove('hidden')
+
+            mediaImageMobile.classList.add('hidden')
+            mediaImageMobile.classList.remove('block')
+
+            mediaInputMobile.classList.add('block')
+            mediaInputMobile.classList.remove('hidden')
 
             @if ($errors->any())
                 location.reload()
@@ -633,16 +672,24 @@
             toastWarning.classList.add('hidden')
         }
 
-        const openHeroEditModel = (id, filelink, link) => {
+        const openHeroEditModel = (id, filelink,filelinkmobile, link) => {
             mediaInput.classList.add('hidden')
             mediaInput.classList.remove('block')
 
             mediaImage.classList.add('block')
             mediaImage.classList.remove('hidden')
 
+            mediaInputMobile.classList.add('hidden')
+            mediaInputMobile.classList.remove('block')
+
+            mediaImageMobile.classList.add('block')
+            mediaImageMobile.classList.remove('hidden')
+
             heroLink.value = link
             mediaImageSrc.src = `{{ Request::root() . '/storage/' }}${filelink}`
+            mediaImageSrcMobile.src = `{{ Request::root() . '/storage/' }}${filelinkmobile}`
             mediaImageHidden.value = filelink
+            mediaImageHiddenMobile.value = filelinkmobile
             heroBannerId.value = id
 
             openHeroBannerModal()
@@ -667,12 +714,20 @@
             openProductBannerModal()
         }
 
-        const removeBannerImg = () => {
-            mediaImage.classList.add('hidden')
-            mediaImage.classList.remove('block')
+        const removeBannerImg = (type = null) => {
+            if(type){
+                mediaImageMobile.classList.add('hidden')
+                mediaImageMobile.classList.remove('block')
 
-            mediaInput.classList.add('block')
-            mediaInput.classList.remove('hidden')
+                mediaInputMobile.classList.add('block')
+                mediaInputMobile.classList.remove('hidden')
+            }else{
+                mediaImage.classList.add('hidden')
+                mediaImage.classList.remove('block')
+
+                mediaInput.classList.add('block')
+                mediaInput.classList.remove('hidden')
+            }
         }
 
         const removeProductBannerImg = () => {

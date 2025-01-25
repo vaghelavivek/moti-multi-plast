@@ -365,15 +365,10 @@
                             class="w-full rounded-md" alt="about">
                     </div>
                     <div class="grow w-full">
-                        <h1 class="text-primary font-semibold lg:text-4xl sm:text-2xl text-xl md:mb-8 mb-4">Moti Multi
-                            Plast</h1>
+                        <h1 class="text-primary font-semibold lg:text-4xl sm:text-2xl text-xl md:mb-8 mb-4">Moti Plastic</h1>
+                            {{-- The company specializes in producing a wide range of products in various shapes and sizes, including IML containers, tamper-proof containers, cookies containers, and packaging solutions for food,  dairy industries. --}}
 
-                        <p class="text-gray-600 md:text-base text-sm max-w-2xl font-normal md:mb-4 mb-2">At <span
-                                class="font-semibold"> Moti Multi Plast </span>, we are committed to serve the packaging
-                            and custom plastic need of the customers. </p>
-                        <p class="text-gray-600 md:text-base text-sm max-w-2xl font-normal md:mb-4 mb-2">Established in the
-                            year <span class="font-semibold"> 1996 </span> as a noteworthy <span class="font-semibold">
-                                manufacturer </span> of <span class="font-semibold"> Multipurpose Plastic Food Containers,
+                        <p class="text-gray-600 md:text-base text-sm max-w-2xl font-normal md:mb-4 mb-2">Founded in <span class="font-semibold"> 2009 </span>plastic injection-moulded containers and boxes in India. </span> of <span class="font-semibold"> Multipurpose Plastic Food Containers,
                                 Household Plastic Food Containers, Kitchen Containers, Plastic Food Storage Containers,
                                 Saree Covers </span> and others, we have met the local taste and demand of the market. </p>
                         <p class="text-gray-600 md:text-base text-sm max-w-2xl font-normal md:mb-4 mb-2"> These products
