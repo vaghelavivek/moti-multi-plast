@@ -83,18 +83,18 @@
                         @endif
                     </li>
                     <li>
-                        @if (Route::current()->getName() == 'landing.about')
-                            <p class="text-base text-primary font-semibold">Company</p>
-                        @else
-                            <a href="{{ route('landing.about') }}" class="text-base text-gray-500 font-semibold">Company</a>
-                        @endif
-                    </li>
-                    <li>
                         @if (Route::current()->getName() == 'landing.product')
                             <p class="text-base text-primary font-semibold">Our Products</p>
                         @else
                             <a href="{{ route('landing.product') }}" class="text-base text-gray-500 font-semibold">Our
                                 Products</a>
+                        @endif
+                    </li>
+                    <li>
+                        @if (Route::current()->getName() == 'landing.about')
+                            <p class="text-base text-primary font-semibold">Company</p>
+                        @else
+                            <a href="{{ route('landing.about') }}" class="text-base text-gray-500 font-semibold">Company</a>
                         @endif
                     </li>
                     <li>

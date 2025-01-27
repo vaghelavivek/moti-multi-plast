@@ -11,6 +11,17 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
+    public function getshapes(){
+        return [
+            ['id' => 'rectangular', 'title' => 'Rectangular'],
+            ['id' => 'square', 'title' => 'Square'],
+            ['id' => 'round', 'title' => 'Round'],
+            ['id' => 'oval', 'title' => 'Oval'],
+            ['id' => 'triangle', 'title' => 'Triangle'],
+            ['id' => 'keeper', 'title' => 'Keeper'],
+            ['id' => 'qwality', 'title' => 'Qwality'],
+        ];
+    }
     public function show()
     {
         return view('app.product.index');
@@ -18,15 +29,17 @@ class ProductController extends Controller
 
     public function add()
     {
-        return view('app.product.add', ['category' => Category::all()]);
+        $shapes=$this->getshapes();
+        return view('app.product.add', ['category' => Category::all(),'shapes'=>$shapes]);
     }
 
     public function edit($id)
     {
+        $shapes=$this->getshapes();
         $product = Product::with('images')->find($id);
 
         if ($product) {
-            return view('app.product.edit', ['product' => $product, 'category' => Category::all()]);
+            return view('app.product.edit', ['product' => $product, 'category' => Category::all(),'shapes'=>$shapes]);
         } else {
             return redirect()->back()->with('error', 'Error');
         }
@@ -101,13 +114,13 @@ class ProductController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'order_quantity' => 'required|integer',
+            // 'order_quantity' => 'required|integer',
             // 'slug' => 'required|unique:products|regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/',
             'slug' => ["required", $request->id ? '' : "unique:products", "regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/"],
             'category_id' => 'required|integer',
             'type' => 'required',
             'shape' => 'required',
-            'supply_ability' => 'required',
+            // 'supply_ability' => 'required',
             'media.*' => 'image'
         ]);
 
@@ -123,12 +136,10 @@ class ProductController extends Controller
         $product->og_seo_description = $request->og_seo_description;
         $product->price = $request->price;
 
-        // if ($request->hasFile('media')) {
-        //     $avatar_url = Storage::disk('public')->putFile('products', request()->file('media'), 'public');;
-        //     $product->media = $avatar_url;
-        // }else {
-        //     $product->media = $request->media;
-        // }
+        if ($request->hasFile('thumbnail_media')) {
+            $avatar_url = Storage::disk('public')->putFile('products', request()->file('thumbnail_media'), 'public');
+            $product->media = $avatar_url;
+        }
 
         $product->order_quantity = $request->order_quantity;
         $product->color = $request->color;
@@ -140,6 +151,8 @@ class ProductController extends Controller
         $product->supply_ability = $request->supply_ability;
         $product->delivery_time = $request->delivery_time;
         $product->is_hot = $request->is_hot == 'on';
+        $product->is_reusable = $request->is_reusable ? true :false;
+        $product->is_temper_proof = $request->is_temper_proof ? true :false;
         $product->keyword = $request->tag_list;
 
         if ($product->save()) {
@@ -158,10 +171,6 @@ class ProductController extends Controller
                         $product->save();
                     }
                 }
-            }else {
-                $mediaImage = Media::where('product_id', $product->id)->first();
-                $product->media = $mediaImage->link;
-                $product->save();
             }
 
             return redirect()->back()->with('success', 'Product added successfully.');

@@ -9,17 +9,18 @@
         <div class="max-w-[1920px] mx-auto">
 
             {{-- hero section --}}
-            <div class="md:px-4" >
-                <div class="w-full md:aspect-[5/2] aspect-square overflow-hidden max-w-[1780px] md:rounded-2xl mx-auto md:my-8 mb-4">
-                    <div class="swiper mySwiper relative">
+            <div class="md:px-4">
+                <div class="w-full md:aspect-[4.5/2] aspect-square overflow-hidden max-w-[1780px] md:rounded-2xl mx-auto md:my-2 mb-4">
+                    <div class="mySwiper relative h-full">
                         <div class="swiper-wrapper">
                             @foreach ($heroBanner as $banner)
                                 <div class="swiper-slide">
-                                    <a href="{{ $banner->link }}" class="md:h-auto h-full" target="_blank">
-                                        <img src="{{ asset('storage/' . $banner->file) }}" alt="box">
+                                    <a href="{{ $banner->link }}" class="md:h-auto h-full w-full" target="_blank">
+                                        <img src="{{ asset('storage/' . $banner->file) }}" class="h-full w-full object-cover md:block hidden" alt="box">
+                                        <img src="{{ asset('storage/' . $banner->mobile_file) }}" class="h-full w-full object-cover md:hidden block" alt="box">
                                     </a>
-                                </div>
-                            @endforeach
+                                    </div>
+                                @endforeach
                         </div>
                         <div class="swiper-button-next invisible" id="heroSlidePrevBtn"></div>
                         <div class="swiper-button-prev invisible" id="heroSlideNextBtn"></div>
@@ -83,7 +84,7 @@
                                     </svg>
                                 </div>
                                 <p class="mt-6 mb-2 font-semibold sm:text-xl text-base text-gray-500">Industry Leadership</p>
-                                <p class="font-normal">15+ years of expertise and a commitment to innovation have made us a trusted partner for over 5,000 clients.</p>
+                                <p class="font-normal">With over 15 years of expertise and a commitment to innovation, we have become a trusted partner in our industry.</p>
                             </div>
                             <div class="p-4 shadow-lg rounded-lg">
                                 <div>
@@ -100,12 +101,10 @@
             
 
             {{-- products banner section --}}
-            <div class="container mx-auto px-4 mt-4">
+            {{-- <div class="container mx-auto px-4 mt-4">
                 <div class="grid md:gap-4 gap-2 md:grid-cols-2">
                     <div>
                         <div class="aspect-[6/3.8] relative group md:rounded-2xl rounded-lg overflow-hidden">
-                            {{-- <img src="https://moldtekpackaging.com/assets/images/paint-flyer.jpeg" class="w-full h-full"
-                                alt="category"> --}}
 
                             @if (isset($productBanner[0]['file']))
                                 <img src="{{ asset('storage/' . $productBanner[0]['file']) }}"
@@ -231,10 +230,71 @@
                     </div>
 
                 </div>
-            </div>
+            </div> --}}
+
+            {{-- hot products section --}}
+            <div class="container mx-auto px-4 md:my-16 my-16">
+                            <div class="flex justify-between gap-4 items-center">
+                                <p class="md:text-3xl text-2xl capitalize text-gray-700 font-semibold">
+                                    Hot Products</p>
+            
+                                <div class="flex items-center gap-4">
+                                    <Button class="border border-primary py-2 px-3" id="btn-prev">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="max-w-4 w-full rotate-180 fill-primary"
+                                            viewBox="0 0 512 512">
+                                            <path
+                                                d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
+                                        </svg>
+                                    </Button>
+                                    <Button class="border border-primary py-2 px-3" id="btn-next">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="max-w-4 w-full fill-primary"
+                                            viewBox="0 0 512 512">
+                                            <path
+                                                d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
+                                        </svg>
+                                    </Button>
+                                </div>
+                            </div>
+            
+                            <div class="swiper productSlide">
+                                {{-- <div class="grid gap-4 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mt-10"> --}}
+                                <div class="swiper-wrapper mt-10">
+                                    @foreach ($hotProduct as $product)
+                                        <div class="bg-white border border-gray-200 rounded-xl flex flex-col swiper-slide">
+                                            <div class="bg-gray-100 rounded-t-xl w-full aspect-[3/2]">
+                                                <img class="rounded-t-lg aspect-[3/2] object-contain mx-auto lazyload"
+                                                    data-src="{{ asset('storage/' . $product->media) }}"
+                                                    data-alt="{{ $product->title }}" class="lazyload hidden" />
+                                            </div>
+                                            <div class="p-4 flex flex-col w-full">
+                                                <h5 class="my-2 text-lg font-semibold text-left tracking-tight text-gray-900">
+                                                    {{ $product->title }}</h5>
+            
+                                                <div class="mt-4 flex justify-between items-center gap-2">
+                                                    <a href="/products/{{ $product->slug }}"
+                                                        class="inline-flex w-fit mt-auto items-center px-2 py-1 text-sm font-medium text-center text-primary bg-transparent border border-primary rounded-md">
+                                                        View Product
+                                                        <svg class="rtl:rotate-180 w-2.5 h-2.5 ms-2 -rotate-45" aria-hidden="true"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                                            <path stroke="currentColor" stroke-linecap="round"
+                                                                stroke-linejoin="round" stroke-width="2"
+                                                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+            
+                                <div class="swiper-button-next invisible" id="swiper-button-next"></div>
+                                <div class="swiper-button-prev invisible" id="swiper-button-prev"></div>
+                            </div>
+            
+            </div> 
 
             {{-- products category section --}}
-            <div class="container mx-auto px-4 md:my-28 my-16">
+            <div class="container mx-auto px-4 md:my-18 my-16">
                 <p class="md:text-3xl text-2xl capitalize text-gray-700 font-semibold">Product Variants
                 </p>
                 <div class="grid gap-4 xl:grid-cols-4 sm:grid-cols-2 md:mt-10 mt-8">
@@ -250,7 +310,7 @@
                                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{{ $category->title }}
                                 </h5>
                                 <p class="mb-3 font-normal text-gray-700 ">{{ $category->description }}</p>
-                                <a href="{{ route('landing.product') }}"
+                                <a href="{{ route('landing.product', ['category' => $category->id]) }}"
                                     class="inline-flex items-center px-3 py-2 mt-auto w-fit text-sm font-medium text-center text-white bg-primary rounded-lg">
                                     Read more
                                     <svg class="-rotate-45 w-3.5 h-3.5 ms-2" aria-hidden="true"
@@ -265,69 +325,8 @@
                 </div>
             </div>
 
-            {{-- hot products section --}}
-            <div class="container mx-auto px-4 md:my-28 my-16">
-                <div class="flex justify-between gap-4 items-center">
-                    <p class="md:text-3xl text-2xl capitalize text-gray-700 font-semibold">
-                        Hot Products</p>
-
-                    <div class="flex items-center gap-4">
-                        <Button class="border border-primary py-2 px-3" id="btn-prev">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="max-w-4 w-full rotate-180 fill-primary"
-                                viewBox="0 0 512 512">
-                                <path
-                                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
-                            </svg>
-                        </Button>
-                        <Button class="border border-primary py-2 px-3" id="btn-next">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="max-w-4 w-full fill-primary"
-                                viewBox="0 0 512 512">
-                                <path
-                                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
-                            </svg>
-                        </Button>
-                    </div>
-                </div>
-
-                <div class="swiper productSlide">
-                    {{-- <div class="grid gap-4 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mt-10"> --}}
-                    <div class="swiper-wrapper mt-10">
-                        @foreach ($hotProduct as $product)
-                            <div class="bg-white border border-gray-200 rounded-xl flex flex-col swiper-slide">
-                                <div class="bg-gray-100 rounded-t-xl w-full aspect-[3/2]">
-                                    <img class="rounded-t-lg aspect-[3/2] object-contain mx-auto lazyload"
-                                        data-src="{{ asset('storage/' . $product->media) }}"
-                                        data-alt="{{ $product->title }}" class="lazyload hidden" />
-                                </div>
-                                <div class="p-4 flex flex-col w-full">
-                                    <h5 class="my-2 text-lg font-semibold text-left tracking-tight text-gray-900">
-                                        {{ $product->title }}</h5>
-
-                                    <div class="mt-4 flex justify-between items-center gap-2">
-                                        <a href="/products/{{ $product->slug }}"
-                                            class="inline-flex w-fit mt-auto items-center px-2 py-1 text-sm font-medium text-center text-primary bg-transparent border border-primary rounded-md">
-                                            View Product
-                                            <svg class="rtl:rotate-180 w-2.5 h-2.5 ms-2 -rotate-45" aria-hidden="true"
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                                <path stroke="currentColor" stroke-linecap="round"
-                                                    stroke-linejoin="round" stroke-width="2"
-                                                    d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-
-                    <div class="swiper-button-next invisible" id="swiper-button-next"></div>
-                    <div class="swiper-button-prev invisible" id="swiper-button-prev"></div>
-                </div>
-
-            </div>
-
             {{-- about us --}}
-            <div class="container mx-auto px-4 md:mb-28 my-16">
+            <div class="container mx-auto px-4 md:my-18 my-16">
                 <p class="md:text-3xl text-2xl capitalize md:text-center text-gray-700 font-semibold mb-10">
                     About us</p>
                 <div class="flex justify-between lg:flex-row flex-col items-center md:gap-12 gap-8">
@@ -984,15 +983,66 @@
 @endsection
 
 @section('meta')
-    <meta name="og:type" content="website" />
-    <meta name="og:title" content="Moti multi plastics" />
-    <meta name="description"
-        content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products.">
-    <meta name="og:description"
-        content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products." />
-    <meta name="og:url" content="{{ url()->current() }}" />
-    <meta name="og:image" content="{{ asset('assets/images/logo.png') }}" />
-    <meta property="og:site_name" content="Moti Multi plast" />
+       <!-- Open Graph Meta Tags -->
+        <meta name="og:type" content="website" />
+        <meta name="og:title" content="Moti Multi Plast | Plastic Solutions in Dadra & Surat" />
+        <meta name="description"
+            content="Moti Multi Plast: Your trusted partner in high-quality plastic manufacturing. Specializing in plastic boxes, sari boxes, and custom packaging solutions in Dadra and Surat. Explore durable, eco-friendly products for all your needs.">
+        <meta name="og:description"
+            content="Moti Multi Plast: Your trusted partner in high-quality plastic manufacturing. Specializing in plastic boxes, sari boxes, and custom packaging solutions in Dadra and Surat. Explore durable, eco-friendly products for all your needs." />
+        <meta name="og:url" content="{{ url()->current() }}" />
+        <meta name="og:image" content="{{ asset('assets/images/logo.png') }}" />
+        <meta property="og:site_name" content="Moti Multi Plast" />
+
+        <!-- Additional Metadata -->
+        <meta name="keywords" content="Moti Multi Plast, Moti Plastics, Moti Print N Pack, plastic box in Dadra, plastic box in Surat, sari box in Surat, sari box in Dadra, plastic manufacturing, IML containers, tamper-proof containers, packaging solutions, eco-friendly plastics, custom plastic products, food packaging, durable plastics, plastic containers in Dadra, plastic containers in Surat">
+        <meta name="author" content="Moti Multi Plast">
+        <meta name="theme-color" content="rgb(156, 44, 144)">
+
+        <!-- SEO Metadata -->
+        <meta name="robots" content="index, follow">
+        <meta name="description"
+            content="Moti Multi Plast is a leading manufacturer of high-quality plastic products, including plastic boxes and sari boxes, with locations in Dadra and Surat. Established in 2009, we specialize in innovative packaging solutions like IML containers, tamper-proof containers, and more.">
+        <meta name="og:description"
+            content="Moti Multi Plast is a leading manufacturer of high-quality plastic products, including plastic boxes and sari boxes, with locations in Dadra and Surat. Established in 2009, we specialize in innovative packaging solutions like IML containers, tamper-proof containers, and more." />
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Moti Multi Plast",
+            "url": "https://www.motimultiplast.in/",
+            "logo": "{{ asset('assets/images/logo.png') }}",
+            "description": "Moti Multi Plast: High-quality plastic packaging solutions including plastic boxes, sari boxes, IML containers, and tamper-proof containers. Trusted by industries across India for innovative, durable, and eco-friendly products.",
+            "address": [
+                {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Gala No. 6, Satgurus Industrial Estate, Survey No. 213, 18/1, near Sun Pharma",
+                    "addressLocality": "Dadra",
+                    "addressRegion": "Dadra and Nagar Haveli and Daman and Diu",
+                    "postalCode": "396193",
+                    "addressCountry": "India"
+                },
+                {
+                    "@type": "PostalAddress",
+                    "streetAddress": "208, Vasudev Estate, Varachha Main Rd, nr. Geetanjali",
+                    "addressLocality": "Surat",
+                    "addressRegion": "Gujarat",
+                    "postalCode": "395006",
+                    "addressCountry": "India"
+                }
+            ],
+            "sameAs": [
+                "https://www.facebook.com/motimultiplastics",
+                "https://www.linkedin.com/company/motimultiplastics"
+            ]
+        }
+</script>
+
+</script>
+
+
 @endsection
 
 @section('body-scripts')
@@ -1079,7 +1129,7 @@
         }
 
         .swiper-slide img {
-            display: block;
+            /* display: block; */
             width: 100%;
             height: 100%;
             object-fit: cover;

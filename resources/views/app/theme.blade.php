@@ -44,41 +44,9 @@
                 @endif
             </div>
 
-            <div class="flex justify-between items-center gap-4 sm:mb-6 sm:p-0 p-4 md:mt-12 mt-8">
+            {{-- <div class="flex justify-between items-center gap-4 sm:mb-6 sm:p-0 p-4 md:mt-12 mt-8">
                 <p class="font-semibold md:text-xl text-lg text-gray-700">Products Banner</p>
-                {{-- <button onclick="openProductBannerModal()"
-                    class="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary hover:bg-primary-900">
-                    <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path clip-rule="evenodd" fill-rule="evenodd"
-                            d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
-                    </svg>
-                    Add new banner
-                </button> --}}
             </div>
-            {{-- <div class="sm:p-0 p-4 text-gray-900">
-                <div class="grid lg:grid-cols-4 grid-cols-2 gap-4">
-                    @foreach ($productBanner as $banner)
-                        <div class="aspect-[5/3] cursor-pointer relative">
-                            <div class="absolute right-0 top-0 translate-x-1/2 -translate-y-1/2 z-20 bg-red-500 py-1 px-1.5 rounded-full"
-                                onclick="openDeleteModel('banner', {{ $banner->id }})">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="max-w-3 w-full fill-white"
-                                    viewBox="0 0 384 512">
-                                    <path
-                                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
-                                </svg>
-                            </div>
-                            <img src="{{ Request::root() . '/storage/' . $banner->file }}"
-                                onclick="openProductEditModel({{ $banner->id }}, '{{ Request::root() . '/storage/' . $banner->file }}' , '{{ $banner->link }}')"
-                                class="w-full rounded-md object-cover h-full" alt="box">
-                        </div>
-                    @endforeach
-                </div>
-
-                @if (!count($productBanner))
-                    <p class="text-center font-medium text-gray-600">No Data Found</p>
-                @endif
-            </div> --}}
 
             <div class="grid gap-4 md:grid-cols-2 mt-4 px-4">
                 <div>
@@ -222,9 +190,9 @@
                     @endif
                 </div>
 
-            </div>
+            </div> --}}
 
-            <div class="flex justify-between items-center gap-4 sm:mb-6 sm:p-0 p-4 md:mt-12 mt-8">
+            {{-- <div class="flex justify-between items-center gap-4 sm:mb-6 sm:p-0 p-4 md:mt-12 mt-8">
                 <p class="font-semibold md:text-xl text-lg text-gray-700">Client logo</p>
                 <div class="flex items-center">
                     <form enctype="multipart/form-data" method="post" id="logoForm"
@@ -262,7 +230,7 @@
                         </div>
                     @endforeach
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 

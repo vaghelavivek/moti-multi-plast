@@ -47,7 +47,27 @@
                     </div>
 
                     <p class="text-lg text-gray-800 font-medium">Filters</p>
+                    <div class="py-6">
+                        <p class="text-lg text-gray-600 font-medium uppercase">Shape</p>
+                        <form id="shape-form">
+                            <div class="mt-4 grid gap-y-4 gap-x-2">
 
+                                <div class="flex gap-2 items-center">
+                                    <input type="radio" name="shape" id="shape" value="all" checked>
+                                    <label for="shape" class="text-gray-600 leading-none">All</label>
+                                </div>
+
+                                @foreach ($shapes as $shape)
+                                    <div class="flex gap-2 items-center">
+                                        <input type="radio" name="shape" id="shape{{ $shape['id'] }}"
+                                            value="{{ $shape['id'] }}">
+                                        <label for="shape{{ $shape['id'] }}"
+                                            class="text-gray-600 leading-none">{{ $shape['title'] }}</label>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </form>
+                    </div>
                     <div class="py-6">
                         <p class="text-lg text-gray-600 font-medium uppercase">Category</p>
                         <form id="category-form">
@@ -166,15 +186,26 @@
 @endsection
 
 @section('meta')
+    <!-- Open Graph Meta Tags -->
     <meta name="og:type" content="website" />
-    <meta name="og:title" content="Moti multi plastics - products" />
-    <meta name="description"
-        content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products.">
-    <meta name="og:description"
-        content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products." />
+    <meta name="og:title" content="Explore High-Quality Plastic Products | Moti Multi Plast" />
+    <meta name="description" content="Discover Moti Multi Plast's extensive range of high-quality plastic products, including IML containers, tamper-proof packaging, plastic boxes, sari boxes, and eco-friendly solutions. Ideal for food, dairy, and industrial packaging needs." />
+    <meta name="og:description" content="Discover Moti Multi Plast's extensive range of high-quality plastic products, including IML containers, tamper-proof packaging, plastic boxes, sari boxes, and eco-friendly solutions. Ideal for food, dairy, and industrial packaging needs." />
     <meta name="og:url" content="{{ url()->current() }}" />
     <meta name="og:image" content="{{ asset('assets/images/logo.png') }}" />
-    <meta property="og:site_name" content="Moti Multi plast" />
+    <meta property="og:site_name" content="Moti Multi Plast | Products" />
+
+    <!-- Additional Metadata -->
+    <meta name="keywords" content="Moti Multi Plast products, plastic products, IML containers, tamper-proof packaging, sari boxes, plastic boxes, eco-friendly plastics, custom plastic solutions, food packaging, durable plastics, Moti Plastics, Moti Print N Pack, packaging solutions, plastic manufacturing, plastic packaging for dairy and food" />
+    <meta name="author" content="Moti Multi Plast">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="rgb(156, 44, 144)">
+
+    <!-- SEO Metadata -->
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Explore Moti Multi Plast's wide range of high-quality plastic products, from eco-friendly plastic boxes to IML containers and tamper-proof packaging solutions. Serving the food, dairy, and industrial sectors with innovative packaging solutions." />
+    <meta name="og:description" content="Explore Moti Multi Plast's wide range of high-quality plastic products, from eco-friendly plastic boxes to IML containers and tamper-proof packaging solutions. Serving the food, dairy, and industrial sectors with innovative packaging solutions." />
+
 @endsection
 
 @section('body-scripts')
@@ -182,6 +213,7 @@
         let tBody = document.getElementById('tBody');
         let filterSidbar = document.getElementById('filter-sidbar')
         let categoryForm = document.getElementById('category-form')
+        let shapeForm = document.getElementById('shape-form')
         let sortForm = document.getElementById('sort-form')
         let underlineSelect = document.getElementById('underline_select')
         let prevBtn = document.getElementById('prev-btn');
@@ -220,20 +252,29 @@
         }
 
         categoryForm.addEventListener('change', debounce((e) => {
-            redirectWithQuery(0, e.target.value)
+            let shape=getQueryValue('shape')
+            redirectWithQuery(1, e.target.value,shape)
+            closeSidebar()
+        }))
+        shapeForm.addEventListener('change', debounce((e) => {
+            let category=getQueryValue('category')
+            redirectWithQuery(1,category,e.target.value)
             closeSidebar()
         }))
 
         underlineSelect.addEventListener('change', debounce((e) => {
-            redirectWithQuery(0, getQueryValue('category'), e.target.value)
+            redirectWithQuery(1, getQueryValue('category'),shape=getQueryValue('shape'), e.target.value)
         }))
 
-        const redirectWithQuery = (page = 1, category = 'all', sort = null) => {
+        const redirectWithQuery = (page = 1, category = 'all', shape = 'all',sort = null) => {
 
             const paramObj = {page}
 
             if (category && category != 'all') {
                 paramObj.category = category
+            }
+            if (shape && shape != 'all') {
+                paramObj.shape = shape
             }
 
             if (sort != null) {
@@ -250,20 +291,25 @@
         }
 
         prevBtn.addEventListener('click', () => {
-            redirectWithQuery({{ $products->currentPage() > 0 ? $products->currentPage() - 1 : 1 }}, getQueryValue('category'), getQueryValue('sort'))
+            redirectWithQuery({{ $products->currentPage() > 0 ? $products->currentPage() - 1 : 1 }}, getQueryValue('category'),getQueryValue('shape'), getQueryValue('sort'))
         })
 
         nextBtn.addEventListener('click', () => {
-            redirectWithQuery({{ $products->currentPage() < $products->lastPage() ? $products->currentPage() + 1 : $products->lastPage() }}, getQueryValue('category'), getQueryValue('sort'))
+            redirectWithQuery({{ $products->currentPage() < $products->lastPage() ? $products->currentPage() + 1 : $products->lastPage() }}, getQueryValue('category'), getQueryValue('shape'),getQueryValue('sort'))
         })
 
         document.addEventListener("DOMContentLoaded", function () {
             let categoryId = getQueryValue('category')
+            let shapeId = getQueryValue('shape')
             let sortValue = getQueryValue('sort')
 
-            if (categoryId) {
+            if (categoryId && document.getElementById(`category${categoryId}`)) {
                 let getRedioDom = document.getElementById(`category${categoryId}`)
                 getRedioDom.checked = true
+            }
+            if (shapeId &&  document.getElementById(`shape${shapeId}`)) {
+                let getRedioDomShape = document.getElementById(`shape${shapeId}`)
+                getRedioDomShape.checked = true
             }
 
             if (sortValue) {

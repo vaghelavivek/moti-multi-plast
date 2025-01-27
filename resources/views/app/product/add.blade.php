@@ -63,6 +63,19 @@
                         </div>
                         <div class="bg-white rounded-md p-4 my-4">
                             <div>
+                                <label for="thumbnail_media"
+                                    class="block mb-2 md:text-base text-sm font-medium text-gray-900">Thumbnail  Media</label>
+                                <input id="thumbnail_media" name="thumbnail_media"
+                                    class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 py-2 px-2"
+                                    type="file">
+
+                                @error('thumbnail_media')
+                                    <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-md p-4 my-4">
+                            <div>
                                 <label for="media"
                                     class="block mb-2 md:text-base text-sm font-medium text-gray-900">Media</label>
                                 <input id="media" name="media[]" multiple
@@ -74,8 +87,9 @@
                                 @enderror
                             </div>
                         </div>
+                       
                         <div class="bg-white rounded-md p-4">
-                            <div class="grid grid-cols-2 gap-4 mb-4">
+                            {{-- <div class="grid grid-cols-2 gap-4 mb-4">
                                 <div>
                                     <label for="price"
                                         class="block mb-2 md:text-base text-sm font-medium text-gray-900">Price (per
@@ -104,7 +118,7 @@
                                         <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="grid grid-cols-2 gap-4 mb-4">
                                 <div class="mt-4">
@@ -176,22 +190,42 @@
                                     class="block mb-2 md:text-base text-sm font-medium text-gray-900">Shape <sup
                                         class="text-red-500">*</sup> </label>
                                 <select id="shape" name="shape" value="{{ old('shape') }}"
-                                    class="block py-2 px-2.5 rounded-md w-full text-sm text-gray-500 bg-transparent border border-gray-300 appearance-none bg-gray-50">
-                                    <option selected>Choose a shape</option>
-                                    <option value="Round">Round</option>
-                                    <option value="Oval">Oval</option>
-                                    <option value="Premium Oval">Premium Oval</option>
-                                    <option value="Square Pack">Square Pack</option>
-                                    <option value="Twist Pack">Twist Pack</option>
-                                    <option value="Rectangular Pack">Rectangular Pack</option>
-                                </select>
-
+                                        class="block py-2 px-2.5 rounded-md w-full text-sm text-gray-500 bg-transparent border border-gray-300 appearance-none bg-gray-50">
+                                        <option selected>Choose a shape</option>
+                                        @foreach ($shapes as $shape)
+                                            <option value="{{ $shape['id'] }}" 
+                                                {{ old('shape') == $shape['id'] ? 'selected' : '' }}>
+                                                {{ $shape['title'] }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 @error('shape')
                                     <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                                 @enderror
                             </div>
+                            <div class="mt-6 flex items-center gap-4">
+                                <input type="checkbox" id="is_hotproducts" name="is_hot"
+                                    checked="{{ old('is_hot') == 'on' }}" />
+                                <label for="is_hotproducts"
+                                    class="block md:text-base text-sm font-medium text-gray-900">Hot product</label>
+                            </div>
+                            <div class="mt-3 flex items-center gap-4">
+                                    <input type="checkbox" id="is_reusable" name="is_reusable"
+                                        {{ old('is_reusable', $product->is_reusable ?? 1) == 1 ? 'checked' : '' }} />
+                                    <label for="is_reusable" class="block md:text-base text-sm font-medium text-gray-900">
+                                        It Is Reusable
+                                    </label>
+                            </div>
+                            <div class="mt-3 flex items-center gap-4">
+                                <input type="checkbox" id="is_temper_proof" name="is_temper_proof"
+                                    {{ old('is_temper_proof', $product->is_temper_proof ?? 1) == 1 ? 'checked' : '' }} />
+                                <label for="is_temper_proof" class="block md:text-base text-sm font-medium text-gray-900">
+                                    It Is Temper Proof Evident
+                                </label>
+                            </div>
+                            
                         </div>
-                        <div class="bg-white rounded-md p-4 mt-4">
+                        {{-- <div class="bg-white rounded-md p-4 mt-4">
                             <div>
                                 <label for="category"
                                     class="block mb-2 md:text-base text-sm font-medium text-gray-900">Supply
@@ -220,7 +254,7 @@
                                 <label for="is_hotproducts"
                                     class="block md:text-base text-sm font-medium text-gray-900">Hot product</label>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="bg-white rounded-md p-4 mt-4">
                             <div>
                                 <label for="seo_keyword"

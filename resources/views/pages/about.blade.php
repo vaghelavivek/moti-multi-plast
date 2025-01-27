@@ -90,11 +90,24 @@
 @endsection
 
 @section('meta')
-    <meta name="og:type" content="profile" />
-    <meta name="og:title" content="Moti multi plastics - company profile" />
-    <meta name="description" content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products.">
-    <meta name="og:description" content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products." />
-    <meta name="og:url" content="{{ url()->current() }}" />
-    <meta name="og:image" content="{{ asset('assets/images/logo.png') }}" />
-    <meta property="og:site_name" content="Moti Multi plast" />
+<!-- Open Graph Meta Tags -->
+        <meta name="og:type" content="profile" />
+        <meta name="og:title" content="About Moti Multi Plast | Trusted Plastic Manufacturing Solutions" />
+        <meta name="description" content="Learn about Moti Multi Plast, a leading plastic manufacturing company specializing in IML containers, tamper-proof packaging, and eco-friendly solutions. Established in 2009, we provide innovative packaging for industries including food, dairy, and textiles.">
+        <meta name="og:description" content="Learn about Moti Multi Plast, a leading plastic manufacturing company specializing in IML containers, tamper-proof packaging, and eco-friendly solutions. Established in 2009, we provide innovative packaging for industries including food, dairy, and textiles." />
+        <meta name="og:url" content="{{ url()->current() }}" />
+        <meta name="og:image" content="{{ asset('assets/images/logo.png') }}" />
+        <meta property="og:site_name" content="Moti Multi Plast | About Us" />
+
+        <!-- Additional Metadata -->
+        <meta name="keywords" content="About Moti Multi Plast, company profile, plastic manufacturing, IML containers, tamper-proof packaging, eco-friendly plastics, plastic packaging, Moti Plastics, Moti Print N Pack, plastic manufacturing in Dadra, plastic manufacturing in Surat, custom plastic solutions, food packaging, durable plastics" />
+        <meta name="author" content="Moti Multi Plast">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="rgb(156, 44, 144)">
+
+        <!-- SEO Metadata -->
+        <meta name="robots" content="index, follow">
+        <meta name="description" content="Moti Multi Plast is a trusted plastic manufacturing company offering high-quality packaging solutions since 2009. We specialize in IML containers, tamper-proof packaging, and eco-friendly products, serving industries like food, dairy, and textiles from Dadra and Surat." />
+        <meta name="og:description" content="Moti Multi Plast is a trusted plastic manufacturing company offering high-quality packaging solutions since 2009. We specialize in IML containers, tamper-proof packaging, and eco-friendly products, serving industries like food, dairy, and textiles from Dadra and Surat." />
+
 @endsection

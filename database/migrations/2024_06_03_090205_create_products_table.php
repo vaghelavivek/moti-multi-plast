@@ -16,15 +16,15 @@ return new class extends Migration
             $table->string('title');
             $table->longText('description')->nullable();
             $table->integer('price')->default(0);
-            $table->integer('order_quantity');
+            $table->integer('order_quantity')->nullable();
             $table->string('color')->default('transparent');
             $table->string('material')->default('plastic');
             $table->string('slug');
             $table->integer('category_id');
             $table->string('type')->default('container');
             $table->string('shape');
-            $table->string('supply_ability');
-            $table->integer('delivery_time')->default(7);
+            $table->string('supply_ability')->nullable();
+            $table->integer('delivery_time')->default(7)->nullable();
             $table->boolean('is_hot');
             $table->timestamps();
         });

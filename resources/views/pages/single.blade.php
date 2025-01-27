@@ -74,6 +74,32 @@
                                     class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border-y border-gray-300 capitalize">
                                     {{ $product->shape }}</td>
                             </tr>
+                            <tr>
+                                <td
+                                    class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border-y border-gray-300">
+                                    Shape</td>
+                                <td
+                                    class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border-y border-gray-300 capitalize">
+                                    {{ $product->shape }}</td>
+                            </tr>
+                            @if($product->is_reusable)
+                            <tr >
+                                <td
+                                    class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border-y border-gray-300">
+                                    It Is Reusable</td>
+                                <td
+                                    class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border-y border-gray-300 capitalize">Yes</td>
+                            </tr>
+                            @endif
+                            @if($product->is_temper_proof)
+                            <tr >
+                                <td
+                                    class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border-y border-gray-300">
+                                    It Is Temper Proof Evident</td>
+                                <td
+                                    class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border-y border-gray-300 capitalize">Yes</td>
+                            </tr>
+                            @endif
                         </tbody>
                     </table>
 
@@ -96,7 +122,7 @@
             </div>
         </div>
 
-        <div class="container mx-auto px-4">
+        {{-- <div class="container mx-auto px-4">
             <p class="md:text-3xl text-2xl capitalize text-gray-700 font-semibold mb-8">
                 Product Details</p>
             <p class="md:text-lg text-base uppercase text-gray-700 font-semibold  mb-6">
@@ -104,12 +130,6 @@
 
             <table class="table-fixed w-full border-collapse border border-slate-500">
                 <tbody>
-                    {{-- <tr>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">Price
-                        </td>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border border-gray-300">
-                            ₹{{ $product->price }} per piece</td>
-                    </tr> --}}
                     <tr>
                         <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">Minimum
                             Order Quantity
@@ -186,7 +206,7 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </div> --}}
 
         @if (count($relatedProducts))
             <div class="container mx-auto px-4 md:my-40 my-20">
@@ -310,16 +330,47 @@
 @endsection
 
 @section('meta')
-    <meta name="description" content="{{ $product->seo_description }}">
+    <!-- Open Graph Meta Tags -->
     <meta name="og:type" content="product" />
     <meta name="og:title" content="{{ $product->title }}" />
-    <meta name="og:description" content="{{ $product->og_seo_description }}" />
+    <meta name="description" content="{{ $product->seo_description }} - Available in {{ $product->shape }} shape." />
+    <meta name="og:description" content="{{ $product->og_seo_description }} - Available in {{ $product->shape }} shape." />
     <meta name="og:url" content="{{ url()->current() }}" />
     <meta name="og:image" content="{{ Request::root() . '/storage/' . $product->media }}" />
-    <meta name="product:price:amount" content="{{ $product->price }}" />
-    <meta name="product:price:currency" content="INR" />
-    <meta name="keywords" content="{{ $product->keyword }}">
-    <meta property="og:site_name" content="Moti Multi plast" />
+    <meta property="og:site_name" content="Moti Multi Plast" />
+
+    <!-- Additional Metadata -->
+    <meta name="keywords" content="{{ $product->keyword }}, {{ $product->shape }} plastic container, {{ $product->shape }} packaging, Moti Multi Plast, Moti Plastics, eco-friendly plastics, durable plastics" />
+    <meta name="author" content="Moti Multi Plast">
+    <meta name="theme-color" content="rgb(156, 44, 144)" />
+
+    <!-- SEO Metadata -->
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="{{ $product->seo_description }} - Available in {{ $product->shape }} shape." />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "{{ $product->title }}",
+        "image": "{{ Request::root() . '/storage/' . $product->media }}",
+        "description": "{{ $product->seo_description }} - Available in {{ $product->shape }} shape.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Moti Multi Plast"
+        },
+        "category": "{{ $product->category }}",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Shape",
+                "value": "{{ $product->shape }}"
+            }
+        ]
+    }
+    </script>
+
 @endsection
 
 @section('head-scripts')

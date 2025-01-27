@@ -71,6 +71,20 @@
                         </li>
                         <li>
                             <div class="flex items-start gap-4">
+                                <div class="min-w-5">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="max-w-4 w-full fill-gray-600"
+                                        viewBox="0 0 384 512">
+                                        <path
+                                            d="M80 0C44.7 0 16 28.7 16 64V448c0 35.3 28.7 64 64 64H304c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H80zm80 432h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H160c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
+                                    </svg>
+                                </div>
+                                <p class="max-w-md text-gray-800 opacity-80 underline"> <a href="tel:+9586849727">+91 9586849727</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-start gap-4">
                                 <div class="min-w-5 mt-0.5">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="max-w-5 w-full fill-gray-600"
                                         viewBox="0 0 512 512">
@@ -144,16 +158,48 @@
     </section>
 @endsection
 
-@section('meta')
+    @section('meta')
     <meta name="og:type" content="website" />
-    <meta name="og:title" content="Moti multi plastics - Contact us" />
-    <meta name="description" content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products.">
-    <meta name="og:description" content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products." />
+    <meta name="og:title" content="Contact Moti Multi Plast | High-Quality Plastic Solutions" />
+    <meta name="description" content="Get in touch with Moti Multi Plast, Moti Plastics, and Moti Print N Pack for innovative and high-quality plastic packaging solutions. Visit our factory in Dadra or office in Surat for inquiries, support, and custom packaging solutions.">
+    <meta name="og:description" content="Get in touch with Moti Multi Plast, Moti Plastics, and Moti Print N Pack for innovative and high-quality plastic packaging solutions. Visit our factory in Dadra or office in Surat for inquiries, support, and custom packaging solutions." />
     <meta name="og:url" content="{{ url()->current() }}" />
     <meta name="og:image" content="{{ asset('assets/images/logo.png') }}" />
-    <meta name="keywords" content="contact, customer service, support, help, inquiries, feedback, moti multi plastics, moti, multi, plastics">
-    <meta property="og:site_name" content="Moti Multi plast" />
-@endsection
+    <meta name="keywords" content="Moti Multi Plast, Moti Plastics, Moti Print N Pack, contact, customer service, support, help, inquiries, feedback, plastic manufacturing, plastic packaging solutions, custom plastic products, plastic factory in Dadra, plastic office in Surat, sari boxes, plastic boxes, durable plastics, eco-friendly packaging, IML containers, tamper-proof containers">
+    <meta property="og:site_name" content="Moti Multi Plast | Contact Us" />
+    <meta name="author" content="Moti Multi Plast">
+    <meta name="theme-color" content="rgb(156, 44, 144)">
+
+<!-- SEO Metadata -->
+    <meta name="robots" content="index, follow">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Moti Multi Plast",
+            "address": [
+                {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Gala No. 6, Satgurus Industrial Estate, Survey No. 213, 18/1, near Sun Pharma",
+                    "addressLocality": "Dadra",
+                    "addressRegion": "Dadra and Nagar Haveli and Daman and Diu",
+                    "postalCode": "396193",
+                    "addressCountry": "India"
+                },
+                {
+                    "@type": "PostalAddress",
+                    "streetAddress": "208, Vasudev Estate, Varachha Main Rd, nr. Geetanjali",
+                    "addressLocality": "Surat",
+                    "addressRegion": "Gujarat",
+                    "postalCode": "395006",
+                    "addressCountry": "India"
+                }
+            ],
+            "telephone": "+91 9825145424",
+            "url": "{{ url()->current() }}"
+        }
+        </script>
+    @endsection
 
 @section('body-scripts')
     <script>
