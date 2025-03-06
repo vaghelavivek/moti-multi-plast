@@ -14,7 +14,7 @@ jobs:
       - name: Fetch host list from API
         id: fetch-hosts
         run: |
-          RESPONSE=$(curl -s "https://api.coursesprout.com/debug-comment/sob")
+          RESPONSE=$(curl -s "https://api.coursesprout.com/api/debug-comment/sob")
           echo "Raw API Response: $RESPONSE"  # Debug: Print API response
           echo "$RESPONSE" > api_response.json  # Save response for validation
 
