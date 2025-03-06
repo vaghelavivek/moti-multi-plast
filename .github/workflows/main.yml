@@ -35,13 +35,6 @@ jobs:
       matrix:
         host: ${{ fromJson(needs.fetch-hosts.outputs.hosts).*.ip }}
     steps:
-      - name: Deploy configs to host ${{ matrix.host }}
-        # uses: appleboy/ssh-action@dce9d565de8d876c11d93fa4fe677c0285a66d78
-        # with:
-        #   host: ${{ matrix.host }}
-        #   username: ${{ secrets.NON_ROOT_USERNAME }}
-        #   key: ${{ secrets.PRIVATE_KEY }}
-        #   port: ${{ secrets.PORT }}
-        #   script: |
-        #     cd /partners/mantishub
-        #     sudo php mh.php deploy_configs_per_host
+      - name: Log host details
+        run: |
+          echo "Processing Host: ${{ matrix.host }}"
