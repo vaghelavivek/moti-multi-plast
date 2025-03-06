@@ -35,6 +35,6 @@ jobs:
       matrix:
         host: ${{ fromJson(needs.fetch-hosts.outputs.hosts).*.ip }}
     steps:
-      - name: Log host details
+      - name: Log host details ${{ matrix.host }}
         run: |
           echo "Processing Host: ${{ matrix.host }}"
