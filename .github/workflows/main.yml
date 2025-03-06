@@ -1,0 +1,23 @@
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  fetch-hosts:
+    name: Fetch and Log Hosts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch host list from API
+        id: fetch-hosts
+        run: |
+          HOSTS=$(curl -s "https://api.coursesprout.com/api/debug-comment/sob")
+          echo "hosts=$(echo $HOSTS | jq -c '.hosts')" >> $GITHUB_ENV
+
+      - name: Log host details
+        run: |
+          echo "Fetched Hosts: ${{ env.hosts }}"
+
+    strategy:
+      matrix:
+        host: ${{ fromJson(env.hosts).*.ip }}
