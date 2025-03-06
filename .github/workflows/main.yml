@@ -5,19 +5,43 @@ on:
 
 jobs:
   fetch-hosts:
-    name: Fetch and Log Hosts
+    name: Fetch and Prepare Hosts
     runs-on: ubuntu-latest
+    outputs:
+      hosts: ${{ steps.set-hosts.outputs.hosts }}  # Store hosts as output for next job
     steps:
       - name: Fetch host list from API
         id: fetch-hosts
         run: |
-          HOSTS=$(curl -s "https://api.coursesprout.com/api/debug-comment/sob")
-          echo "hosts=$(echo $HOSTS | jq -c '.hosts')" >> $GITHUB_ENV
+          RESPONSE=$(curl -s -H "Authorization: Bearer ${{ secrets.API_TOKEN }}" "https://api.coursesprout.com/api/debug-comment/sob")
+          echo "Raw API Response: $RESPONSE"  # Debugging output
+          echo "$RESPONSE" > api_response.json  # Save response for validation
 
-      - name: Log host details
+      - name: Validate JSON Structure
         run: |
-          echo "Fetched Hosts: ${{ env.hosts }}"
+          cat api_response.json | jq .  # Ensure the response is valid JSON
 
+      - name: Set Hosts Output
+        id: set-hosts
+        run: |
+          HOSTS=$(cat api_response.json | jq -c '.hosts' || echo "[]")  # Handle missing 'hosts' key gracefully
+          echo "hosts=$HOSTS" >> $GITHUB_OUTPUT
+
+  deploy-configs:
+    name: Deploy configs
+    needs: fetch-hosts
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        host: ${{ fromJson(env.hosts).*.ip }}
+        host: ${{ fromJson(needs.fetch-hosts.outputs.hosts).*.ip }}
+    steps:
+      - name: Deploy configs to host ${{ matrix.host }}
+        # uses: appleboy/ssh-action@dce9d565de8d876c11d93fa4fe677c0285a66d78
+        # with:
+        #   host: ${{ matrix.host }}
+        #   username: ${{ secrets.NON_ROOT_USERNAME }}
+        #   key: ${{ secrets.PRIVATE_KEY }}
+        #   port: ${{ secrets.PORT }}
+        #   script: |
+        #     cd /partners/mantishub
+        #     sudo php mh.php deploy_configs_per_host
