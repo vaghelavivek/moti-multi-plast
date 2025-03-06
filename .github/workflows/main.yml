@@ -1,7 +1,7 @@
 on: 
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:  # Allows manual execution
 
 jobs:
@@ -14,19 +14,12 @@ jobs:
       - name: Fetch host list from API
         id: fetch-hosts
         run: |
-          RESPONSE=$(curl -s "https://api.coursesprout.com/api/debug-comment/sob")
-          echo "Raw API Response: $RESPONSE"  # Debug: Print API response
-          echo "$RESPONSE" > api_response.json  # Save response for validation
-
-      - name: Validate JSON Structure
-        run: |
-          cat api_response.json | jq .  # Check if the response is valid JSON
+          curl -s "https://api.coursesprout.com/api/debug-comment/sob" | jq -c '.hosts' > hosts.json
 
       - name: Set Hosts Output
         id: set-hosts
         run: |
-          HOSTS=$(cat api_response.json | jq -c '.hosts' || echo "[]")  # Avoid errors if hosts key is missing
-          echo "hosts=$HOSTS" >> $GITHUB_OUTPUT
+          echo "hosts=$(cat hosts.json)" >> $GITHUB_OUTPUT
 
   log-hosts:
     name: Log Hosts
