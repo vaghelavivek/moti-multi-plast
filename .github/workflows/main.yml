@@ -1,40 +1,30 @@
-on: 
-  push:
-    branches:
-      - main
+name: Create Customer Zip
+
+on:
+  workflow_dispatch: # Runs only when manually triggered
 
 jobs:
-  fetch-hosts:
-    name: Fetch and Prepare Hosts
+  create-zip:
+    name: Archive Customer Directory
     runs-on: ubuntu-latest
-    outputs:
-      hosts: ${{ steps.set-hosts.outputs.hosts }}  # Store hosts as output for next job
     steps:
-      - name: Fetch host list from API
-        id: fetch-hosts
-        run: |
-          RESPONSE=$(curl -s -H "Authorization: Bearer ${{ secrets.API_TOKEN }}" "https://api.coursesprout.com/api/debug-comment/sob")
-          echo "Raw API Response: $RESPONSE"  # Debugging output
-          echo "$RESPONSE" > api_response.json  # Save response for validation
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Validate JSON Structure
+      - name: Generate timestamped archive
+        id: timestamp
         run: |
-          cat api_response.json | jq .  # Ensure the response is valid JSON
+          TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+          echo "timestamp=$TIMESTAMP" >> $GITHUB_ENV
 
-      - name: Set Hosts Output
-        id: set-hosts
+      - name: Create ZIP of customer directory
         run: |
-          HOSTS=$(cat api_response.json | jq -c '.hosts' || echo "[]")  # Handle missing 'hosts' key gracefully
-          echo "hosts=$HOSTS" >> $GITHUB_OUTPUT
+          ZIP_NAME="customer_configs_${{ env.timestamp }}.zip"
+          zip -r "$ZIP_NAME" app/
+          echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
 
-  deploy-configs:
-    name: Deploy configs
-    needs: fetch-hosts
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        host: ${{ fromJson(needs.fetch-hosts.outputs.hosts).*.ip }}
-    steps:
-      - name: Log host details ${{ matrix.host }}
-        run: |
-          echo "Processing Host: ${{ matrix.host }}"
+      - name: Upload ZIP as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: customer-configs
+          path: ${{ env.ZIP_NAME }}
