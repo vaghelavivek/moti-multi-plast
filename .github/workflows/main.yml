@@ -1,0 +1,30 @@
+name: Create Customer Zip
+
+on:
+  workflow_dispatch: # Runs only when manually triggered
+
+jobs:
+  create-zip:
+    name: Archive Customer Directory
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate timestamped archive
+        id: timestamp
+        run: |
+          TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+          echo "timestamp=$TIMESTAMP" >> $GITHUB_ENV
+
+      - name: Create ZIP of customer directory
+        run: |
+          ZIP_NAME="customer_configs_${{ env.timestamp }}.zip"
+          zip -r "$ZIP_NAME" app/*
+          echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
+
+      - name: Upload ZIP as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: customer-configs
+          path: ${{ env.ZIP_NAME }}
