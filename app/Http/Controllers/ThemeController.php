@@ -35,10 +35,16 @@ class ThemeController extends Controller
         }
 
         if ($request->hasFile('file_input')) {
-            $avatar_url = Storage::disk('public')->putFile('banner', request()->file('file_input'), 'public');;
+            $avatar_url = Storage::disk('public')->putFile('banner', request()->file('file_input'), 'public');
             $banner->file = $avatar_url;
         }else {
             $banner->file = $request->file_input;
+        }
+        if ($request->hasFile('file_input_mobile')) {
+            $avatar_url = Storage::disk('public')->putFile('banner', request()->file('file_input_mobile'), 'public');
+            $banner->mobile_file = $avatar_url;
+        }else {
+            $banner->mobile_file = $request->file_input_mobile;
         }
 
         if ($request->link) {
@@ -62,7 +68,7 @@ class ThemeController extends Controller
         $banner = Banner::find($request->id);
 
         if ($banner->file) {
-            unlink(storage_path('app/public/' .$banner->file));
+              unlink(storage_path('app/public/' .$banner->file));
         }
 
         if ($banner && $banner->delete()) {
@@ -96,7 +102,7 @@ class ThemeController extends Controller
         $logo = Logo::find($request->id);
 
         if ($logo->file) {
-            unlink(storage_path('app/public/' .$logo->file));
+                unlink(storage_path('app/public/' .$logo->file));
         }
 
         if ($logo && $logo->delete()) {

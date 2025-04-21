@@ -9,45 +9,76 @@
         <div class="container mx-auto px-4 md:mb-20 md:mt-12 mb-16 mt-4">
             <div class="grid lg:grid-cols-2 gap-8">
                 <div class="lg:h-full lg:min-h-[560px]">
-                    <div class="lg:max-h-[450px] lg:h-full">
+                    @php
+                        $firstImage = $product->images->first();
+                    @endphp
 
-                        <div class="rounded-md relative w-fit mx-auto md:min-w-[550px] cursor-zoom-in" onmouseover="renderResult()" onmouseout="clearResult()">
-                            <img src="{{ Request::root() . '/storage/' . $product->media }}" id="main-product-image"
-                                class="mx-auto max-h-[446px] object-contain w-full" alt="products">
-                        </div>
-                    </div>
-                    <div class="flex overflow-x-auto justify-center items-center mt-8 gap-2">
-                        @foreach ($product->images as $image)
-                            <div class="md:min-w-[80px] md:max-w-[80px] min-w-[60px] max-w-[60px] w-full aspect-square rounded-md object-contain border cursor-pointer"
-                                onclick="setMainImage('{{ Request::root() . '/storage/' . $image->link }}')">
-                                <img src="{{ Request::root() . '/storage/' . $image->link }}"
-                                    class="mx-auto w-full h-full object-contain" alt="products">
+                    @if ($firstImage)
+                        <div class="lg:max-h-[450px] lg:h-full">
+                            <div class="rounded-md relative w-fit mx-auto md:min-w-[550px] cursor-zoom-in" 
+                                onmouseover="renderResult()" onmouseout="clearResult()">
+                                <img 
+                                    src="{{ Request::root() . '/storage/' . $firstImage->link }}" 
+                                    id="main-product-image"
+                                    class="mx-auto max-h-[446px] object-contain w-full" 
+                                    alt="products"
+                                >
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+
+                        <div class="flex overflow-x-auto justify-center items-center mt-8 gap-2">
+                            @foreach ($product->images as $image)
+                                <div class="md:min-w-[80px] md:max-w-[80px] min-w-[60px] max-w-[60px] w-full aspect-square rounded-md object-contain border cursor-pointer"
+                                    onclick="setMainImage('{{ Request::root() . '/storage/' . $image->link }}')">
+                                    <img src="{{ Request::root() . '/storage/' . $image->link }}"
+                                        class="mx-auto w-full h-full object-contain" alt="products">
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        {{-- Fallback in case there are no additional images --}}
+                        <div class="lg:max-h-[450px] lg:h-full">
+                            <div class="rounded-md relative w-fit mx-auto md:min-w-[550px] cursor-zoom-in" 
+                                onmouseover="renderResult()" onmouseout="clearResult()">
+                                <img 
+                                    src="{{ Request::root() . '/storage/' . $product->media }}" 
+                                    id="main-product-image"
+                                    class="mx-auto max-h-[446px] object-contain w-full" 
+                                    alt="products"
+                                >
+                            </div>
+                        </div>
+                    @endif
+
                 </div>
                 <div id="result-div" class="hidden"></div>
                 <div class="flex flex-col" id="product-info-div">
                     <h1 class="md:text-3xl text-2xl font-semibold">{{ $product->title }}</h1>
                     <div class="flex gap-6 mt-2">
-                        <p class="font-medium md:text-base text-sm">{{ $product->type }}</p>
+                        <!--<p class="font-medium md:text-base text-sm">{{ $product->type }}</p>-->
                         {{-- <button class="py-1 px-2 bg-primary text-white sm:text-sm text-[12px] rounded-md">Get a price per
                             quota</button> --}}
                     </div>
 
-                    <div class="my-4 text-gray-600 md:text-base text-sm">{!! $product->description !!}</div>
+                    <!--<div class="my-4 text-gray-600 md:text-base text-sm">{!! $product->description !!}</div>-->
+                    <div class="ql-snow">
+                      <div class="ql-editor preview-editor-product">
+                        {!! $product->description !!}
+                      </div>
+                    </div>
 
                     <p class="mt-4 mb-4 font-medium text-lg text-gray-600">Product Details :</p>
                     <table class="table-fixed w-full border-collapse mb-4">
                         <tbody>
-                            <tr>
-                                <td
-                                    class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border-y border-gray-300">
-                                    Type</td>
-                                <td
-                                    class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border-y border-gray-300 capitalize">
-                                    {{ $product->type }}</td>
-                            </tr>
+                            <!--<tr>-->
+                            <!--    <td-->
+                            <!--        class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border-y border-gray-300">-->
+                            <!--        Type</td>-->
+                            <!--    <td-->
+                            <!--        class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border-y border-gray-300 capitalize">-->
+                            <!--        {{ $product->type }}</td>-->
+                            <!--</tr>-->
+                            @if($product->is_material)
                             <tr>
                                 <td
                                     class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border-y border-gray-300">
@@ -57,6 +88,7 @@
                                     class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border-y border-gray-300 capitalize">
                                     {{ $product->material }}</td>
                             </tr>
+                            @endif
                             <tr>
                                 <td
                                     class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border-y border-gray-300">
@@ -66,6 +98,7 @@
                                     {{ $product->color }}
                                 </td>
                             </tr>
+                            @if($product->shape != 'none')
                             <tr>
                                 <td
                                     class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border-y border-gray-300">
@@ -74,6 +107,34 @@
                                     class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border-y border-gray-300 capitalize">
                                     {{ $product->shape }}</td>
                             </tr>
+                            @endif
+                            
+                            <!--<tr>-->
+                            <!--    <td-->
+                            <!--        class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border-y border-gray-300">-->
+                            <!--        Shape</td>-->
+                            <!--    <td-->
+                            <!--        class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border-y border-gray-300 capitalize">-->
+                            <!--        {{ $product->shape }}</td>-->
+                            <!--</tr>-->
+                            @if($product->is_reusable)
+                            <tr >
+                                <td
+                                    class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border-y border-gray-300">
+                                    It Is Reusable</td>
+                                <td
+                                    class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border-y border-gray-300 capitalize">Yes</td>
+                            </tr>
+                            @endif
+                            @if($product->is_temper_proof)
+                            <tr >
+                                <td
+                                    class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border-y border-gray-300">
+                                    It Is Temper Proof Evident</td>
+                                <td
+                                    class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border-y border-gray-300 capitalize">Yes</td>
+                            </tr>
+                            @endif
                         </tbody>
                     </table>
 
@@ -96,7 +157,7 @@
             </div>
         </div>
 
-        <div class="container mx-auto px-4">
+        {{-- <div class="container mx-auto px-4">
             <p class="md:text-3xl text-2xl capitalize text-gray-700 font-semibold mb-8">
                 Product Details</p>
             <p class="md:text-lg text-base uppercase text-gray-700 font-semibold  mb-6">
@@ -104,12 +165,6 @@
 
             <table class="table-fixed w-full border-collapse border border-slate-500">
                 <tbody>
-                    {{-- <tr>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">Price
-                        </td>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border border-gray-300">
-                            ₹{{ $product->price }} per piece</td>
-                    </tr> --}}
                     <tr>
                         <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">Minimum
                             Order Quantity
@@ -186,7 +241,7 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </div> --}}
 
         @if (count($relatedProducts))
             <div class="container mx-auto px-4 md:my-40 my-20">
@@ -310,19 +365,51 @@
 @endsection
 
 @section('meta')
-    <meta name="description" content="{{ $product->seo_description }}">
+    <!-- Open Graph Meta Tags -->
     <meta name="og:type" content="product" />
     <meta name="og:title" content="{{ $product->title }}" />
-    <meta name="og:description" content="{{ $product->og_seo_description }}" />
+    <meta name="description" content="{{ $product->seo_description }} - Available in {{ $product->shape }} shape." />
+    <meta name="og:description" content="{{ $product->og_seo_description }} - Available in {{ $product->shape }} shape." />
     <meta name="og:url" content="{{ url()->current() }}" />
     <meta name="og:image" content="{{ Request::root() . '/storage/' . $product->media }}" />
-    <meta name="product:price:amount" content="{{ $product->price }}" />
-    <meta name="product:price:currency" content="INR" />
-    <meta name="keywords" content="{{ $product->keyword }}">
-    <meta property="og:site_name" content="Moti Multi plast" />
+    <meta property="og:site_name" content="Moti Multi Plast" />
+
+    <!-- Additional Metadata -->
+    <meta name="keywords" content="{{ $product->keyword }}, {{ $product->shape }} plastic container, {{ $product->shape }} packaging, Moti Multi Plast, Moti Plastics, eco-friendly plastics, durable plastics" />
+    <meta name="author" content="Moti Multi Plast">
+    <meta name="theme-color" content="rgb(156, 44, 144)" />
+
+    <!-- SEO Metadata -->
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="{{ $product->seo_description }} - Available in {{ $product->shape }} shape." />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "{{ $product->title }}",
+        "image": "{{ Request::root() . '/storage/' . $product->media }}",
+        "description": "{{ $product->seo_description }} - Available in {{ $product->shape }} shape.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Moti Multi Plast"
+        },
+        "category": "{{ $product->category }}",
+        "additionalProperty": [
+            {
+                "@type": "PropertyValue",
+                "name": "Shape",
+                "value": "{{ $product->shape }}"
+            }
+        ]
+    }
+    </script>
+
 @endsection
 
 @section('head-scripts')
+<script src="https://cdn.tiny.cloud/1/ngl62h8nzdccd186af501iipxrehh1prkzzmzwwvq2nzp7fq/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 @endsection
 
 @section('body-scripts')
@@ -465,18 +552,18 @@
         // )
 
         const clearResult = () => {
-            resultDiv.classList.add('hidden')
-            productInfoDiv.classList.remove('hidden')
+            // resultDiv.classList.add('hidden')
+            // productInfoDiv.classList.remove('hidden')
 
         }
 
         const renderResult = () => {
 
-            if (window.innerWidth >= 1024) {
-                resultDiv.classList.remove('hidden')
-                productInfoDiv.classList.add('hidden')
-                imageZoom('main-product-image', 'result-div')
-            }
+            // if (window.innerWidth >= 1024) {
+            //     resultDiv.classList.remove('hidden')
+            //     productInfoDiv.classList.add('hidden')
+            //     imageZoom('main-product-image', 'result-div')
+            // }
 
         }
 
@@ -497,7 +584,7 @@
                 `Thank you.`
             );
 
-            window.open(`https://wa.me/9825145424?text=${waText}&file={{ Request::root() . '/storage/' . $product->media }}`);
+            window.open(`https://wa.me/9586849727?text=${waText}&file={{ Request::root() . '/storage/' . $product->media }}`);
         };
     </script>
 @endsection

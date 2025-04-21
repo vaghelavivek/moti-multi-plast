@@ -50,7 +50,7 @@
                                             d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
                                     </svg>
                                 </div>
-                                <p class="max-w-md text-gray-800 opacity-80">Survey No. 21318/1, Gala No. 6, Satgurus
+                                <p class="max-w-md text-gray-800 opacity-80">Survey No. 21318/1, Gala No. 3,4,5,6, Satgurus
                                     Industrial Estate, Dadra, Silvassa-396193, Dadra and Nagar Haveli and Daman and Diu,
                                     India</p>
                             </div>
@@ -71,6 +71,20 @@
                         </li>
                         <li>
                             <div class="flex items-start gap-4">
+                                <div class="min-w-5">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="max-w-4 w-full fill-gray-600"
+                                        viewBox="0 0 384 512">
+                                        <path
+                                            d="M80 0C44.7 0 16 28.7 16 64V448c0 35.3 28.7 64 64 64H304c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H80zm80 432h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H160c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
+                                    </svg>
+                                </div>
+                                <p class="max-w-md text-gray-800 opacity-80 underline"> <a href="tel:+9586849727">+91 9586849727</a>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex items-start gap-4">
                                 <div class="min-w-5 mt-0.5">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="max-w-5 w-full fill-gray-600"
                                         viewBox="0 0 512 512">
@@ -79,7 +93,7 @@
                                     </svg>
                                 </div>
                                 <p class="max-w-md text-gray-800 opacity-80 underline"> <a
-                                        href="mailto:motimultiplast@gmail.com">motimultiplast@gmail.com</a></p>
+                                        href="mailto:motiprintnpack@gmail.com">motiprintnpack@gmail.com</a></p>
                             </div>
                         </li>
                     </ul>
@@ -133,26 +147,59 @@
             </div>
 
             <div class="md:mt-20 mt-12">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d929.7513476726241!2d72.86734445371843!3d21.231634828282402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f08b0688967%3A0x646017ca8459cf3!2sEnrich%20Salon!5e0!3m2!1sen!2sin!4v1716536455736!5m2!1sen!2sin"
-                    class="md:aspect-[3/1] aspect-square w-full rounded-3xl" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d929.5006780088008!2d72.9598658!3d20.3325558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04efc51f6aaab%3A0xe4d7a63032a51971!2sMoti%20Multi%20Plast!5e0!3m2!1sen!2sin!4v1716536455736!5m2!1sen!2sin"
+                    class="md:aspect-[3/1] aspect-square w-full rounded-3xl mt-10" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
 
     </section>
 @endsection
 
-@section('meta')
+    @section('meta')
     <meta name="og:type" content="website" />
-    <meta name="og:title" content="Moti multi plastics - Contact us" />
-    <meta name="description" content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products.">
-    <meta name="og:description" content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products." />
+    <meta name="og:title" content="Contact Moti Multi Plast | High-Quality Plastic Solutions" />
+    <meta name="description" content="Get in touch with Moti Multi Plast, Moti Plastics, and Moti Print N Pack for innovative and high-quality plastic packaging solutions. Visit our factory in Dadra or office in Surat for inquiries, support, and custom packaging solutions.">
+    <meta name="og:description" content="Get in touch with Moti Multi Plast, Moti Plastics, and Moti Print N Pack for innovative and high-quality plastic packaging solutions. Visit our factory in Dadra or office in Surat for inquiries, support, and custom packaging solutions." />
     <meta name="og:url" content="{{ url()->current() }}" />
     <meta name="og:image" content="{{ asset('assets/images/logo.png') }}" />
-    <meta name="keywords" content="contact, customer service, support, help, inquiries, feedback, moti multi plastics, moti, multi, plastics">
-    <meta property="og:site_name" content="Moti Multi plast" />
-@endsection
+    <meta name="keywords" content="Moti Multi Plast, Moti Plastics, Moti Print N Pack, contact, customer service, support, help, inquiries, feedback, plastic manufacturing, plastic packaging solutions, custom plastic products, plastic factory in Dadra, plastic office in Surat, sari boxes, plastic boxes, durable plastics, eco-friendly packaging, IML containers, tamper-proof containers">
+    <meta property="og:site_name" content="Moti Multi Plast | Contact Us" />
+    <meta name="author" content="Moti Multi Plast">
+    <meta name="theme-color" content="rgb(156, 44, 144)">
+
+<!-- SEO Metadata -->
+    <meta name="robots" content="index, follow">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Moti Multi Plast",
+            "address": [
+                {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Gala No. 6, Satgurus Industrial Estate, Survey No. 213, 18/1, near Sun Pharma",
+                    "addressLocality": "Dadra",
+                    "addressRegion": "Dadra and Nagar Haveli and Daman and Diu",
+                    "postalCode": "396193",
+                    "addressCountry": "India"
+                },
+                {
+                    "@type": "PostalAddress",
+                    "streetAddress": "208, Vasudev Estate, Varachha Main Rd, nr. Geetanjali",
+                    "addressLocality": "Surat",
+                    "addressRegion": "Gujarat",
+                    "postalCode": "395006",
+                    "addressCountry": "India"
+                }
+            ],
+            "telephone": "+919825145424",
+            "url": "{{ url()->current() }}"
+        }
+        </script>
+    @endsection
 
 @section('body-scripts')
     <script>
@@ -165,7 +212,7 @@
             if (e.target[0].value && e.target[1].value) {
                 validationText.classList.add('hidden')
                 window.open(
-                    `https://wa.me/9825145424?text=Number : ${e.target[0].value}, Message : ${e.target[1].value}`
+                    `https://wa.me/9586849727?text=Number : ${e.target[0].value}, Message : ${e.target[1].value}`
                     );
             }else {
                 validationText.classList.remove('hidden')

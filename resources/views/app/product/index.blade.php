@@ -64,11 +64,11 @@
                                         <tr>
                                             <th scope="col" class="px-4 py-3">Product</th>
                                             <th scope="col" class="px-4 py-3">Category</th>
-                                            <th scope="col" class="px-4 py-3">Stock</th>
-                                            <th scope="col" class="px-4 py-3">Type</th>
+                                            <th scope="col" class="px-4 py-3">Shape</th>
+                                            {{-- <th scope="col" class="px-4 py-3">Type</th> --}}
                                             <th scope="col" class="px-4 py-3">Material</th>
                                             <th scope="col" class="px-4 py-3">Color </th>
-                                            <th scope="col" class="px-4 py-3">Delivery Time</th>
+                                            {{-- <th scope="col" class="px-4 py-3">Delivery Time</th> --}}
                                             {{-- <th scope="col" class="px-4 py-3">Price</th> --}}
                                             <th scope="col" class="px-4 py-3">Action</th>
                                         </tr>
@@ -179,7 +179,7 @@
         };
     }
 
-    const coreTableRow = (imgHtml, name, category, stock, type, material, color, delivery_time, price, id) => {
+    const coreTableRow = (imgHtml, name, category, shape, type, material, color, delivery_time, price, id) => {
         return `<tr class="border-b  hover:bg-gray-100 ">
                     <th scope="row"
                         class="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap truncate">
@@ -190,23 +190,14 @@
                         <span
                             class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded ">${category}</span>
                     </td>
-                    <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap ">
-                        <div class="flex items-center">
-                            ${stock} Items
-                        </div>
+                    <td class="px-4 py-2 whitespace-nowrap">
+                        <span
+                            class="bg-green-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded text-capitalize">${shape}</span>
                     </td>
-                    <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap ">
-                        ${type}</td>
                     <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap ">
                         ${material}</td>
                     <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap ">
                         ${color}</td>
-
-                    <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap ">
-                        <div class="flex items-center">
-                            ${delivery_time} Days
-                        </div>
-                    </td>
                     <td
                         class="px-4 py-2 font-medium text-primary underline cursor-pointer whitespace-nowrap ">
                         <a href="{{ Request::root() }}/app/product/edit/${id}" >Details</a>
@@ -224,7 +215,7 @@
                     '<img src="https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg" alt="img" class="w-auto h-8 mr-3">',
                     row.title,
                     row.category && row.category.title ? row.category.title : '-',
-                    row.order_quantity,
+                    row.shape,
                     row.type,
                     row.material ? row.material : '-',
                     row.color ? row.color : '-',

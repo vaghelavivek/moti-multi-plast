@@ -16,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
     {{-- aos js --}}
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -24,6 +25,16 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @yield('head-scripts')
     @yield('style')
+    <style>
+        .ql-editor {
+            font-family: Outfit,sans-serif !important;
+          }
+          .preview-editor-product{
+            white-space: normal;
+            padding: 0px;
+          }
+    </style>
+    
 </head>
 
 {{-- <body class="bg-slate-50 bg-[length:100%_100%] bg-no-repeat bg-fixed" style="background-image: url('{{ asset('assets/images/bg.jpeg') }}');"> --}}

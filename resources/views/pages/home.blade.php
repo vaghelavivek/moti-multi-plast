@@ -9,20 +9,18 @@
         <div class="max-w-[1920px] mx-auto">
 
             {{-- hero section --}}
-            <div class="md:px-4" >
-                <div class="w-full md:aspect-[5/2] aspect-square overflow-hidden max-w-[1780px] md:rounded-2xl mx-auto md:my-8 mb-4">
-                    <div class="swiper mySwiper relative">
+            <div class="md:px-4">
+                <div class="w-full md:aspect-[4.5/2] aspect-square overflow-hidden max-w-[1780px] md:rounded-2xl mx-auto md:my-2 mb-4">
+                    <div class="mySwiper relative h-full">
                         <div class="swiper-wrapper">
-                            {{-- <img src="https://www.rollick.co.in/assets/front-end/png/slider/2.webp" alt="box">
-                                <img src="https://www.rollick.co.in/assets/front-end/png/slider/banner-5.webp" alt="box">
-                                <img src="https://www.rollick.co.in/assets/front-end/png/slider/3.webp" alt="box"> --}}
                             @foreach ($heroBanner as $banner)
                                 <div class="swiper-slide">
-                                    <a href="{{ $banner->link }}" class="md:h-auto h-full" target="_blank">
-                                        <img src="{{ asset('storage/' . $banner->file) }}" alt="box">
+                                    <a href="{{ $banner->link }}" class="md:h-auto h-full w-full" target="_blank">
+                                        <img src="{{ asset('storage/' . $banner->file) }}" class="h-full w-full object-cover md:block hidden" alt="box">
+                                        <img src="{{ asset('storage/' . $banner->mobile_file) }}" class="h-full w-full object-cover md:hidden block" alt="box">
                                     </a>
-                                </div>
-                            @endforeach
+                                    </div>
+                                @endforeach
                         </div>
                         <div class="swiper-button-next invisible" id="heroSlidePrevBtn"></div>
                         <div class="swiper-button-prev invisible" id="heroSlideNextBtn"></div>
@@ -63,78 +61,50 @@
                         <div class="w-full grid gap-4 xl:grid-cols-4 sm:grid-cols-2">
                             <div class="p-4 shadow-lg rounded-lg">
                                 <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary"
-                                        viewBox="0 0 448 512">
-                                        <path
-                                            d="M160 80c0-26.5 21.5-48 48-48h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V80zM0 272c0-26.5 21.5-48 48-48H80c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V272zM368 96h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H368c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48z" />
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg"  class="md:max-w-8 max-w-6 w-full fill-primary" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64 0 74.7 0 88c0 92.6 33.5 157 78.5 200.7c44.3 43.1 98.3 64.8 138.1 75.8c23.4 6.5 39.4 26 39.4 45.6c0 20.9-17 37.9-37.9 37.9L192 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l192 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-26.1 0C337 448 320 431 320 410.1c0-19.6 15.9-39.2 39.4-45.6c39.9-11 93.9-32.7 138.2-75.8C542.5 245 576 180.6 576 88c0-13.3-10.7-24-24-24L446.4 64c.3-5.2 .5-10.4 .7-15.8C448.1 21.8 426.5 0 400 0zM48.9 112l84.4 0c9.1 90.1 29.2 150.3 51.9 190.6c-24.9-11-50.8-26.5-73.2-48.3c-32-31.1-58-76-63-142.3zM464.1 254.3c-22.4 21.8-48.3 37.3-73.2 48.3c22.7-40.3 42.8-100.5 51.9-190.6l84.4 0c-5.1 66.3-31.1 111.2-63 142.3z"/></svg>
                                 </div>
-                                <p class="mt-6 mb-2 font-semibold sm:text-xl text-base text-gray-500">Market
-                                    Leaders</p>
-                                <p class="font-normal">More then 3 years of experience in the industry, backed
-                                    by strong
-                                    leadership and energetic
-                                    innovatores.</p>
+                                <p class="mt-6 mb-2 font-semibold sm:text-xl text-base text-gray-500">Quality, Consistency & Commitment</p>
+                                <p class="font-normal">Our core values ensure reliable, high-quality, 
+                                    and durable packaging solutions
+                                     tailored to customer needs.</p>
                             </div>
                             <div class="p-4 shadow-lg rounded-lg">
                                 <div>
 
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary"
-                                        viewBox="0 0 512 512">
-                                        <path
-                                            d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z" />
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg"  class="md:max-w-8 max-w-6 w-full fill-primary"  viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c-35.3 0-64 28.7-64 64l-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0c0 35.3 28.7 64 64 64l0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40c35.3 0 64-28.7 64-64l40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0c0-35.3-28.7-64-64-64l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40zM160 128l192 0c17.7 0 32 14.3 32 32l0 192c0 17.7-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32l0-192c0-17.7 14.3-32 32-32zm192 32l-192 0 0 192 192 0 0-192z"/></svg>
                                 </div>
-                                <p class="mt-6 mb-2 font-semibold sm:text-xl text-base text-gray-500">Backward
-                                    Integration
+                                <p class="mt-6 mb-2 font-semibold sm:text-xl text-base text-gray-500">Advanced Technology
                                 </p>
-                                <p class="font-normal">More then 3 years of experience in the industry, backed
-                                    by strong
-                                    leadership and energetic
-                                    innovatores.</p>
+                                <p class="font-normal">Highly automated processes and all-electric machinery ensure precision and consistent quality for our products.</p>
                             </div>
                             <div class="p-4 shadow-lg rounded-lg">
                                 <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary"
-                                        viewBox="0 0 512 512">
-                                        <path
-                                            d="M4.1 38.2C1.4 34.2 0 29.4 0 24.6C0 11 11 0 24.6 0H133.9c11.2 0 21.7 5.9 27.4 15.5l68.5 114.1c-48.2 6.1-91.3 28.6-123.4 61.9L4.1 38.2zm503.7 0L405.6 191.5c-32.1-33.3-75.2-55.8-123.4-61.9L350.7 15.5C356.5 5.9 366.9 0 378.1 0H487.4C501 0 512 11 512 24.6c0 4.8-1.4 9.6-4.1 13.6zM80 336a176 176 0 1 1 352 0A176 176 0 1 1 80 336zm184.4-94.9c-3.4-7-13.3-7-16.8 0l-22.4 45.4c-1.4 2.8-4 4.7-7 5.1L168 298.9c-7.7 1.1-10.7 10.5-5.2 16l36.3 35.4c2.2 2.2 3.2 5.2 2.7 8.3l-8.6 49.9c-1.3 7.6 6.7 13.5 13.6 9.9l44.8-23.6c2.7-1.4 6-1.4 8.7 0l44.8 23.6c6.9 3.6 14.9-2.2 13.6-9.9l-8.6-49.9c-.5-3 .5-6.1 2.7-8.3l36.3-35.4c5.6-5.4 2.5-14.8-5.2-16l-50.1-7.3c-3-.4-5.7-2.4-7-5.1l-22.4-45.4z" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary" viewBox="0 0 512 512">
+                                        <path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"></path>
                                     </svg>
                                 </div>
-                                <p class="mt-6 mb-2 font-semibold sm:text-xl text-base text-gray-500">ISO
-                                    Certified</p>
-                                <p class="font-normal">More then 3 years of experience in the industry, backed
-                                    by strong
-                                    leadership and energetic
-                                    innovatores.</p>
+                                <p class="mt-6 mb-2 font-semibold sm:text-xl text-base text-gray-500">Industry Leadership</p>
+                                <p class="font-normal">With over 15 years of expertise and a commitment to innovation, we have become a trusted partner in our industry.</p>
                             </div>
                             <div class="p-4 shadow-lg rounded-lg">
                                 <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="md:max-w-8 max-w-6 w-full fill-primary"
-                                        viewBox="0 0 512 512">
-                                        <path
-                                            d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z" />
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg"  class="md:max-w-8 max-w-6 w-full fill-primary" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M272 96c-78.6 0-145.1 51.5-167.7 122.5c33.6-17 71.5-26.5 111.7-26.5l88 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-16 0-72 0s0 0 0 0c-16.6 0-32.7 1.9-48.3 5.4c-25.9 5.9-49.9 16.4-71.4 30.7c0 0 0 0 0 0C38.3 298.8 0 364.9 0 440l0 16c0 13.3 10.7 24 24 24s24-10.7 24-24l0-16c0-48.7 20.7-92.5 53.8-123.2C121.6 392.3 190.3 448 272 448l1 0c132.1-.7 239-130.9 239-291.4c0-42.6-7.5-83.1-21.1-119.6c-2.6-6.9-12.7-6.6-16.2-.1C455.9 72.1 418.7 96 376 96L272 96z"/></svg>
                                 </div>
-                                <p class="mt-6 mb-2 font-semibold sm:text-xl text-base text-gray-500">Listed
-                                    Publicly</p>
-                                <p class="font-normal">More then 3 years of experience in the industry, backed
-                                    by strong
-                                    leadership and energetic
-                                    innovatores.</p>
+                                <p class="mt-6 mb-2 font-semibold sm:text-xl text-base text-gray-500">Sustainable Solutions</p>
+                                <p class="font-normal">We prioritize sustainable, cost-effective packaging solutions tailored to meet diverse industry needs.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            
 
             {{-- products banner section --}}
-            <div class="container mx-auto px-4 mt-4">
+            {{-- <div class="container mx-auto px-4 mt-4">
                 <div class="grid md:gap-4 gap-2 md:grid-cols-2">
                     <div>
                         <div class="aspect-[6/3.8] relative group md:rounded-2xl rounded-lg overflow-hidden">
-                            {{-- <img src="https://moldtekpackaging.com/assets/images/paint-flyer.jpeg" class="w-full h-full"
-                                alt="category"> --}}
 
                             @if (isset($productBanner[0]['file']))
                                 <img src="{{ asset('storage/' . $productBanner[0]['file']) }}"
@@ -260,10 +230,71 @@
                     </div>
 
                 </div>
-            </div>
+            </div> --}}
+
+            {{-- hot products section --}}
+            <div class="container mx-auto px-4 md:my-16 my-16">
+                            <div class="flex justify-between gap-4 items-center">
+                                <p class="md:text-3xl text-2xl capitalize text-gray-700 font-semibold">
+                                    Hot Products</p>
+            
+                                <div class="flex items-center gap-4">
+                                    <Button class="border border-primary py-2 px-3" id="btn-prev">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="max-w-4 w-full rotate-180 fill-primary"
+                                            viewBox="0 0 512 512">
+                                            <path
+                                                d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
+                                        </svg>
+                                    </Button>
+                                    <Button class="border border-primary py-2 px-3" id="btn-next">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="max-w-4 w-full fill-primary"
+                                            viewBox="0 0 512 512">
+                                            <path
+                                                d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
+                                        </svg>
+                                    </Button>
+                                </div>
+                            </div>
+            
+                            <div class="swiper productSlide">
+                                {{-- <div class="grid gap-4 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mt-10"> --}}
+                                <div class="swiper-wrapper mt-10">
+                                    @foreach ($hotProduct as $product)
+                                        <div class="bg-white border border-gray-200 rounded-xl flex flex-col swiper-slide">
+                                            <div class="bg-gray-100 rounded-t-xl w-full aspect-[3/2]">
+                                                <img class="rounded-t-lg aspect-[3/2] object-contain mx-auto lazyload"
+                                                    data-src="{{ asset('storage/' . $product->media) }}"
+                                                    data-alt="{{ $product->title }}" class="lazyload hidden" />
+                                            </div>
+                                            <div class="p-4 flex flex-col w-full">
+                                                <h5 class="my-2 text-lg font-semibold text-left tracking-tight text-gray-900">
+                                                    {{ $product->title }}</h5>
+            
+                                                <div class="mt-4 flex justify-between items-center gap-2">
+                                                    <a href="/products/{{ $product->slug }}"
+                                                        class="inline-flex w-fit mt-auto items-center px-2 py-1 text-sm font-medium text-center text-primary bg-transparent border border-primary rounded-md">
+                                                        View Product
+                                                        <svg class="rtl:rotate-180 w-2.5 h-2.5 ms-2 -rotate-45" aria-hidden="true"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                                            <path stroke="currentColor" stroke-linecap="round"
+                                                                stroke-linejoin="round" stroke-width="2"
+                                                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+            
+                                <div class="swiper-button-next invisible" id="swiper-button-next"></div>
+                                <div class="swiper-button-prev invisible" id="swiper-button-prev"></div>
+                            </div>
+            
+            </div> 
 
             {{-- products category section --}}
-            <div class="container mx-auto px-4 md:my-28 my-16">
+            <div class="container mx-auto px-4 md:my-18 my-16">
                 <p class="md:text-3xl text-2xl capitalize text-gray-700 font-semibold">Product Variants
                 </p>
                 <div class="grid gap-4 xl:grid-cols-4 sm:grid-cols-2 md:mt-10 mt-8">
@@ -279,7 +310,7 @@
                                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{{ $category->title }}
                                 </h5>
                                 <p class="mb-3 font-normal text-gray-700 ">{{ $category->description }}</p>
-                                <a href="{{ route('landing.product') }}"
+                                <a href="{{ route('landing.product', ['category' => $category->id]) }}"
                                     class="inline-flex items-center px-3 py-2 mt-auto w-fit text-sm font-medium text-center text-white bg-primary rounded-lg">
                                     Read more
                                     <svg class="-rotate-45 w-3.5 h-3.5 ms-2" aria-hidden="true"
@@ -294,69 +325,8 @@
                 </div>
             </div>
 
-            {{-- hot products section --}}
-            <div class="container mx-auto px-4 md:my-28 my-16">
-                <div class="flex justify-between gap-4 items-center">
-                    <p class="md:text-3xl text-2xl capitalize text-gray-700 font-semibold">
-                        Hot Products</p>
-
-                    <div class="flex items-center gap-4">
-                        <Button class="border border-primary py-2 px-3" id="btn-prev">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="max-w-4 w-full rotate-180 fill-primary"
-                                viewBox="0 0 512 512">
-                                <path
-                                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
-                            </svg>
-                        </Button>
-                        <Button class="border border-primary py-2 px-3" id="btn-next">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="max-w-4 w-full fill-primary"
-                                viewBox="0 0 512 512">
-                                <path
-                                    d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l370.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z" />
-                            </svg>
-                        </Button>
-                    </div>
-                </div>
-
-                <div class="swiper productSlide">
-                    {{-- <div class="grid gap-4 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mt-10"> --}}
-                    <div class="swiper-wrapper mt-10">
-                        @foreach ($hotProduct as $product)
-                            <div class="bg-white border border-gray-200 rounded-xl flex flex-col swiper-slide">
-                                <div class="bg-gray-100 rounded-t-xl w-full aspect-[3/2]">
-                                    <img class="rounded-t-lg aspect-[3/2] object-contain mx-auto lazyload"
-                                        data-src="{{ asset('storage/' . $product->media) }}"
-                                        data-alt="{{ $product->title }}" class="lazyload hidden" />
-                                </div>
-                                <div class="p-4 flex flex-col w-full">
-                                    <h5 class="my-2 text-lg font-semibold text-left tracking-tight text-gray-900">
-                                        {{ $product->title }}</h5>
-
-                                    <div class="mt-4 flex justify-between items-center gap-2">
-                                        <a href="/products/{{ $product->slug }}"
-                                            class="inline-flex w-fit mt-auto items-center px-2 py-1 text-sm font-medium text-center text-primary bg-transparent border border-primary rounded-md">
-                                            View Product
-                                            <svg class="rtl:rotate-180 w-2.5 h-2.5 ms-2 -rotate-45" aria-hidden="true"
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                                <path stroke="currentColor" stroke-linecap="round"
-                                                    stroke-linejoin="round" stroke-width="2"
-                                                    d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-
-                    <div class="swiper-button-next invisible" id="swiper-button-next"></div>
-                    <div class="swiper-button-prev invisible" id="swiper-button-prev"></div>
-                </div>
-
-            </div>
-
             {{-- about us --}}
-            <div class="container mx-auto px-4 md:mb-28 my-16">
+            <div class="container mx-auto px-4 md:my-18 my-16">
                 <p class="md:text-3xl text-2xl capitalize md:text-center text-gray-700 font-semibold mb-10">
                     About us</p>
                 <div class="flex justify-between lg:flex-row flex-col items-center md:gap-12 gap-8">
@@ -365,22 +335,20 @@
                             class="w-full rounded-md" alt="about">
                     </div>
                     <div class="grow w-full">
-                        <h1 class="text-primary font-semibold lg:text-4xl sm:text-2xl text-xl md:mb-8 mb-4">Moti Multi
-                            Plast</h1>
-
-                        <p class="text-gray-600 md:text-base text-sm max-w-2xl font-normal md:mb-4 mb-2">At <span
-                                class="font-semibold"> Moti Multi Plast </span>, we are committed to serve the packaging
-                            and custom plastic need of the customers. </p>
-                        <p class="text-gray-600 md:text-base text-sm max-w-2xl font-normal md:mb-4 mb-2">Established in the
-                            year <span class="font-semibold"> 1996 </span> as a noteworthy <span class="font-semibold">
-                                manufacturer </span> of <span class="font-semibold"> Multipurpose Plastic Food Containers,
-                                Household Plastic Food Containers, Kitchen Containers, Plastic Food Storage Containers,
-                                Saree Covers </span> and others, we have met the local taste and demand of the market. </p>
-                        <p class="text-gray-600 md:text-base text-sm max-w-2xl font-normal md:mb-4 mb-2"> These products
-                            are manufactured with premium grade of raw material that is procured from reliable vendors.
-                        <p class="text-gray-600 md:text-base text-sm max-w-2xl font-normal">The high quality and
-                            unmatchable features of our gamut has helped us in exploring new opportunities and becoming a
-                            reliable & a prominent player in the industry.</p>
+                        <h1 class="text-primary font-semibold lg:text-4xl sm:text-2xl text-xl md:mb-8 mb-4">Moti Plastic</h1>
+                        <p class="text-gray-600 md:text-base text-sm max-w-2xl font-normal md:mb-6 mb-4">
+                            <span class="font-semibold">Founded in 2009</span>, Moti Plastic has become a leader in manufacturing 
+                            <span class="font-medium">plastic injection-moulded containers and boxes</span> in India. With a focus on quality and innovation, 
+                            the company has earned a reputation for its reliable packaging solutions.
+                        </p>
+                        <p class="text-gray-600 md:text-base text-sm max-w-2xl font-normal md:mb-6 mb-4">
+                            The company specializes in producing a wide variety of products in various shapes and sizes. This includes 
+                            <span class="font-medium">IML (in-mould labeled) containers</span>, which offer enhanced branding and durability; 
+                            <span class="font-medium">tamper-proof containers</span>, designed for safety and security; and 
+                            <span class="font-medium">cookies containers</span>, providing aesthetic and functional packaging. 
+                            Additionally, Moti Plastic provides end-to-end <span class="font-medium">packaging solutions</span> for the food and dairy industries, 
+                            ensuring high standards of hygiene and reliability.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -408,7 +376,7 @@
                                         <div class="flex space-x-4 flex-shrink-0 w-52">
                                             <div>
                                                 <div class="font-semibold">
-                                                    Salvador Rose
+                                                    Kaant Food Company
                                                 </div>
                                                 <div class="text-sm">
                                                     <div class="flex items-center">
@@ -436,7 +404,7 @@
                                                             <path
                                                                 d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                                                         </svg>
-                                                        <svg class="w-3 h-4 ms-0.5 text-gray-300" aria-hidden="true"
+                                                        <svg class="w-3 h-4 ms-0.5 text-primary" aria-hidden="true"
                                                             xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                             viewBox="0 0 22 20">
                                                             <path
@@ -450,11 +418,7 @@
                                 </div>
 
                                 <p class="mt-4">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut
-                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat.
+                                    We've sourced our IML plastic sweet boxes from Moti Plastic top-notch quality, vibrant prints, timely delivery, and great service. A trusted partner for premium food-grade packaging.
                                 </p>
                             </div>
                         </div>
@@ -477,7 +441,7 @@
                                         <div class="flex space-x-4 flex-shrink-0 w-52">
                                             <div>
                                                 <div class="font-semibold">
-                                                    Mike tyson
+                                                    Crispy Dosa Company
                                                 </div>
                                                 <div class="text-sm">
                                                     <div class="flex items-center">
@@ -505,7 +469,7 @@
                                                             <path
                                                                 d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                                                         </svg>
-                                                        <svg class="w-3 h-4 ms-0.5 text-gray-300" aria-hidden="true"
+                                                        <svg class="w-3 h-4 ms-0.5 text-primary" aria-hidden="true"
                                                             xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                             viewBox="0 0 22 20">
                                                             <path
@@ -520,14 +484,11 @@
                                 </div>
 
                                 <p class="mt-4">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut
-                                    labore et dolore magna aliqua.
+                                    Moti Plastic’s dosa boxes are sturdy, food-grade, and reliable. Great quality, timely delivery, and excellent service—highly recommended!
                                 </p>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="animate-in zoom-in duration-200">
                         <div
@@ -545,7 +506,7 @@
                                         <div class="flex space-x-4 flex-shrink-0 w-52">
                                             <div>
                                                 <div class="font-semibold">
-                                                    Cheung
+                                                    Laxmi Hari Print
                                                 </div>
                                                 <div class="text-sm">
                                                     <div class="flex items-center">
@@ -573,7 +534,7 @@
                                                             <path
                                                                 d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                                                         </svg>
-                                                        <svg class="w-3 h-4 ms-0.5 text-gray-300" aria-hidden="true"
+                                                        <svg class="w-3 h-4 ms-0.5 text-primary" aria-hidden="true"
                                                             xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                             viewBox="0 0 22 20">
                                                             <path
@@ -587,17 +548,13 @@
                                 </div>
 
                                 <p class="mt-4">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut
-                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat.
+                                    We are glad to be associated with Moti Plastic company for our plastic saree box needs. The quality of the boxes is top-notch—strong, stylish, and perfect for enhancing the appeal of our printed sarees. Their attention to detail, prompt delivery, and consistent product standards have made them a reliable packaging partner for our business. Highly appreciated!
                                 </p>
                             </div>
                         </div>
                     </div>
-
-
+                    
+                    
                     <div class="animate-in zoom-in duration-200">
                         <div
                             class="ring-1 rounded-lg flex flex-col space-y-2 p-4 break-inside-avoid mb-6 bg-white hover:ring-2 ring-gray-300 hover:ring-primary transform duration-200 hover:shadow-sky-200 hover:shadow-md z-0 relative">
@@ -614,7 +571,7 @@
                                         <div class="flex space-x-4 flex-shrink-0 w-52">
                                             <div>
                                                 <div class="font-semibold">
-                                                    Sia
+                                                    BK - Thavki
                                                 </div>
                                                 <div class="text-sm">
                                                     <div class="flex items-center">
@@ -642,7 +599,7 @@
                                                             <path
                                                                 d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                                                         </svg>
-                                                        <svg class="w-3 h-4 ms-0.5 text-gray-300" aria-hidden="true"
+                                                        <svg class="w-3 h-4 ms-0.5 text-primary" aria-hidden="true"
                                                             xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                             viewBox="0 0 22 20">
                                                             <path
@@ -656,11 +613,7 @@
                                 </div>
 
                                 <p class="mt-4">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut
-                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat.
+                                    We recently partnered with Moti Plastic Company for our requirement of plastic saree boxes, and we are extremely satisfied with the quality and service. The boxes are sturdy, elegantly designed, and perfect for showcasing and protecting our premium sarees. Their team ensured timely delivery and maintained excellent communication throughout the process. We look forward to a long-term business relationship.
                                 </p>
                             </div>
                         </div>
@@ -683,7 +636,7 @@
                                         <div class="flex space-x-4 flex-shrink-0 w-52">
                                             <div>
                                                 <div class="font-semibold">
-                                                    King
+                                                    Liwa Foods
                                                 </div>
                                                 <div class="text-sm">
                                                     <div class="flex items-center">
@@ -711,7 +664,7 @@
                                                             <path
                                                                 d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                                                         </svg>
-                                                        <svg class="w-3 h-4 ms-0.5 text-gray-300" aria-hidden="true"
+                                                        <svg class="w-3 h-4 ms-0.5 text-primary" aria-hidden="true"
                                                             xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                             viewBox="0 0 22 20">
                                                             <path
@@ -723,12 +676,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="mt-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor
-                                    incididunt
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat.
+                                <p class="mt-4">
+                                    We've been sourcing IML plastic dates boxes from Moti Plastic's durable, food-safe, and visually striking. Their quality, service, and timely delivery make them our trusted packaging partner.
                                 </p>
 
                             </div>
@@ -752,7 +701,7 @@
                                         <div class="flex space-x-4 flex-shrink-0 w-52">
                                             <div>
                                                 <div class="font-semibold">
-                                                    Yoda
+                                                    Mishriq Dates Company
                                                 </div>
                                                 <div class="text-sm">
                                                     <div class="flex items-center">
@@ -794,12 +743,7 @@
                                 </div>
 
 
-                                <p class="mt-4 "> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor
-                                    incididunt
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat.
+                                <p class="mt-4 "> Working with Moti Plastic for our plastic dates boxes has been great. Their quality, design, and timely delivery perfectly match our brand. A reliable and professional packaging partner.
                                 </p>
                             </div>
                         </div>
@@ -821,7 +765,7 @@
                                         <div class="flex space-x-4 flex-shrink-0 w-52">
                                             <div>
                                                 <div class="font-semibold">
-                                                    Sia
+                                                    Avadh Dairy Farm
                                                 </div>
                                                 <div class="text-sm">
                                                     <div class="flex items-center">
@@ -849,7 +793,73 @@
                                                             <path
                                                                 d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                                                         </svg>
-                                                        <svg class="w-3 h-4 ms-0.5 text-gray-300" aria-hidden="true"
+                                                        <svg class="w-3 h-4 ms-0.5 text-primary" aria-hidden="true"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                            viewBox="0 0 22 20">
+                                                            <path
+                                                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                                        </svg>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="mt-4">We’re extremely pleased with Moti Plastic’s IML sweet boxes. Excellent quality, vibrant print, and timely delivery enhance our brand’s presentation—making them a trusted partner for our growing business.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="animate-in zoom-in duration-200">
+                        <div
+                            class="ring-1 rounded-lg flex flex-col space-y-2 p-4 break-inside-avoid mb-6 bg-white hover:ring-2 ring-gray-300 hover:ring-primary transform duration-200 hover:shadow-sky-200 hover:shadow-md z-0 relative">
+                            <div class="flex flex-col break-inside-avoid-page z-0 relative">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
+                                        <path
+                                            d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
+                                    </svg>
+                                </div>
+                                <div class="flex justify-between mt-4">
+                                    <div class="flex space-x-6">
+                                        <div class="flex space-x-4 flex-shrink-0 w-52">
+                                            <div>
+                                                <div class="font-semibold">
+                                                    Muskan Impex
+                                                </div>
+                                                <div class="text-sm">
+                                                    <div class="flex items-center">
+                                                        <svg class="w-3 h-4 text-primary" aria-hidden="true"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                            viewBox="0 0 22 20">
+                                                            <path
+                                                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                                        </svg>
+                                                        <svg class="w-3 h-4 ms-0.5 text-primary" aria-hidden="true"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                            viewBox="0 0 22 20">
+                                                            <path
+                                                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                                        </svg>
+                                                        <svg class="w-3 h-4 ms-0.5 text-primary" aria-hidden="true"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                            viewBox="0 0 22 20">
+                                                            <path
+                                                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                                        </svg>
+                                                        <svg class="w-3 h-4 ms-0.5 text-primary" aria-hidden="true"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                            viewBox="0 0 22 20">
+                                                            <path
+                                                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                                        </svg>
+                                                        <svg class="w-3 h-4 ms-0.5 text-primary" aria-hidden="true"
                                                             xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                             viewBox="0 0 22 20">
                                                             <path
@@ -863,79 +873,7 @@
                                 </div>
 
                                 <p class="mt-4">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut
-                                    labore et dolore magna aliqua.
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="animate-in zoom-in duration-200">
-                        <div
-                            class="ring-1 rounded-lg flex flex-col space-y-2 p-4 break-inside-avoid mb-6 bg-white hover:ring-2 ring-gray-300 hover:ring-primary transform duration-200 hover:shadow-sky-200 hover:shadow-md z-0 relative">
-                            <div class="flex flex-col break-inside-avoid-page z-0 relative">
-                                <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="w-10 aspect-square fill-primary-500" viewBox="0 0 448 512">
-                                        <path
-                                            d="M0 216C0 149.7 53.7 96 120 96l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72zm256 0c0-66.3 53.7-120 120-120l8 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-8 0c-30.9 0-56 25.1-56 56l0 8 64 0c35.3 0 64 28.7 64 64l0 64c0 35.3-28.7 64-64 64l-64 0c-35.3 0-64-28.7-64-64l0-32 0-32 0-72z" />
-                                    </svg>
-                                </div>
-                                <div class="flex justify-between mt-4">
-                                    <div class="flex space-x-6">
-                                        <div class="flex space-x-4 flex-shrink-0 w-52">
-                                            <div>
-                                                <div class="font-semibold">
-                                                    King
-                                                </div>
-                                                <div class="text-sm">
-                                                    <div class="flex items-center">
-                                                        <svg class="w-3 h-4 text-primary" aria-hidden="true"
-                                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                                            viewBox="0 0 22 20">
-                                                            <path
-                                                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                                        </svg>
-                                                        <svg class="w-3 h-4 ms-0.5 text-primary" aria-hidden="true"
-                                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                                            viewBox="0 0 22 20">
-                                                            <path
-                                                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                                        </svg>
-                                                        <svg class="w-3 h-4 ms-0.5 text-primary" aria-hidden="true"
-                                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                                            viewBox="0 0 22 20">
-                                                            <path
-                                                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                                        </svg>
-                                                        <svg class="w-3 h-4 ms-0.5 text-primary" aria-hidden="true"
-                                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                                            viewBox="0 0 22 20">
-                                                            <path
-                                                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                                        </svg>
-                                                        <svg class="w-3 h-4 ms-0.5 text-gray-300" aria-hidden="true"
-                                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                                            viewBox="0 0 22 20">
-                                                            <path
-                                                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <p class="mt-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor
-                                    incididunt
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                    ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat.
+                                    We’re highly satisfied with the IML plastic dates boxes from Moti Plastic's strong, hygienic, and beautifully printed. Their quality, service, and innovation make them a trusted packaging partner for our brand.
                                 </p>
                             </div>
                         </div>
@@ -958,7 +896,7 @@
                                         <div class="flex space-x-4 flex-shrink-0 w-52">
                                             <div>
                                                 <div class="font-semibold">
-                                                    Yoda
+                                                    Akshar Foods
                                                 </div>
                                                 <div class="text-sm">
                                                     <div class="flex items-center">
@@ -999,10 +937,7 @@
                                     </div>
                                 </div>
 
-                                <p class="mt-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor
-                                    incididunt
-                                    ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                <p class="mt-4"> Moti Plastic has been an excellent packaging partner for our chikki products, providing us with high-quality plastic boxes with IML printing. The boxes are sturdy, food-safe, and visually appealing—perfect for retail display and brand recognition. Their timely delivery and professional service make them a reliable choice for our packaging needs.
                                 </p>
                             </div>
                         </div>
@@ -1015,15 +950,66 @@
 @endsection
 
 @section('meta')
-    <meta name="og:type" content="website" />
-    <meta name="og:title" content="Moti multi plastics" />
-    <meta name="description"
-        content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products.">
-    <meta name="og:description"
-        content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products." />
-    <meta name="og:url" content="{{ url()->current() }}" />
-    <meta name="og:image" content="{{ asset('assets/images/logo.png') }}" />
-    <meta property="og:site_name" content="Moti Multi plast" />
+       <!-- Open Graph Meta Tags -->
+        <meta name="og:type" content="website" />
+        <meta name="og:title" content="Moti Multi Plast | Plastic Solutions in Dadra & Surat" />
+        <meta name="description"
+            content="Moti Multi Plast: Your trusted partner in high-quality plastic manufacturing. Specializing in plastic boxes, sari boxes, and custom packaging solutions in Dadra and Surat. Explore durable, eco-friendly products for all your needs.">
+        <meta name="og:description"
+            content="Moti Multi Plast: Your trusted partner in high-quality plastic manufacturing. Specializing in plastic boxes, sari boxes, and custom packaging solutions in Dadra and Surat. Explore durable, eco-friendly products for all your needs." />
+        <meta name="og:url" content="{{ url()->current() }}" />
+        <meta name="og:image" content="{{ asset('assets/images/logo.png') }}" />
+        <meta property="og:site_name" content="Moti Multi Plast" />
+
+        <!-- Additional Metadata -->
+        <meta name="keywords" content="Moti Multi Plast, Moti Plastics, Moti Plastic, plastic box in Dadra, plastic box in Surat, sari box in Surat, sari box in Dadra, plastic manufacturing, IML containers, tamper-proof containers, packaging solutions, eco-friendly plastics, custom plastic products, food packaging, durable plastics, plastic containers in Dadra, plastic containers in Surat">
+        <meta name="author" content="Moti Multi Plast">
+        <meta name="theme-color" content="rgb(156, 44, 144)">
+
+        <!-- SEO Metadata -->
+        <meta name="robots" content="index, follow">
+        <meta name="description"
+            content="Moti Multi Plast is a leading manufacturer of high-quality plastic products, including plastic boxes and sari boxes, with locations in Dadra and Surat. Established in 2009, we specialize in innovative packaging solutions like IML containers, tamper-proof containers, and more.">
+        <meta name="og:description"
+            content="Moti Multi Plast is a leading manufacturer of high-quality plastic products, including plastic boxes and sari boxes, with locations in Dadra and Surat. Established in 2009, we specialize in innovative packaging solutions like IML containers, tamper-proof containers, and more." />
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Moti Multi Plast",
+            "url": "https://www.motimultiplast.in/",
+            "logo": "{{ asset('assets/images/logo.png') }}",
+            "description": "Moti Multi Plast: High-quality plastic packaging solutions including plastic boxes, sari boxes, IML containers, and tamper-proof containers. Trusted by industries across India for innovative, durable, and eco-friendly products.",
+            "address": [
+                {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Gala No. 6, Satgurus Industrial Estate, Survey No. 213, 18/1, near Sun Pharma",
+                    "addressLocality": "Dadra",
+                    "addressRegion": "Dadra and Nagar Haveli and Daman and Diu",
+                    "postalCode": "396193",
+                    "addressCountry": "India"
+                },
+                {
+                    "@type": "PostalAddress",
+                    "streetAddress": "208, Vasudev Estate, Varachha Main Rd, nr. Geetanjali",
+                    "addressLocality": "Surat",
+                    "addressRegion": "Gujarat",
+                    "postalCode": "395006",
+                    "addressCountry": "India"
+                }
+            ],
+            "sameAs": [
+                "https://www.facebook.com/motimultiplastics",
+                "https://www.linkedin.com/company/motimultiplastics"
+            ]
+        }
+</script>
+
+</script>
+
+
 @endsection
 
 @section('body-scripts')
@@ -1110,7 +1096,7 @@
         }
 
         .swiper-slide img {
-            display: block;
+            /* display: block; */
             width: 100%;
             height: 100%;
             object-fit: cover;

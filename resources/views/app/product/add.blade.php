@@ -1,5 +1,5 @@
 <x-app-layout>
-    <form enctype="multipart/form-data" method="post" action="{{ route('api.product.add') }}">
+    <form enctype="multipart/form-data" id="productFormAdd" method="post" action="{{ route('api.product.add') }}">
         {{-- <x-slot name="header">
             <div class="flex items-center justify-between">
                 <h1 class="font-semibold text-primary text-xl">New Products</h1>
@@ -34,9 +34,11 @@
                             <div class="mt-4">
                                 <label for="description"
                                     class="block mb-2 md:text-base text-sm font-medium text-gray-900">Description</label>
-                                <textarea rows="7" id="description" name="description"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 resize-none"
-                                    placeholder="Description">{{ old('description') }}</textarea>
+                                <!--<textarea rows="7" id="description" name="description"-->
+                                <!--    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 resize-none"-->
+                                <!--    placeholder="Description">{{ old('description') }}</textarea>-->
+                                    <div id="editor" style="height: 300px;"></div>
+                                    <input type="hidden" name="description" id="description" value="{{ old('description') }}"> 
                             </div>
                             <div class="mt-4">
                                 <label for="seo-description"
@@ -63,6 +65,19 @@
                         </div>
                         <div class="bg-white rounded-md p-4 my-4">
                             <div>
+                                <label for="thumbnail_media"
+                                    class="block mb-2 md:text-base text-sm font-medium text-gray-900">Thumbnail  Media</label>
+                                <input id="thumbnail_media" name="thumbnail_media"
+                                    class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 py-2 px-2"
+                                    type="file">
+
+                                @error('thumbnail_media')
+                                    <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-md p-4 my-4">
+                            <div>
                                 <label for="media"
                                     class="block mb-2 md:text-base text-sm font-medium text-gray-900">Media</label>
                                 <input id="media" name="media[]" multiple
@@ -74,8 +89,9 @@
                                 @enderror
                             </div>
                         </div>
+                       
                         <div class="bg-white rounded-md p-4">
-                            <div class="grid grid-cols-2 gap-4 mb-4">
+                            {{-- <div class="grid grid-cols-2 gap-4 mb-4">
                                 <div>
                                     <label for="price"
                                         class="block mb-2 md:text-base text-sm font-medium text-gray-900">Price (per
@@ -104,7 +120,7 @@
                                         <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="grid grid-cols-2 gap-4 mb-4">
                                 <div class="mt-4">
@@ -115,26 +131,13 @@
                                         placeholder="e.g red" />
                                 </div>
 
-                                <div class="mt-4">
+                                <div class="mt-4" id="material_input_wrapper">
                                     <label for="material"
                                         class="block mb-2 md:text-base text-sm font-medium text-gray-900">Material</label>
                                     <input type="text" id="material" name="material" value="{{ old('material') }}"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2"
                                         placeholder="e.g plastic" />
                                 </div>
-                            </div>
-
-                            <div>
-                                <label for="stock"
-                                    class="block mb-2 md:text-base text-sm font-medium text-gray-900">Slug <sup
-                                        class="text-red-500">*</sup> </label>
-                                <input type="text" id="stock" name="slug" value="{{ old('slug') }}"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2"
-                                    placeholder="~" />
-
-                                @error('slug')
-                                    <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
-                                @enderror
                             </div>
 
 
@@ -159,7 +162,7 @@
                                     <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                                 @enderror
                             </div>
-                            <div class="mt-4">
+                            <!-- <div class="mt-4">
                                 <label for="type"
                                     class="block mb-2 md:text-base text-sm font-medium text-gray-900">Type <sup
                                         class="text-red-500">*</sup> </label>
@@ -170,28 +173,53 @@
                                 @error('type')
                                     <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                                 @enderror
-                            </div>
+                            </div> -->
                             <div class="mt-4">
                                 <label for="shape"
                                     class="block mb-2 md:text-base text-sm font-medium text-gray-900">Shape <sup
                                         class="text-red-500">*</sup> </label>
                                 <select id="shape" name="shape" value="{{ old('shape') }}"
-                                    class="block py-2 px-2.5 rounded-md w-full text-sm text-gray-500 bg-transparent border border-gray-300 appearance-none bg-gray-50">
-                                    <option selected>Choose a shape</option>
-                                    <option value="Round">Round</option>
-                                    <option value="Oval">Oval</option>
-                                    <option value="Premium Oval">Premium Oval</option>
-                                    <option value="Square Pack">Square Pack</option>
-                                    <option value="Twist Pack">Twist Pack</option>
-                                    <option value="Rectangular Pack">Rectangular Pack</option>
-                                </select>
-
+                                        class="block py-2 px-2.5 rounded-md w-full text-sm text-gray-500 bg-transparent border border-gray-300 appearance-none bg-gray-50">
+                                        <option selected>Choose a shape</option>
+                                        @foreach ($shapes as $shape)
+                                            <option value="{{ $shape['id'] }}" 
+                                                {{ old('shape') == $shape['id'] ? 'selected' : '' }}>
+                                                {{ $shape['title'] }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 @error('shape')
                                     <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                                 @enderror
                             </div>
+                            <div class="mt-6 flex items-center gap-4">
+                                <input type="checkbox" id="is_material" name="is_material"  {{ old('is_material', $product->is_material ?? 1) == 1 ? 'checked' : '' }} />
+                                <label for="is_material"
+                                    class="block md:text-base text-sm font-medium text-gray-900">Show Material</label>
+                            </div>
+                            <div class="mt-3 flex items-center gap-4">
+                                <input type="checkbox" id="is_hotproducts" name="is_hot"
+                                    checked="{{ old('is_hot') == 'on' }}" />
+                                <label for="is_hotproducts"
+                                    class="block md:text-base text-sm font-medium text-gray-900">Hot product</label>
+                            </div>
+                            <div class="mt-3 flex items-center gap-4">
+                                    <input type="checkbox" id="is_reusable" name="is_reusable"
+                                        {{ old('is_reusable', $product->is_reusable ?? 1) == 1 ? 'checked' : '' }} />
+                                    <label for="is_reusable" class="block md:text-base text-sm font-medium text-gray-900">
+                                        It Is Reusable
+                                    </label>
+                            </div>
+                            <div class="mt-3 flex items-center gap-4">
+                                <input type="checkbox" id="is_temper_proof" name="is_temper_proof"
+                                    {{ old('is_temper_proof', $product->is_temper_proof ?? 1) == 1 ? 'checked' : '' }} />
+                                <label for="is_temper_proof" class="block md:text-base text-sm font-medium text-gray-900">
+                                    It Is Temper Proof Evident
+                                </label>
+                            </div>
+                            
                         </div>
-                        <div class="bg-white rounded-md p-4 mt-4">
+                        {{-- <div class="bg-white rounded-md p-4 mt-4">
                             <div>
                                 <label for="category"
                                     class="block mb-2 md:text-base text-sm font-medium text-gray-900">Supply
@@ -220,7 +248,7 @@
                                 <label for="is_hotproducts"
                                     class="block md:text-base text-sm font-medium text-gray-900">Hot product</label>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="bg-white rounded-md p-4 mt-4">
                             <div>
                                 <label for="seo_keyword"
@@ -298,11 +326,45 @@
 </x-app-layout>
 
 <script>
-    tinymce.init({
-        selector: '#description',
-        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
-        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-    });
+    // tinymce.init({
+    //     selector: '#description',
+    //     plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
+    //     toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    // });
+    document.addEventListener("DOMContentLoaded", function () {
+            const quill = new Quill('#editor', {
+              theme: 'snow',
+              modules: {
+                toolbar: [
+                  [{ header: [1, 2, 3, false] }],
+                  ['bold', 'italic', 'underline'],
+                  ['link', 'image'],
+                  ['clean'],
+                  [{ color: [] }, { background: [] }]
+                ],
+                clipboard: {
+                  matchers: [
+                    // Remove all inline styles from spans
+                    ['span', function (node, delta) {
+                      return delta; // remove all formatting from pasted spans
+                    }]
+                  ]
+                }
+              },
+              formats: ['header', 'bold', 'italic', 'underline', 'link', 'image','color', 'background']
+            });
+        
+            // Set default content if editing
+            const existingContent = document.getElementById('description').value;
+            // quill.root.innerHTML = existingContent;
+            const delta = quill.clipboard.convert(existingContent);
+            quill.setContents(delta);
+        
+            // Sync on form submit
+            document.querySelector('#productFormAdd').addEventListener('submit', function () {
+              document.getElementById('description').value = quill.root.innerHTML;
+            });
+          });
 
     let toastSuccess = document.getElementById('toast-success');
     let toastWarning = document.getElementById('toast-warning');
@@ -381,4 +443,18 @@
             closeToastWarning()
         }, 3000);
     @endif
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const materialCheckbox = document.getElementById('is_material');
+        const materialWrapper = document.getElementById('material_input_wrapper');
+
+        function toggleMaterialInput() {
+            materialWrapper.style.display = materialCheckbox.checked ? 'block' : 'none';
+        }
+
+        // Initial state already handled via blade inline style, but still run to ensure consistency
+        toggleMaterialInput();
+
+        materialCheckbox.addEventListener('change', toggleMaterialInput);
+    });
 </script>

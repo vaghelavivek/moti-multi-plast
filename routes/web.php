@@ -100,7 +100,11 @@ Route::middleware('auth')->group(function () {
 Route::post('/enquirie/add', [EnquiriesController::class , 'add'])->name('api.enquirie.add');
 Route::post('/enquirie/quick-add', [EnquiriesController::class , 'quickAdd'])->name('api.enquirie.quickadd');
 Route::get('/product/list', [ProductController::class , 'productLandingList'])->name('api.product.list');
-Route::get('/command', function () {
-    Artisan::call('migrate');
+Route::get('/command-optimize', function () {
+    Artisan::call('optimize');
+    return Artisan::output();
+});
+Route::get('/storage-link', function () {
+    Artisan::call('storage:link');
     return Artisan::output();
 });

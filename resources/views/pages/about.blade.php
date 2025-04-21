@@ -25,152 +25,89 @@
 
         <div class="container mx-auto px-4 md:mb-16 my-10">
             <p class="mx-auto md:text-base text-sm text-gray-600 md:indent-16 indent-8">
-                Established in the year <span class="text-gray-700 font-semibold">1996</span>, we, <span
-                    class="text-gray-700 font-semibold">Moti Multi Plast</span>, are most trusted manufacturer and supplier
-                of <span class="text-gray-700 font-semibold">Household Plastic Food Containers, Multipurpose Plastic Food
-                    Containers, Plastic Food Storage Containers, Kitchen Containers, Saree Covers</span> and many more.
-                These products are available to the market as per choice and demand of clients. Each range is manufactured
-                with precision by utilizing high grade of raw material and modern technology. With our production lines in
-                <span class="text-gray-700 font-semibold">Surat (Gujarat, India)</span>, we are able to produce huge range
-                in order to meet clients' requirements in urgent and bulk demand. Further, we use the best grade of
-                packaging material to deliver the ordered gamut safely. It keeps our products protected from damages during
-                the transportation process.
+                Moti Plastic's key values are <span class="text-gray-700 font-semibold">Quality, Consistency, and Commitment</span>, ensuring the delivery of high-quality, durable products. The company employs advanced technology to manufacture a variety of plastic containers for sectors like ice cream, snacks, dry fruits, and more. They use premium materials sourced from trusted vendors and adhere to international quality standards for all their products.
             </p>
-
+        
             <p class="mx-auto md:text-base text-sm text-gray-600 my-10">
-                Our company is wholeheartedly involved in bringing new products with better performance to compete with the
-                other products available in the market. For this, we have hired a team of experienced and tech-savvy
-                professionals, who work closely with the customers during each phase of development to be aware of their
-                changing demand. Across all companies, we have a wide spread manufacturing plant, which is installed with
-                modern machines and tools. The plant incorporates an analytical approach in producing the products that will
-                give us the greatest opportunity for growth in the future. Besides, we will continue to give durable, user
-                friendly, cost-effective and environmentally-friendly solutions to the market.</p>
-
-            <p class="md:text-3xl text-2xl capitalize text-primary font-semibold mb-4 mt-20">
-                Our Market</p>
-
-            <p class="mx-auto md:text-base text-sm text-gray-600">
-                Our company serves to world's most clamorous customers. As a client oriented firm, we have the ability to
-                create the best range of products and perfectly match to patrons need. We are supplying these products to
-                almost every nook and corner of the country. And, we are planning to expand our wings to international
-                markets as well.</p>
-
+                Moti Plastic, established in <span class="text-gray-700 font-semibold">2009</span>, is a leading pioneer in the manufacturing of plastic injection-moulded containers and boxes in India. Known for offering a diverse range of products in various shapes and sizes, Moti Plastic has become the preferred choice for industries like the food dairy sector.
+            </p>
+        
             <p class="md:text-3xl text-2xl capitalize text-primary font-semibold mb-4 mt-16">
-                Quality Control</p>
-
+                Our Key Values
+            </p>
+        
             <p class="mx-auto md:text-base text-sm text-gray-600">
-                We have received tremendous response from clients for the quality of the Plastic and Packaging Products such
-                as <span class="text-gray-700 font-semibold">Saree Covers, Household Plastic Food Containers, Kitchen
-                    Containers, Plastic Food Storage Containers, Multipurpose Plastic Food Containers</span>, etc., we
-                manufacture. We have maintained the consistent quality of our array by conducting various tests on it. For
-                the effective quality control, we have:</p>
-
+                The company focuses on three core principles: <span class="text-gray-700 font-semibold">Quality, Consistency, and Commitment</span>.
+            </p>
+        
+            <p class="mx-auto md:text-base text-sm text-gray-600">
+                Specializing in high-quality plastic containers, Moti Plastic manufactures products such as <span class="text-gray-700 font-semibold">IML (In-Mould Labelling) containers, tamper-proof containers, cookies containers, shrikhand containers, detergent containers, ice-cream containers, sweets containers</span>, and various packaging options like transparent plastic boxes and kitchen storage solutions.
+            </p>
+        
+            <p class="md:text-3xl text-2xl capitalize text-primary font-semibold mb-4 mt-16">
+                Our Market
+            </p>
+        
+            <p class="mx-auto md:text-base text-sm text-gray-600">
+                They cater to various industries, particularly the ice cream sector, but their containers are versatile for packaging dry fruits, frozen foods, snacks, meats, and other food products. The company ensures that its products meet international quality standards through the use of advanced technology and premium materials sourced from reliable vendors.
+                Our product range includes small containers for ice cream, sweets, detergent, and more, as well as packaging for food products like nuts, dry fruits, frozen fruits, and snacks. Committed to Quality, Consistency, and Commitment, we use advanced technology and premium materials to meet international quality standards, ensuring reliable and durable products for all our clients.
+            </p>
+        
+            <p class="md:text-3xl text-2xl capitalize text-primary font-semibold mb-4 mt-16">
+                Why Choose Moti Plastic?
+            </p>
+        
             <ul class="list-disc ml-4 mt-6">
-                <li class="text-gray-600 md:text-base text-sm">A well-versed team of experienced professionals </li>
-                <li class="text-gray-600 md:text-base text-sm my-2">Work in compliance to latest national standards </li>
-                <li class="text-gray-600 md:text-base text-sm my-2">Finest quality raw material is procured & used by us
-                </li>
-                <li class="text-gray-600 md:text-base text-sm">Advanced infrastructural facilities are installed at our unit
-                </li>
+                <li class="text-gray-600 md:text-base text-sm my-2">Quality, Consistency & Commitment: Our core values drive every aspect of our operations, ensuring customer satisfaction.</li>
+                <li class="text-gray-600 md:text-base text-sm my-2">Quality: We use premium materials and state-of-the-art technology to deliver top-notch products that meet international standards.</li>
+                <li class="text-gray-600 md:text-base text-sm my-2">Consistency: With over 15 years of experience, we ensure reliable and high-quality results for every product.</li>
+                <li class="text-gray-600 md:text-base text-sm my-2">Commitment: We are dedicated to fulfilling customer needs with innovative, cost-effective, and sustainable packaging solutions.</li>
+                <li class="text-gray-600 md:text-base text-sm my-2">Customer-Centric Approach: Trusted by 5,000+ customers across India, our regular and repeated business highlights our focus on building lasting relationships.</li>
             </ul>
-
+        
             <p class="md:text-3xl text-2xl capitalize text-primary font-semibold mb-4 mt-16">
-                Production Capabilities</p>
-
-            <p class="mx-auto md:text-base text-sm text-gray-600">
-                We are equipped with all those technology and machines, which are needed for manufacturing the products.
-                These facilities are available in our modern Production Department. The designing part of our department is
-                approved by industry experts. Automated equipment and trained staffs make the department more efficient. Our
-                focus is to optimize the available resources and produce high quality Plastic & Packaging products for the
-                customers. Further, the material handling equipment available with us assists in easy handling of the
-                products.</p>
+                Key Highlights
+            </p>
+        
+            <ul class="list-disc ml-4 mt-6">
+                <li class="text-gray-600 md:text-base text-sm my-2">State-of-the-Art Facilities: Advanced production facilities spanning 20,000 sq. ft., equipped with the latest technology.</li>
+                <li class="text-gray-600 md:text-base text-sm my-2">Experience & Technology: 15+ years of industry expertise combined with all-electric machinery ensures consistent and high-quality products.</li>
+                <li class="text-gray-600 md:text-base text-sm my-2">Automation: Highly automated processes guarantee precision, quality, and efficient production.</li>
+                <li class="text-gray-600 md:text-base text-sm my-2">Customer Trust: Serving 5,000+ loyal customers, showcasing our dedication to quality and consistency.</li>
+                <li class="text-gray-600 md:text-base text-sm my-2">Innovative Solutions: Continually developing modern and cost-effective packaging solutions tailored to meet diverse industry needs.</li>
+                <li class="text-gray-600 md:text-base text-sm my-2">Uncompromising Quality: Every stage, from raw material inspection to final dispatch, is governed by strict quality control.</li>
+                <li class="text-gray-600 md:text-base text-sm my-2">In-House Printing & Labeling: Offering IML (In-Mould Labeling), multi-color shrink sleeving, dry offset printing, and screen printing to enhance shelf appeal and branding.</li>
+                <li class="text-gray-600 md:text-base text-sm my-2">Pan-India Network: Comprehensive distribution system enabling us to serve customers across multiple locations nationwide.</li>
+                <li class="text-gray-600 md:text-base text-sm my-2">Expertise in Tooling: Advanced knowledge of moulds and tools empowers us to design and develop customized packaging solutions for varied requirements.</li>
+            </ul>
+        
+            <p class="mx-auto md:text-base text-sm text-gray-600 my-10">
+                Moti Plastic combines technology, innovation, and commitment to deliver the best plastic packaging solutions for a wide array of industries.
+            </p>
         </div>
-
-        <div class="container mx-auto px-4 mb-20">
-            <p class="md:text-3xl text-2xl capitalize text-primary font-semibold mb-8">
-                Key Facts of Moti Multi Plast</p>
-            <table class="table-fixed w-full border-collapse border border-slate-500">
-                <tbody>
-                    <tr>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">Nature
-                            of Business</td>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border border-gray-300">
-                            Manufacturer and Supplier</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">Location
-                        </td>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border border-gray-300">Surat,
-                            Gujarat, India</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">Year of
-                            Establishment</td>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border border-gray-300">1996
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">No. of
-                            Employees</td>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border border-gray-300">18</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">No. of
-                            Production Units</td>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border border-gray-300">01</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">Company
-                            Branches</td>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border border-gray-300">03</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">
-                            Warehousing Facility</td>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border border-gray-300">Yes</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">
-                            Ownership Type</td>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border border-gray-300">
-                            Partnership Firm</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">Banker
-                        </td>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border border-gray-300">Andhra
-                            Bank</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">Annual
-                            Turnover</td>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border border-gray-300">
-                            INR 5 Crores</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">GST No.
-                        </td>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border border-gray-300">
-                            24ABMFM1080B1ZO</td>
-                    </tr>
-                    <tr>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-medium border border-gray-300">PAN No.
-                        </td>
-                        <td class="py-2 px-4 md:text-base text-sm text-gray-600 font-normal border border-gray-300">
-                            AAAPL1234C</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        
     </section>
 @endsection
 
 @section('meta')
-    <meta name="og:type" content="profile" />
-    <meta name="og:title" content="Moti multi plastics - company profile" />
-    <meta name="description" content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products.">
-    <meta name="og:description" content="Moti Multi Plastics: Your trusted partner in high-quality plastic manufacturing. Offering innovative solutions for all your plastic needs, from custom designs to large-scale production. Explore our range of durable, eco-friendly products." />
-    <meta name="og:url" content="{{ url()->current() }}" />
-    <meta name="og:image" content="{{ asset('assets/images/logo.png') }}" />
-    <meta property="og:site_name" content="Moti Multi plast" />
+<!-- Open Graph Meta Tags -->
+        <meta name="og:type" content="profile" />
+        <meta name="og:title" content="About Moti Multi Plast | Trusted Plastic Manufacturing Solutions" />
+        <meta name="description" content="Learn about Moti Multi Plast, a leading plastic manufacturing company specializing in IML containers, tamper-proof packaging, and eco-friendly solutions. Established in 2009, we provide innovative packaging for industries including food, dairy, and textiles.">
+        <meta name="og:description" content="Learn about Moti Multi Plast, a leading plastic manufacturing company specializing in IML containers, tamper-proof packaging, and eco-friendly solutions. Established in 2009, we provide innovative packaging for industries including food, dairy, and textiles." />
+        <meta name="og:url" content="{{ url()->current() }}" />
+        <meta name="og:image" content="{{ asset('assets/images/logo.png') }}" />
+        <meta property="og:site_name" content="Moti Multi Plast | About Us" />
+
+        <!-- Additional Metadata -->
+        <meta name="keywords" content="About Moti Multi Plast, company profile, plastic manufacturing, IML containers, tamper-proof packaging, eco-friendly plastics, plastic packaging, Moti Plastics, Moti Print N Pack, plastic manufacturing in Dadra, plastic manufacturing in Surat, custom plastic solutions, food packaging, durable plastics" />
+        <meta name="author" content="Moti Multi Plast">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="rgb(156, 44, 144)">
+
+        <!-- SEO Metadata -->
+        <meta name="robots" content="index, follow">
+        <meta name="description" content="Moti Multi Plast is a trusted plastic manufacturing company offering high-quality packaging solutions since 2009. We specialize in IML containers, tamper-proof packaging, and eco-friendly products, serving industries like food, dairy, and textiles from Dadra and Surat." />
+        <meta name="og:description" content="Moti Multi Plast is a trusted plastic manufacturing company offering high-quality packaging solutions since 2009. We specialize in IML containers, tamper-proof packaging, and eco-friendly products, serving industries like food, dairy, and textiles from Dadra and Surat." />
+
 @endsection

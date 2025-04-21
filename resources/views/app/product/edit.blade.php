@@ -1,5 +1,5 @@
 <x-app-layout>
-    <form enctype="multipart/form-data" method="post" action="{{ route('api.product.add') }}">
+    <form enctype="multipart/form-data" id="productFormEdit"  method="post" action="{{ route('api.product.add') }}">
         {{-- <x-slot name="header">
             <div class="flex items-center justify-between">
                 <h1 class="font-semibold text-primary text-xl">New Products</h1>
@@ -41,9 +41,11 @@
                             <div class="mt-4">
                                 <label for="description"
                                     class="block mb-2 md:text-base text-sm font-medium text-gray-900">Description</label>
-                                <textarea rows="7" id="description" name="description"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 resize-none"
-                                    placeholder="Description">{{ old('description') ? old('description') : $product->description }}</textarea>
+                                <!--<textarea rows="7" id="description" name="description"-->
+                                <!--    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 resize-none"-->
+                                <!--    placeholder="Description">{{ old('description') ? old('description') : $product->description }}</textarea>-->
+                                <div id="editorEdit" style="height: 300px;"></div>
+                                <input type="hidden" name="description" id="descriptionEdit" value="{{ old('description') ? old('description') : $product->description }}"> 
                             </div>
                             <div class="mt-4">
                                 <label for="seo-description"
@@ -66,6 +68,25 @@
 
                                 <p class="text-sm mt-1 text-gray-500 font-medium pl-1">Open graph description should be
                                     close to 90 characters for optimal SEO.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-md p-4 my-4">
+                            <div>
+                                <label for="thumbnail_media"
+                                    class="block mb-2 md:text-base text-sm font-medium text-gray-900"> Thumbnail Media</label>
+                                <input id="thumbnail_media" name="thumbnail_media" multiple
+                                    class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 py-2 px-2"
+                                    type="file">
+
+                                @error('thumbnail_media')
+                                    <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="grid grid-cols-3 gap-4 mt-4">
+                                    <div class="aspect-[5/3] cursor-pointer relative">
+                                        <img src="{{ Request::root() . '/storage/' . $product->media }}"
+                                            class="w-full rounded-md border object-cover h-full" alt="box">
+                                    </div>
                             </div>
                         </div>
                         <div class="bg-white rounded-md p-4 my-4">
@@ -119,7 +140,7 @@
                                     </div>
                                 </div> --}}
 
-                                <div>
+                                {{-- <div>
                                     <label for="order_quantity"
                                         class="block mb-2 md:text-base text-sm font-medium text-gray-900">Minimum Order
                                         Quantity <sup class="text-red-500">*</sup> </label>
@@ -131,7 +152,7 @@
                                     @error('order_quantity')
                                         <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                                     @enderror
-                                </div>
+                                </div> --}}
                             </div>
 
                             <div class="grid grid-cols-2 gap-4 mb-4">
@@ -144,7 +165,7 @@
                                         placeholder="e.g red" />
                                 </div>
 
-                                <div class="mt-4">
+                                <div class="mt-4" id="material_input_wrapper">
                                     <label for="material"
                                         class="block mb-2 md:text-base text-sm font-medium text-gray-900">Material</label>
                                     <input type="text" id="material" name="material"
@@ -152,20 +173,6 @@
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2"
                                         placeholder="e.g plastic" />
                                 </div>
-                            </div>
-
-                            <div>
-                                <label for="stock"
-                                    class="block mb-2 md:text-base text-sm font-medium text-gray-900">Slug <sup
-                                        class="text-red-500">*</sup> </label>
-                                <input type="text" id="stock" name="slug"
-                                    value="{{ old('slug') ? old('slug') : $product->slug }}"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2"
-                                    placeholder="~" />
-
-                                @error('slug')
-                                    <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
-                                @enderror
                             </div>
 
 
@@ -182,8 +189,7 @@
                                     <option selected>Choose a Category</option>
 
                                     @foreach ($category as $cate)
-                                        <option value="{{ $cate->id }}"
-                                            selected="{{ old('category_id') ? old('category_id') == $cate->id : $product->category_id == $cate->id }}">
+                                        <option value="{{ $cate->id }}" {{ $product->category_id == $cate->id ? 'selected' : '' }}>
                                             {{ $cate->title }}</option>
                                     @endforeach
                                 </select>
@@ -192,7 +198,7 @@
                                     <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                                 @enderror
                             </div>
-                            <div class="mt-4">
+                            <!-- <div class="mt-4">
                                 <label for="type"
                                     class="block mb-2 md:text-base text-sm font-medium text-gray-900">Type <sup
                                         class="text-red-500">*</sup> </label>
@@ -204,41 +210,55 @@
                                 @error('type')
                                     <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                                 @enderror
-                            </div>
+                            </div> -->
                             <div class="mt-4">
-                                <label for="shape"
-                                    class="block mb-2 md:text-base text-sm font-medium text-gray-900">Shape <sup
-                                        class="text-red-500">*</sup> </label>
-                                <select id="shape" name="shape"
-                                    class="block py-2 px-2.5 rounded-md w-full text-sm text-gray-500 bg-transparent border border-gray-300 appearance-none bg-gray-50">
+                                <label for="shape" class="block mb-2 md:text-base text-sm font-medium text-gray-900">
+                                    Shape <sup class="text-red-500">*</sup>
+                                </label>
+                                <select id="shape" name="shape" class="block py-2 px-2.5 rounded-md w-full text-sm text-gray-500 bg-transparent border border-gray-300 appearance-none bg-gray-50">
                                     <option selected>Choose a shape</option>
-                                    <option value="Round"
-                                        selected="{{ old('shape') ? old('shape') == 'Round' : $product->shape == 'Round' }}">
-                                        Round
-                                    </option>
-                                    <option value="Oval"
-                                        selected="{{ old('shape') ? old('shape') == 'Oval' : $product->shape == 'Oval' }}">
-                                        Oval</option>
-                                    <option value="Premium Oval"
-                                        selected="{{ old('shape') ? old('shape') == 'Premium Oval' : $product->shape == 'Premium Oval' }}">
-                                        Premium Oval</option>
-                                    <option value="Square Pack"
-                                        selected="{{ old('shape') ? old('shape') == 'Square Pack' : $product->shape == 'Square Pack' }}">
-                                        Square Pack</option>
-                                    <option value="Twist Pack"
-                                        selected="{{ old('shape') ? old('shape') == 'Twist Pack' : $product->shape == 'Twist Pack' }}">
-                                        Twist Pack</option>
-                                    <option value="Rectangular Pack"
-                                        selected="{{ old('shape') ? old('shape') == 'Rectangular Pack' : $product->shape == 'Rectangular Pack' }}">
-                                        Rectangular Pack</option>
+                                    @foreach ($shapes as $shape)
+                                        <option value="{{ $shape['title'] }}" 
+                                            {{ $product->shape == $shape['title'] ? 'selected' : '' }}>
+                                            {{ $shape['title'] }}
+                                        </option>
+                                    @endforeach
                                 </select>
-
+                            
                                 @error('shape')
                                     <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                                 @enderror
                             </div>
+                            <div class="mt-6 flex items-center gap-4">
+                                <input type="checkbox" id="is_material" name="is_material"  {{old('is_material', $product->is_material ?? 0) == 1 ? 'checked' : '' }} />
+                                <label for="is_material"
+                                    class="block md:text-base text-sm font-medium text-gray-900">Show Material</label>
+                            </div>
+                            <div class="mt-3 flex items-center gap-4">
+                                <input type="checkbox" id="is_hotproducts" name="is_hot"
+                                    checked="{{ old('is_hot') ? old('is_hot') == 'on' : $product->is_hot }}" />
+                                <label for="is_hotproducts"
+                                    class="block md:text-base text-sm font-medium text-gray-900">Hot product</label>
+                            </div>
+                            <div class="mt-3 flex items-center gap-4">
+                                    <input type="checkbox" id="is_reusable" name="is_reusable"
+                                        {{ old('is_reusable', $product->is_reusable ?? 0) == 1 ? 'checked' : '' }} />
+                                    <label for="is_reusable" class="block md:text-base text-sm font-medium text-gray-900">
+                                        It Is Reusable
+                                    </label>
+                            </div>
+                            
+                                <!-- Temper Proof Checkbox -->
+                            <div class="mt-3 flex items-center gap-4">
+                                <input type="checkbox" id="is_temper_proof" name="is_temper_proof"
+                                    {{ old('is_temper_proof', $product->is_temper_proof ?? 0) == 1 ? 'checked' : '' }} />
+                                <label for="is_temper_proof" class="block md:text-base text-sm font-medium text-gray-900">
+                                    It Is Temper Proof Evident
+                                </label>
+                            </div>
+                            
                         </div>
-                        <div class="bg-white rounded-md p-4 mt-4">
+                        {{-- <div class="bg-white rounded-md p-4 mt-4">
                             <div>
                                 <label for="category"
                                     class="block mb-2 md:text-base text-sm font-medium text-gray-900">Supply
@@ -262,13 +282,8 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
                                     placeholder="0" />
                             </div>
-                            <div class="mt-6 flex items-center gap-4">
-                                <input type="checkbox" id="is_hotproducts" name="is_hot"
-                                    checked="{{ old('is_hot') ? old('is_hot') == 'on' : $product->is_hot }}" />
-                                <label for="is_hotproducts"
-                                    class="block md:text-base text-sm font-medium text-gray-900">Hot product</label>
-                            </div>
-                        </div>
+                           
+                        </div> --}}
                         <div class="bg-white rounded-md p-4 mt-4">
                             <div>
                                 <label for="seo_keyword"
@@ -346,11 +361,58 @@
 </x-app-layout>
 
 <script>
-    tinymce.init({
-        selector: '#description',
-        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
-        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-    });
+    // tinymce.init({
+    //     selector: '#description',
+    //     plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
+    //     toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    // });
+        // const quill = new Quill('#editorEdit', {
+        // theme: 'snow'
+        // });
+        
+        // // Get existing content from hidden input
+        // const existingContent = document.getElementById('descriptionEdit').value;
+        // quill.root.innerHTML = existingContent;
+        
+        // // On form submit, update the hidden input
+        // document.querySelector('form').addEventListener('submit', function () {
+        // document.getElementById('descriptionEdit').value = quill.root.innerHTML;
+        // });
+          document.addEventListener("DOMContentLoaded", function () {
+            const quill = new Quill('#editorEdit', {
+              theme: 'snow',
+              modules: {
+                toolbar: [
+                  [{ header: [1, 2, 3, false] }],
+                  ['bold', 'italic', 'underline'],
+                  ['link', 'image'],
+                  ['clean'],
+                  [{ color: [] }, { background: [] }]
+                ],
+                clipboard: {
+                  matchers: [
+                    // Remove all inline styles from spans
+                    ['span', function (node, delta) {
+                      return delta; // remove all formatting from pasted spans
+                    }]
+                  ]
+                }
+              },
+              formats: ['header', 'bold', 'italic', 'underline', 'link', 'image','color', 'background' ]
+            });
+        
+            // Set default content if editing
+            // const existingContent = document.getElementById('descriptionEdit').value;
+            // quill.root.innerHTML = existingContent;
+            const savedHtml = document.querySelector('#descriptionEdit').value;
+            const delta = quill.clipboard.convert(savedHtml);
+            quill.setContents(delta);
+        
+            // Sync on form submit
+            document.querySelector('#productFormEdit').addEventListener('submit', function () {
+              document.getElementById('descriptionEdit').value = quill.root.innerHTML;
+            });
+          });
 
     let toastSuccess = document.getElementById('toast-success');
     let toastWarning = document.getElementById('toast-warning');
@@ -388,7 +450,7 @@
             'Content-Type': 'application/json; charset=UTF-8',
         })
 
-        fetch('{{ route('api.media.remove') }}', {
+        fetch('{{ route('api.product.remove') }}', {
             method: 'POST',
             headers: headers,
             body: JSON.stringify({
@@ -495,4 +557,18 @@
         tagList = '{{ $product->keyword }}'.split(",");
         renderTag();
     @endif
+    
+        document.addEventListener('DOMContentLoaded', function () {
+        const materialCheckbox = document.getElementById('is_material');
+        const materialWrapper = document.getElementById('material_input_wrapper');
+
+        function toggleMaterialInput() {
+            materialWrapper.style.display = materialCheckbox.checked ? 'block' : 'none';
+        }
+
+        // Initial state already handled via blade inline style, but still run to ensure consistency
+        toggleMaterialInput();
+
+        materialCheckbox.addEventListener('change', toggleMaterialInput);
+    });
 </script>

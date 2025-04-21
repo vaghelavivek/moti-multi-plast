@@ -48,6 +48,19 @@ class LandingController extends Controller
         if (request()->query('category')) {
             $product->where('category_id', request()->query('category'));
         }
+        if (request()->query('shape')) {
+            $product->where('shape', request()->query('shape'));
+        }
+
+        $shapes = [
+            ['id' => 'rectangular', 'title' => 'Rectangular'],
+            ['id' => 'square', 'title' => 'Square'],
+            ['id' => 'round', 'title' => 'Round'],
+            ['id' => 'oval', 'title' => 'Oval'],
+            ['id' => 'triangle', 'title' => 'Triangle'],
+            // ['id' => 'keeper', 'title' => 'Keeper'],
+            // ['id' => 'qwality', 'title' => 'Qwality'],
+        ];
 
         $categories = Category::orderBy('title')->get();
 
@@ -57,6 +70,7 @@ class LandingController extends Controller
             'categories' => $categories,
             'products' => $products,
             'paginator' => $products->links()['paginator'],
+            'shapes'=>$shapes
         ]);
     }
 
