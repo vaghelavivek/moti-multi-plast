@@ -260,14 +260,14 @@
                                 {{-- <div class="grid gap-4 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mt-10"> --}}
                                 <div class="swiper-wrapper mt-10">
                                     @foreach ($hotProduct as $product)
-                                        <div class="bg-white border border-gray-200 rounded-xl flex flex-col swiper-slide">
+                                        <div class="bg-white border border-gray-200 rounded-xl flex flex-col justify-start swiper-slide" style="height: auto !important">
                                             <div class="bg-gray-100 rounded-t-xl w-full aspect-[3/2]">
                                                 <img class="rounded-t-lg aspect-[3/2] object-contain mx-auto lazyload"
                                                     data-src="{{ asset('storage/' . $product->media) }}"
                                                     data-alt="{{ $product->title }}" class="lazyload hidden" />
                                             </div>
-                                            <div class="p-4 flex flex-col w-full">
-                                                <h5 class="my-2 text-lg font-semibold text-left tracking-tight text-gray-900">
+                                            <div class="p-4 flex flex-col w-full h-full justify-between">
+                                                <h5 class="my-2 text-lg font-semibold text-left tracking-tight text-gray-900 line-clamp-2">
                                                     {{ $product->title }}</h5>
             
                                                 <div class="mt-4 flex justify-between items-center gap-2">
@@ -297,10 +297,10 @@
             <div class="container mx-auto px-4 md:my-18 my-16">
                 <p class="md:text-3xl text-2xl capitalize text-gray-700 font-semibold">Product Variants
                 </p>
-                <div class="grid gap-4 xl:grid-cols-4 sm:grid-cols-2 md:mt-10 mt-8">
+                <div class="grid gap-4 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 md:mt-10 mt-8">
 
                     @foreach ($categories as $category)
-                        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col">
+                        <div class="sm:max-w-sm bg-white border border-gray-200 rounded-lg shadow flex flex-col">
                             <div class="bg-gray-100 rounded-t-xl w-full aspect-[3/2]">
                                 <img class="rounded-t-lg aspect-[3/2] object-contain mx-auto lazyload"
                                     data-src="{{ asset('storage/' . $category->image) }}"
@@ -1038,7 +1038,7 @@
         // xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2
         var swiper = new Swiper(".productSlide", {
             slidesPerView: window.innerWidth >= 640 ? window.innerWidth >= 748 ? window.innerWidth >= 1024 ? window
-                .innerWidth >= 1280 ? 5 : 4 : 3 : 2 : 1,
+                .innerWidth >= 1450 ? 5 : 4 : 3 : 2 : 1,
             spaceBetween: 20,
             loop: true,
             navigation: {

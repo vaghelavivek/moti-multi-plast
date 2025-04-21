@@ -128,8 +128,8 @@
                                         data-src="{{ asset('storage/' . $product->media) }}"
                                         data-alt="{{ $product->title }}" class="lazyload hidden" />
                                 </div>
-                                <div class="p-4 flex flex-col w-full">
-                                    <h5 class="my-2 text-lg font-semibold text-left tracking-tight text-gray-900">
+                                <div class="p-4 flex flex-col w-full h-full justify-between">
+                                    <h5 class="my-2 text-lg font-semibold text-left tracking-tight text-gray-900 line-clamp-2">
                                         {{ $product->title }}</h5>
     
                                     <div class="mt-4 flex justify-between items-center gap-2">

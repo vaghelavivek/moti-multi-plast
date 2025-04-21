@@ -14,8 +14,8 @@
                     @endphp
 
                     @if ($firstImage)
-                        <div class="lg:max-h-[450px] lg:h-full">
-                            <div class="rounded-md relative w-fit mx-auto md:min-w-[550px] cursor-zoom-in" 
+                        <div class="xl:max-h-[450px] xl:h-full">
+                            <div class="rounded-md relative w-fit mx-auto xl:min-w-[550px] cursor-zoom-in" 
                                 onmouseover="renderResult()" onmouseout="clearResult()">
                                 <img 
                                     src="{{ Request::root() . '/storage/' . $firstImage->link }}" 
@@ -37,8 +37,8 @@
                         </div>
                     @else
                         {{-- Fallback in case there are no additional images --}}
-                        <div class="lg:max-h-[450px] lg:h-full">
-                            <div class="rounded-md relative w-fit mx-auto md:min-w-[550px] cursor-zoom-in" 
+                        <div class="xl:max-h-[450px] xl:h-full">
+                            <div class="rounded-md relative w-fit mx-auto xl:min-w-[550px] cursor-zoom-in" 
                                 onmouseover="renderResult()" onmouseout="clearResult()">
                                 <img 
                                     src="{{ Request::root() . '/storage/' . $product->media }}" 
@@ -255,8 +255,8 @@
                                     data-src="{{ asset('storage/' . $related->media) }}"
                                     data-alt="{{ $related->title }}" class="lazyload hidden" />
                             </div>
-                            <div class="p-4 flex flex-col w-full">
-                                <h5 class="my-2 text-lg font-semibold text-left tracking-tight text-gray-900">
+                            <div class="p-4 flex flex-col w-full h-full justify-between">
+                                <h5 class="my-2 text-lg font-semibold text-left tracking-tight text-gray-900 line-clamp-2">
                                     {{ $related->title }}</h5>
 
                                 <div class="mt-4 flex justify-between items-center gap-2">

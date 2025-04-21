@@ -1,10 +1,10 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'Moti Multi Plast',
-    'env' => 'production',
+    'name' => 'Laravel',
+    'env' => 'local',
     'debug' => true,
-    'url' => 'https://motimultiplast.in/',
+    'url' => 'http://localhost',
     'frontend_url' => 'http://localhost:3000',
     'asset_url' => NULL,
     'timezone' => 'UTC',
@@ -154,8 +154,8 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/framework/cache/data',
-        'lock_path' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/framework/cache/data',
+        'path' => 'D:\\Work\\moti-multi-plast\\storage\\framework/cache/data',
+        'lock_path' => 'D:\\Work\\moti-multi-plast\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -210,7 +210,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'u369822679_moti',
+        'database' => 'moti_plast',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -220,9 +220,9 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'u369822679_moti',
-        'username' => 'u369822679_moti',
-        'password' => 'r$O&:Mv;6|Bb',
+        'database' => 'moti_plast',
+        'username' => 'root',
+        'password' => '',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -240,9 +240,9 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'u369822679_moti',
-        'username' => 'u369822679_moti',
-        'password' => 'r$O&:Mv;6|Bb',
+        'database' => 'moti_plast',
+        'username' => 'root',
+        'password' => '',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -260,9 +260,9 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'u369822679_moti',
-        'username' => 'u369822679_moti',
-        'password' => 'r$O&:Mv;6|Bb',
+        'database' => 'moti_plast',
+        'username' => 'root',
+        'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -275,9 +275,9 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'u369822679_moti',
-        'username' => 'u369822679_moti',
-        'password' => 'r$O&:Mv;6|Bb',
+        'database' => 'moti_plast',
+        'username' => 'root',
+        'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -294,7 +294,7 @@
       'options' => 
       array (
         'cluster' => 'redis',
-        'prefix' => 'moti_multi_plast_database_',
+        'prefix' => 'laravel_database_',
       ),
       'default' => 
       array (
@@ -324,14 +324,14 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/app',
+        'root' => 'D:\\Work\\moti-multi-plast\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/app/public',
-        'url' => 'https://motimultiplast.in//storage',
+        'root' => 'D:\\Work\\moti-multi-plast\\storage\\app/public',
+        'url' => 'http://localhost/storage',
         'visibility' => 'public',
         'throw' => false,
       ),
@@ -350,7 +350,7 @@
     ),
     'links' => 
     array (
-      '/home/u369822679/domains/motimultiplast.in/public_html/public/storage' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/app/public',
+      'D:\\Work\\moti-multi-plast\\public\\storage' => 'D:\\Work\\moti-multi-plast\\storage\\app/public',
     ),
   ),
   'logging' => 
@@ -375,14 +375,14 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/logs/laravel.log',
+        'path' => 'D:\\Work\\moti-multi-plast\\storage\\logs/laravel.log',
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/logs/laravel.log',
+        'path' => 'D:\\Work\\moti-multi-plast\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -447,7 +447,7 @@
       ),
       'emergency' => 
       array (
-        'path' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/logs/laravel.log',
+        'path' => 'D:\\Work\\moti-multi-plast\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -512,14 +512,14 @@
     'from' => 
     array (
       'address' => 'hello@example.com',
-      'name' => 'Moti Multi Plast',
+      'name' => 'Laravel',
     ),
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => '/home/u369822679/domains/motimultiplast.in/public_html/resources/views/vendor/mail',
+        0 => 'D:\\Work\\moti-multi-plast\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -592,7 +592,7 @@
       2 => '127.0.0.1',
       3 => '127.0.0.1:8000',
       4 => '::1',
-      5 => 'motimultiplast.in',
+      5 => 'localhost',
     ),
     'guard' => 
     array (
@@ -634,7 +634,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/framework/sessions',
+    'files' => 'D:\\Work\\moti-multi-plast\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -643,49 +643,13 @@
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'moti_multi_plast_session',
+    'cookie' => 'laravel_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => NULL,
     'http_only' => true,
     'same_site' => 'lax',
     'partitioned' => false,
-  ),
-  'view' => 
-  array (
-    'paths' => 
-    array (
-      0 => '/home/u369822679/domains/motimultiplast.in/public_html/resources/views',
-    ),
-    'compiled' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/framework/views',
-  ),
-  'cors' => 
-  array (
-    'paths' => 
-    array (
-      0 => 'api/*',
-      1 => 'sanctum/csrf-cookie',
-    ),
-    'allowed_methods' => 
-    array (
-      0 => '*',
-    ),
-    'allowed_origins' => 
-    array (
-      0 => '*',
-    ),
-    'allowed_origins_patterns' => 
-    array (
-    ),
-    'allowed_headers' => 
-    array (
-      0 => '*',
-    ),
-    'exposed_headers' => 
-    array (
-    ),
-    'max_age' => 0,
-    'supports_credentials' => false,
   ),
   'broadcasting' => 
   array (
@@ -743,6 +707,34 @@
       ),
     ),
   ),
+  'cors' => 
+  array (
+    'paths' => 
+    array (
+      0 => 'api/*',
+      1 => 'sanctum/csrf-cookie',
+    ),
+    'allowed_methods' => 
+    array (
+      0 => '*',
+    ),
+    'allowed_origins' => 
+    array (
+      0 => '*',
+    ),
+    'allowed_origins_patterns' => 
+    array (
+    ),
+    'allowed_headers' => 
+    array (
+      0 => '*',
+    ),
+    'exposed_headers' => 
+    array (
+    ),
+    'max_age' => 0,
+    'supports_credentials' => false,
+  ),
   'hashing' => 
   array (
     'driver' => 'bcrypt',
@@ -759,6 +751,14 @@
       'verify' => true,
     ),
     'rehash_on_login' => true,
+  ),
+  'view' => 
+  array (
+    'paths' => 
+    array (
+      0 => 'D:\\Work\\moti-multi-plast\\resources\\views',
+    ),
+    'compiled' => 'D:\\Work\\moti-multi-plast\\storage\\framework\\views',
   ),
   'flare' => 
   array (
@@ -843,7 +843,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => '/home/u369822679/domains/motimultiplast.in/public_html',
+    'remote_sites_path' => 'D:\\Work\\moti-multi-plast',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',
