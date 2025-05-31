@@ -252,7 +252,11 @@
                                 <a href="tel:${mobile_number}" class="underline"> +${mobile_number} </a></td>
                             <td class="px-4 py-2.5 font-medium text-gray-900 whitespace-nowrap ">${date}</td>
                             <td class="px-4 py-2.5 font-medium text-gray-900 whitespace-nowrap ">
-                                ${isApprove ? '<span class="bg-primary text-white px-2 py-1 text-[12px] rounded-md" >Approved</span>' : '<span class="bg-red-500 text-white px-2 py-1 text-[12px] rounded-md" >Disapprove</span>'}
+                                ${status === 'approved' 
+                                    ? '<span class="bg-primary text-white px-2 py-1 text-[12px] rounded-md">Approved</span>' 
+                                    : status === 'waiting' 
+                                        ? '<span class="bg-yellow-500 text-white px-2 py-1 text-[12px] rounded-md">Waiting</span>' 
+                                        : '<span class="bg-red-500 text-white px-2 py-1 text-[12px] rounded-md">Disapprove</span>'}
                             </td>
                             <td
                                 class="px-4 py-2.5 font-medium text-primary underline cursor-pointer whitespace-nowrap " onclick="openInquiryModal(${id}, '${email ? email : ''}', '${mobile_number}', '${desc}', ${isApprove})">

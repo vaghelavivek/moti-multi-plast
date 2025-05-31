@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('email');
             $table->bigInteger('mobile_number');
             $table->longText('message');
-            $table->string('status')->default('disapprove');
+            $table->string('status')->default('waiting'); // waiting, in-progress, completed, cancelled
             $table->timestamps();
         });
     }
