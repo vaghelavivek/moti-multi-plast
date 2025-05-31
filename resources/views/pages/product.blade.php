@@ -25,7 +25,7 @@
 
         <div class="px-4 container mx-auto mt-4">
             <div class=" md:rounded-3xl rounded-lg bg-slate-50" style="background-color: #303231;">
-                <img src="https://motimultiplast.in/assets/images/all-product-wthout-bg.png"
+                <img src="https://motimultiplast.com/assets/images/all-product-wthout-bg.png"
                 class="w-full xl:aspect-[6/1] aspect-[4/1.5] object-contain md:py-8 py-2 px-4" alt="about">
             </div>
         </div>

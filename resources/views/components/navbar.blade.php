@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="flex items-center justify-end md:gap-2 gap-1">
-            <a href="https://wa.me/9586849727?text=Hello! My interest is on plastic containers for packaging. The item you sell on your website https://motimultiplast.in" target="_blank"
+            <a href="https://wa.me/9586849727?text=Hello! My interest is on plastic containers for packaging. The item you sell on your website https://motimultiplast.com" target="_blank"
                 class="border border-[#128C7E] text-[#128C7E] box-border hover:bg-gray-50 font-medium rounded-lg md:text-sm text-[12px] md:px-3 px-2 md:py-2 py-1.5 flex items-center md:gap-2 gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-full max-w-4 fill-current"
                     viewBox="0 0 448 512">

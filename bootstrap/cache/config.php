@@ -4,7 +4,7 @@
     'name' => 'Moti Multi Plast',
     'env' => 'production',
     'debug' => true,
-    'url' => 'https://motimultiplast.in/',
+    'url' => 'https://motimultiplast.com/',
     'frontend_url' => 'http://localhost:3000',
     'asset_url' => NULL,
     'timezone' => 'UTC',
@@ -154,8 +154,8 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/framework/cache/data',
-        'lock_path' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/framework/cache/data',
+        'path' => '/home/u369822679/domains/motimultiplast.com/public_html/storage/framework/cache/data',
+        'lock_path' => '/home/u369822679/domains/motimultiplast.com/public_html/storage/framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -324,14 +324,14 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/app',
+        'root' => '/home/u369822679/domains/motimultiplast.com/public_html/storage/app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/app/public',
-        'url' => 'https://motimultiplast.in//storage',
+        'root' => '/home/u369822679/domains/motimultiplast.com/public_html/storage/app/public',
+        'url' => 'https://motimultiplast.com//storage',
         'visibility' => 'public',
         'throw' => false,
       ),
@@ -350,7 +350,7 @@
     ),
     'links' => 
     array (
-      '/home/u369822679/domains/motimultiplast.in/public_html/public/storage' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/app/public',
+      '/home/u369822679/domains/motimultiplast.com/public_html/public/storage' => '/home/u369822679/domains/motimultiplast.com/public_html/storage/app/public',
     ),
   ),
   'logging' => 
@@ -375,14 +375,14 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/logs/laravel.log',
+        'path' => '/home/u369822679/domains/motimultiplast.com/public_html/storage/logs/laravel.log',
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/logs/laravel.log',
+        'path' => '/home/u369822679/domains/motimultiplast.com/public_html/storage/logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -447,7 +447,7 @@
       ),
       'emergency' => 
       array (
-        'path' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/logs/laravel.log',
+        'path' => '/home/u369822679/domains/motimultiplast.com/public_html/storage/logs/laravel.log',
       ),
     ),
   ),
@@ -519,7 +519,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => '/home/u369822679/domains/motimultiplast.in/public_html/resources/views/vendor/mail',
+        0 => '/home/u369822679/domains/motimultiplast.com/public_html/resources/views/vendor/mail',
       ),
     ),
   ),
@@ -592,7 +592,7 @@
       2 => '127.0.0.1',
       3 => '127.0.0.1:8000',
       4 => '::1',
-      5 => 'motimultiplast.in',
+      5 => 'motimultiplast.com',
     ),
     'guard' => 
     array (
@@ -634,7 +634,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/framework/sessions',
+    'files' => '/home/u369822679/domains/motimultiplast.com/public_html/storage/framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -655,9 +655,9 @@
   array (
     'paths' => 
     array (
-      0 => '/home/u369822679/domains/motimultiplast.in/public_html/resources/views',
+      0 => '/home/u369822679/domains/motimultiplast.com/public_html/resources/views',
     ),
-    'compiled' => '/home/u369822679/domains/motimultiplast.in/public_html/storage/framework/views',
+    'compiled' => '/home/u369822679/domains/motimultiplast.com/public_html/storage/framework/views',
   ),
   'cors' => 
   array (
@@ -843,7 +843,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => '/home/u369822679/domains/motimultiplast.in/public_html',
+    'remote_sites_path' => '/home/u369822679/domains/motimultiplast.com/public_html',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',

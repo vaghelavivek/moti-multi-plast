@@ -979,7 +979,7 @@
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Moti Multi Plast",
-            "url": "https://www.motimultiplast.in/",
+            "url": "https://www.motimultiplast.com/",
             "logo": "{{ asset('assets/images/logo.png') }}",
             "description": "Moti Multi Plast: High-quality plastic packaging solutions including plastic boxes, sari boxes, IML containers, and tamper-proof containers. Trusted by industries across India for innovative, durable, and eco-friendly products.",
             "address": [
