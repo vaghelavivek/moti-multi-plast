@@ -584,7 +584,7 @@
                 `Thank you.`
             );
 
-            window.open(`https://wa.me/9586849727?text=${waText}&file={{ Request::root() . '/storage/' . $product->media }}`);
+            window.open(`https://wa.me/9825145424?text=${waText}&file={{ Request::root() . '/storage/' . $product->media }}`);
         };
     </script>
 @endsection

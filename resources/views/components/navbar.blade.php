@@ -6,7 +6,7 @@
                 <path
                     d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" />
             </svg>
-            <a href="tel:9586849727" class="sm:text-sm text-[12px] font-medium text-primary">+91 9586849727</a>
+            <a href="tel:9825145424" class="sm:text-sm text-[12px] font-medium text-primary">+91 9825145424</a>
         </div>
         <div class="md:flex justify-center hidden">
             <div class="xl:w-full max-w-fit xl:block hidden">
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="flex items-center justify-end md:gap-2 gap-1">
-            <a href="https://wa.me/9586849727?text=Hello! My interest is on plastic containers for packaging. The item you sell on your website https://motimultiplast.com" target="_blank"
+            <a href="https://wa.me/9825145424?text=Hello! My interest is on plastic containers for packaging. The item you sell on your website https://motimultiplast.com" target="_blank"
                 class="border border-[#128C7E] text-[#128C7E] box-border hover:bg-gray-50 font-medium rounded-lg md:text-sm text-[12px] md:px-3 px-2 md:py-2 py-1.5 flex items-center md:gap-2 gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-full max-w-4 fill-current"
                     viewBox="0 0 448 512">
